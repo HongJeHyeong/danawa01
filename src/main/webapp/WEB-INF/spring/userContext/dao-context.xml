@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
@@ -10,12 +9,10 @@
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
 
-	<bean id="board_diskDAO"
-		class="com.database.board_disk.dao.Board_diskDAO">
+	<bean id="board_diskDAO" class="com.database.board_disk.dao.Board_diskDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
-	<bean id="board_replyDAO"
-		class="com.database.board_reply.dao.Board_repDAO">
+	<bean id="board_replyDAO" class="com.database.board_reply.dao.Board_repDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
 
@@ -27,16 +24,14 @@
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
 
-	<bean id="orderlistDAO"
-		class="com.database.orderlist.dao.OrderlistDAO">
+	<bean id="orderlistDAO" class="com.database.orderlist.dao.OrderlistDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
 
 	<bean id="qnaDAO" class="com.database.qna.dao.QnaDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
-	<bean id="qna_replyDAO"
-		class="com.database.qna_reply.dao.Qna_repDAO">
+	<bean id="qna_replyDAO" class="com.database.qna_reply.dao.Qna_repDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
 
@@ -55,8 +50,7 @@
 	<bean id="p_gcardDAO" class="com.database.p_gcard.dao.GcardDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
-	<bean id="p_mainboardDAO"
-		class="com.database.p_mainboard.dao.MainboardDAO">
+	<bean id="p_mainboardDAO" class="com.database.p_mainboard.dao.MainboardDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
 	<bean id="p_powerDAO" class="com.database.p_power.dao.PowerDAO">
@@ -65,6 +59,19 @@
 	<bean id="p_ramDAO" class="com.database.p_ram.dao.RamDAO">
 		<property name="sqlSessionTemplate" ref="sqlSession" />
 	</bean>
+
+
+	<bean id="boardService" class="com.database.board.service.BoardService"/>
+	<bean id="board_diskService" class="com.database.board_disk.service.Board_diskService"/>
+	<bean id="board_repService" class="com.database.board_reply.service.Board_repService"/>
+	<bean id="memberService" class="com.database.member.service.MemberService"/>
+	<bean id="noticeService" class="com.database.notice.service.NoticeService"/>
+	<bean id="orderlistService" class="com.database.orderlist.service.OrderlistService"/>
+	<bean id="qnaService" class="com.database.qna.service.QnaService"/>
+	<bean id="qna_repService" class="com.database.qna_reply.service.Qna_repService"/>
+
+
+
 
 
 </beans>
