@@ -1,5 +1,23 @@
 package com.database.p_cpu.dto;
 
-public class CpuDTO {
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString
+public class CpuDTO {
+  private String cpu_name;
+  private String cpu_company;
+  private double cpu_clock;
+  private int cpu_core;
+  private int cpu_thread;
+  private String cpu_socket;
+  private int cpu_graphic;
+  private int cpu_cooler;
+  private String cpu_regdate;
+  private int cpu_status;
+  private int cpu_price;
+  private String cpu_image;
 }
