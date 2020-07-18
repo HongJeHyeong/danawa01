@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CpuDTO {
+  private int cpu_no;
   private String cpu_name;
   private String cpu_company;
   private double cpu_clock;

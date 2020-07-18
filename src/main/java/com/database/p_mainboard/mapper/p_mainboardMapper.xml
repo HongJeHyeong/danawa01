@@ -10,5 +10,9 @@
 select count(*) from p_mainboard
 	</select>
 
-
+	<!-- Mainboard 상세정보 구하기 -->
+	<select id="getMainboardInfo" resultType="com.database.p_mainboard.dto.MainboardDTO" parameterType="int">
+	SELECT * FROM p_mainboard WHERE mb_no = #{mb_no}
+	</select>
+	<!-- Mainboard 상세정보 구하기 -->
 </mapper>		 
