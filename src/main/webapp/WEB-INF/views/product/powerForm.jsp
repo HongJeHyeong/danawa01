@@ -94,10 +94,10 @@
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="잘만">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="68700">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${powerDTO.power_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${powerDTO.power_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="잘만">
-  <input type="text" name="hdn_value" id="hdn_capacity" class="put_select" value="600">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${powerDTO.power_company}">
+  <input type="text" name="hdn_value" id="hdn_capacity" class="put_select" value="${powerDTO.power_capacity}">
   <!-- input hidden 파트 -->
 </form>

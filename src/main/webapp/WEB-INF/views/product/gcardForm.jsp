@@ -126,12 +126,12 @@
   <!-- Row 5 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="갤럭시 HOF">
-  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="287">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="1700000">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${gcardDTO.gc_name}">
+  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="${gcardDTO.gc_length}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${gcardDTO.gc_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="갤럭시">
-  <input type="text" name="hdn_value" id="hdn_min_power" class="put_select" value="600">
-  <input type="text" name="hdn_value" id="hdn_chipset" class="put_select" value="RTX 2070 SUPER">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${gcardDTO.gc_company}">
+  <input type="text" name="hdn_value" id="hdn_min_power" class="put_select" value="${gcardDTO.gc_min_power}">
+  <input type="text" name="hdn_value" id="hdn_chipset" class="put_select" value="${gcardDTO.gc_chipset}">
   <!-- input hidden 파트 -->
 </form>

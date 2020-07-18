@@ -84,10 +84,10 @@
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${caseDTO.case_name }">
-  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="${caseDTO.case_length }">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${caseDTO.case_price }">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${caseDTO.case_name}">
+  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="${caseDTO.case_length}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${caseDTO.case_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${caseDTO.case_company }">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${caseDTO.case_company}">
   <!-- input hidden 파트 -->
 </form>

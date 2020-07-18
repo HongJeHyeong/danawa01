@@ -10,5 +10,8 @@
 select count(*) from p_ram
 	</select>
 
+	<select id="getRamInfo" resultType="com.database.p_ram.dto.RamDTO" parameterType="int">
+		SELECT * FROM p_ram WHERE ram_no = #{ram_no}
+	</select>
 
 </mapper>		 
