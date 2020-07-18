@@ -127,12 +127,12 @@
   <!-- Row 5 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="삼성 EVO 970">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="119800">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${diskDTO.disk_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${diskDTO.disk_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="삼성">
-  <input type="text" name="hdn_value" id="hdn_category" class="put_select" value="SSD">
-  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="M.2">
-  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="1000">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${diskDTO.disk_company}">
+  <input type="text" name="hdn_value" id="hdn_category" class="put_select" value="${diskDTO.disk_category}">
+  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="${diskDTO.disk_type}">
+  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="${diskDTO.disk_volume}">
   <!-- input hidden 파트 -->
 </form>

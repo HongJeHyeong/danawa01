@@ -15,10 +15,12 @@ import com.database.p_cpu.dao.CpuDAO;
 import com.database.p_cpu.dto.CpuDTO;
 import com.database.p_disk.dao.DiskDAO;
 import com.database.p_gcard.dao.GcardDAO;
+import com.database.p_gcard.dto.GcardDTO;
 import com.database.p_mainboard.dao.MainboardDAO;
 import com.database.p_mainboard.dto.MainboardDTO;
 import com.database.p_power.dao.PowerDAO;
 import com.database.p_ram.dao.RamDAO;
+import com.database.p_ram.dto.RamDTO;
 
 @Controller
 @RequestMapping("/product")
@@ -117,20 +119,50 @@ public class ProductController {
 
 	// Gcard--------------------------------------------------------------------------------------------------------
 	@RequestMapping("/gcardForm")
-	public ModelAndView gcardForm() {
+	public ModelAndView gcardForm(HttpServletRequest request) {
 		System.out.println("ProductController의 gcardForm() 메소드 호출 ----");
 		ModelAndView mv = new ModelAndView();
-
+		
+		String str_gc_no = request.getParameter("gc_no");
+		System.out.println("ProductController의 gcardForm()의 gc_no String 값="+str_gc_no);
+		
+		if(str_gc_no == null) {
+			
+		}else {
+			int gc_no = Integer.parseInt(str_gc_no);
+			System.out.println("ProductController의 gcardForm()의 gc_no 값="+gc_no);
+			
+			GcardDTO gcardDTO = gcardDAO.getGcardInfo(gc_no);
+			System.out.println("ProductController의 gcardForm()의 gcardDTO 값="+gcardDTO);
+			
+			mv.addObject("gcardDTO", gcardDTO);
+		}
+		mv.setViewName("product/gcardForm");
 		return mv;
 	}
 	// Gcard--------------------------------------------------------------------------------------------------------
 
 	// Ram----------------------------------------------------------------------------------------------------------
 	@RequestMapping("/ramForm")
-	public ModelAndView ramForm() {
+	public ModelAndView ramForm(HttpServletRequest request) {
 		System.out.println("ProductController의 ramForm() 메소드 호출 ----");
 		ModelAndView mv = new ModelAndView();
-
+		
+		String str_ram_no = request.getParameter("ram_no");
+		System.out.println("ProductController의 ramForm()의 ram_no String 값="+str_ram_no);
+		
+		if(str_ram_no == null) {
+			
+		}else {
+			int ram_no = Integer.parseInt(str_ram_no);
+			System.out.println("ProductController의 ramForm()의 ram_no 값="+ram_no);
+			
+			RamDTO ramDTO = ramDAO.getRamInfo(ram_no);
+			System.out.println("ProductController의 RamForm()의 ramDTO 값="+ramDTO);
+			
+			mv.addObject("ramDTO", ramDTO);
+		}
+		mv.setViewName("product/ramForm");
 		return mv;
 	}
 	// Ram----------------------------------------------------------------------------------------------------------
