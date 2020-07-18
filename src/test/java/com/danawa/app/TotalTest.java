@@ -3,11 +3,17 @@ package com.danawa.app;
 import javax.sql.DataSource;
 
 import com.database.board.dao.BoardDAO;
+import com.database.board.service.BoardService;
 import com.database.board_disk.dao.Board_diskDAO;
+import com.database.board_disk.service.Board_diskService;
 import com.database.board_reply.dao.Board_repDAO;
+import com.database.board_reply.service.Board_repService;
 import com.database.member.dao.MemberDAO;
+import com.database.member.service.MemberService;
 import com.database.notice.dao.NoticeDAO;
+import com.database.notice.service.NoticeService;
 import com.database.orderlist.dao.OrderlistDAO;
+import com.database.orderlist.service.OrderlistService;
 import com.database.p_case.dao.CaseDAO;
 import com.database.p_cooler.dao.CoolerDAO;
 import com.database.p_cpu.dao.CpuDAO;
@@ -17,7 +23,9 @@ import com.database.p_mainboard.dao.MainboardDAO;
 import com.database.p_power.dao.PowerDAO;
 import com.database.p_ram.dao.RamDAO;
 import com.database.qna.dao.QnaDAO;
+import com.database.qna.service.QnaService;
 import com.database.qna_reply.dao.Qna_repDAO;
+import com.database.qna_reply.service.Qna_repService;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Ignore;
@@ -93,5 +101,29 @@ public class TotalTest {
 
   @Autowired
   protected RamDAO p_ramDAO;
+
+  @Autowired
+  protected BoardService boardService;
+
+  @Autowired
+  protected Board_diskService board_diskService;
+
+  @Autowired
+  protected Board_repService board_repService;
+
+  @Autowired
+  protected MemberService memberService;
+
+  @Autowired
+  protected NoticeService noticeService;
+
+  @Autowired
+  protected OrderlistService orderlistService;
+
+  @Autowired
+  protected QnaService qnaService;
+
+  @Autowired
+  protected Qna_repService qna_repService;
 
 }
