@@ -14,7 +14,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     // 이 함수가 false를 반환하면 컨트롤러가 실행x
     System.out.println("------------------------------------------------------ admin");
     HttpSession session = request.getSession();
-    String grade_ = (String) session.getAttribute("grade");
+    String grade_ = session.getAttribute("grade") + "";
     int grade = 0;
 
     try {
