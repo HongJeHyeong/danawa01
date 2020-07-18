@@ -9,6 +9,10 @@
 	<select id="countAll" resultType="int">
 select count(*) from p_cpu
 	</select>
-
+	
+	<!-- Cpu 정보 불러오기 -->	
+	<select id="getCpuInfo" resultType="com.database.p_cpu.dto.CpuDTO" parameterType="int">
+		SELECT * FROM p_cpu WHERE cpu_no = #{cpu_no}
+	</select>
 
 </mapper>		 
