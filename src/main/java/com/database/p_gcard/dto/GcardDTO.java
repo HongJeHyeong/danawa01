@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class GcardDTO {
+  private int gc_no;
   private String gc_name;
   private String gc_company;
   private String gc_chipset;

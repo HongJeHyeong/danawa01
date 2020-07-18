@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class RamDTO {
+  private int ram_no;
   private String ram_name;
   private String ram_company;
   private int ram_volume;
