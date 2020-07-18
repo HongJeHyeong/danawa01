@@ -1,0 +1,18 @@
+select {
+  padding-left: 15px !important;
+}
+
+.span_label {
+  padding-left: 15px !important;
+  padding-top: 10px !important;
+  font-weight: bolder;
+}
+
+h4 {
+  padding-left: 15px;
+}
+
+.button-80 {
+  width: 80px;
+  margin-left: 5px;
+}

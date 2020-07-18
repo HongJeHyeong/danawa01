@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+	<bean id="boardDAO" class="com.database.board.dao.BoardDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+
+	<bean id="board_diskDAO"
+		class="com.database.board_disk.dao.Board_diskDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="board_replyDAO"
+		class="com.database.board_reply.dao.Board_repDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+
+	<bean id="memberDAO" class="com.database.member.dao.MemberDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+
+	<bean id="noticeDAO" class="com.database.notice.dao.NoticeDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+
+	<bean id="orderlistDAO"
+		class="com.database.orderlist.dao.OrderlistDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+
+	<bean id="qnaDAO" class="com.database.qna.dao.QnaDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="qna_replyDAO"
+		class="com.database.qna_reply.dao.Qna_repDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+
+	<bean id="p_caseDAO" class="com.database.p_case.dao.CaseDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="p_coolerDAO" class="com.database.p_cooler.dao.CoolerDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="p_cpuDAO" class="com.database.p_cpu.dao.CpuDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="p_diskDAO" class="com.database.p_disk.dao.DiskDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="p_gcardDAO" class="com.database.p_gcard.dao.GcardDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="p_mainboardDAO"
+		class="com.database.p_mainboard.dao.MainboardDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="p_powerDAO" class="com.database.p_power.dao.PowerDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	<bean id="p_ramDAO" class="com.database.p_ram.dao.RamDAO">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+
+
+</beans>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC 
+				"-//mybatis.org//DTD Mapper 3.0//EN" 
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 이 boardSQL.xml문서는
+		 db의  파일게시판(board-게시판글 정보,첨부파일정보-fileInfo)관련 쿼리문 작성 및 실행과 관련된 코드를 포함 -->
+		 
+<mapper namespace="board">
+
+	<!-- 자주 사용한 쿼리문을 등록할 수 있다. 
+	     <sql id="id값">쿼리문</sql>	
+			필요할 때 참조해서 사용할 수 있다 
+			<include refid="참조하고자하는 id키값"/>
+			-->
+	<sql id="isShow">
+		b_show=1
+	</sql>		
+
+	<!-- 총 게시물수 조회 -->
+	<select id="totalCnt" resultType="int">
+		SELECT  count(*) AS cnt
+		FROM    board
+		WHERE   <include refid="isShow"/>
+	</select>
+
+	<!-- 목록조회 -->
+	<select id="boardList" parameterType="bDTO" resultType="bDTO">
+	select * 
+	from (
+	    	SELECT
+			    row_number() over(order by b_no desc) AS rno,
+			    b_No     AS no,
+			    f_oriBno AS oriBno,
+					b_title AS title,
+					b_writer AS writer,
+					b_wdate  AS wdate,
+					b_hit AS hit,
+					NVL(f1.CNT, 0)   AS fcount,
+				  m_id  AS id, 
+				  m_nick AS nick	    
+			FROM BOARD, 
+			     member,
+						(select f_oriBno, count(*) AS CNT 
+						from fileinfo 
+						group by f_oriBno) f1
+			WHERE <include refid="isShow"/>
+			      AND 
+			      board.b_no = f1.f_oriBNo(+)
+			      AND
+			      board.b_writer = member.m_id
+			)
+	where rno BETWEEN #{start} AND #{end}	
+	</select>
+	
+	
+	
+
+	<!-- 게시판글입력 -->
+	<!-- selectKey에 대한 자세한 내용은 제공해드린 MyBatis-3-User-Guide_ko.pdf문서의
+				23page를 참고하세요
+				
+	     여기에서는 insert를 실행하기 전에(order="BEFORE") 
+	     selectKey에 해당하는 부분을 먼저 실행하여
+	     parameterType에서 지정한 property속성에 실행결과를  setting한다-->
+	<insert id="insBoard" parameterType="bDTO">
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+			SELECT nvl(max(b_no),0)+1
+			FROM   board
+		</selectKey>
+		INSERT   INTO   board   
+		VALUES(  #{no}, #{writer}, #{title}, #{content}, SYSDATE, #{pw}, 0, 1 )
+	</insert>
+	
+	<!-- 첨부파일정보 입력-->
+	<insert id="insFileInfo" parameterType="bDTO">
+		INSERT	INTO	fileInfo
+		VALUES( (select nvl(max(f_no),0)+1  from 	fileInfo ), 
+						#{oriBNo}, #{name}, #{saveName}, #{path}, #{fsize})
+	</insert>
+	
+	<!-- 조회수증가 -->
+	<update id="hitUp" parameterType="int">  <!-- ?값을 채우려면 parameterType이 필요하다 -->
+	 <!-- update 테이블명 SET 컬럼명=새값  WHERE  -->
+	  update board set b_hit = b_hit+1 WHERE b_no = #{oriNo} <!-- session.update("board.hitUp",oriNo) 여기서 oriNo를 받아온다. --> 
+	</update>
+	
+	
+	<!-- 상세조회 -->
+	<select id="boardDetail" parameterType="int" resultType="bDTO">
+	SELECT 
+	FROM 
+	WHERE 
+	</select>
+	
+	
+	
+	<!-- 첨부파일정보 조회 -->
+	<select id="boardFile" parameterType="int" resultType="bDTO">
+	SELECT f_no       AS no, 
+	       f_oriBno   AS oriBNo, 
+	       f_name     AS name, 
+	       f_saveName AS saveName, 
+	       f_path     AS path, 
+	       f_size     AS fsize 
+	FROM fileInfo 
+	WHERE f_oriBno = #{oriNo}
+	</select>
+	
+</mapper>		 
+
+
+
+
+
+
+
+
+
