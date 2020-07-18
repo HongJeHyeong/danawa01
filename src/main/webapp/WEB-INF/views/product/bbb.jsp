@@ -58,7 +58,7 @@
                 <button type="button" class="w3-button" onclick="loadForm('./coolerForm')">cooler</button>
               </div>
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./ramForm')">ram</button>
+                <button type="button" class="w3-button" onclick="loadForm('./ramForm?ram_no=15')">ram</button>
               </div>
               <div class="w3-col">
                 <button type="button" class="w3-button" onclick="loadForm('./caseForm')">case</button>

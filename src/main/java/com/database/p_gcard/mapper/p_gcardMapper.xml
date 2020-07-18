@@ -10,5 +10,8 @@
 select count(*) from p_gcard
 	</select>
 
+	<select id="getGcardInfo" resultType="com.database.p_gcard.dto.GcardDTO" parameterType="int">
+	SELECT * FROM p_gcard WHERE gc_no = #{gc_no}
+	</select>
 
 </mapper>		 
