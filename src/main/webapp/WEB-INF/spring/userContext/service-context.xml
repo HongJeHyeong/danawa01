@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+	<bean id="boardService" class="com.database.board.service.BoardService"/>
+	<bean id="board_diskService" class="com.database.board_disk.service.Board_diskService"/>
+	<bean id="board_repService" class="com.database.board_reply.service.Board_repService"/>
+	<bean id="memberService" class="com.database.member.service.MemberService"/>
+	<bean id="noticeService" class="com.database.notice.service.NoticeService"/>
+	<bean id="orderlistService" class="com.database.orderlist.service.OrderlistService"/>
+	<bean id="qnaService" class="com.database.qna.service.QnaService"/>
+	<bean id="qna_repService" class="com.database.qna_reply.service.Qna_repService"/>
+
+
+</beans>
