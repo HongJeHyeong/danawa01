@@ -104,18 +104,25 @@ public class TotalTest {
 
   @Autowired
   protected BoardService boardService;
+
   @Autowired
   protected Board_diskService board_diskService;
+
   @Autowired
   protected Board_repService board_repService;
+
   @Autowired
   protected MemberService memberService;
+
   @Autowired
   protected NoticeService noticeService;
+
   @Autowired
   protected OrderlistService orderlistService;
+
   @Autowired
   protected QnaService qnaService;
+
   @Autowired
   protected Qna_repService qna_repService;
 

@@ -31,7 +31,6 @@
 		<param-value>
 			/WEB-INF/spring/root-context.xml
 			/WEB-INF/spring/userContext/dao-context.xml
-			/WEB-INF/spring/userContext/service-context.xml
 		</param-value>
 	</context-param>
 
