@@ -40,7 +40,6 @@ public class DataSouceTest extends TotalTest {
 	public void testDBcountAll() {
 		System.out.println("---------------" + "DB 각 테이블 count(*)");
 		try {
-			List<Map<String, Object>> list = new ArrayList<>();
 
 			String[] tableName = { "board", "board_disk", "board_reply", "member", "notice", "orderlist", "p_case",
 					"p_cooler", "p_cpu", "p_disk", "p_gcard", "p_mainboard", "p_power", "p_ram", "qna", "qna_reply" };
