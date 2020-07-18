@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MainboardDTO {
+  private int mb_no;
   private String mb_name;
   private String mb_company;
   private String mb_socket;
