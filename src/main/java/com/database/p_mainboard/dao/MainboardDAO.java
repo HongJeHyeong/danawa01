@@ -18,7 +18,7 @@ public class MainboardDAO extends SqlSessionDaoSupport {
 	  System.out.println("MainboardDAO의 mb_no 값="+mb_no);
 	  MainboardDTO mainboardDTO = new MainboardDTO();
 	  
-	  mainboardDTO = sqlSession.selectOne("getCpuInfo", mb_no);
+	  mainboardDTO = sqlSession.selectOne("getMainboardInfo", mb_no);
 	  System.out.println("mainboardDAO의 mainboardDTO 값="+mainboardDTO);
 	  
 	  return mainboardDTO;
