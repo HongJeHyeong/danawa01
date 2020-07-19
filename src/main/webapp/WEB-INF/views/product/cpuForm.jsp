@@ -159,15 +159,15 @@
 
   <!-- input 파트 -->
   <input type="text" name="hdn_value" class="put_input" id="hdn_name" value="${cpuDTO.cpu_name}">
-  <input type="text" name="hdn_value" class="put_input" id="hdn_clock" value="${cpuDTO.cpu_clock }">
-  <input type="text" name="hdn_value" class="put_input" id="hdn_price" value="${cpuDTO.cpu_price }">
+  <input type="text" name="hdn_value" class="put_input" id="hdn_clock" value="${cpuDTO.cpu_clock}">
+  <input type="text" name="hdn_value" class="put_input" id="hdn_price" value="${cpuDTO.cpu_price}">
 
-  <input type="text" name="hdn_value" class="put_select" id="hdn_company" value="${cpuDTO.cpu_company }">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_core" value="${cpuDTO.cpu_core }">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_thread" value="${cpuDTO.cpu_thread }">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_graphic" value="${cpuDTO.cpu_graphic }">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_cooler" value="${cpuDTO.cpu_cooler }">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_socket" value="${cpuDTO.cpu_socket }">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_company" value="${cpuDTO.cpu_company}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_core" value="${cpuDTO.cpu_core}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_thread" value="${cpuDTO.cpu_thread}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_graphic" value="${cpuDTO.cpu_graphic}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_cooler" value="${cpuDTO.cpu_cooler}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_socket" value="${cpuDTO.cpu_socket}">
   <!-- input 파트 -->
 
 </form>
