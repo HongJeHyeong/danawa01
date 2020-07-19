@@ -1,5 +1,6 @@
 package com.database.p_case.dto;
 
+import org.apache.ibatis.type.Alias;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
+@Alias("caseDTO")
 public class CaseDTO {
 	private int case_no;
 	private String case_name;

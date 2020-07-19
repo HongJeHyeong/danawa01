@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="listForm">
-	<c:forEach items="#{list}" var="diskDto">
+	<c:forEach items="${list}" var="diskDto">
 		<div class="w3-card w3-padding-4 item">
 			<div class="w3-row">
 				<div class="w3-col" style="width: 70px;">
@@ -17,7 +17,15 @@
 					</div>
 				</div>
 				<div class="w3-col w3-red itemContent" style="white-space: normal;">
-					<span>회사:${diskDto.disk_company}</span>/<span>디스크크기: ${diskDto.disk_type}</span>/<span>디스크용량: ${diskDto.disk_volume}</span></div>
+					<span>회사:${diskDto.disk_company}</span>/<span>디스크크기: ${diskDto.disk_type}</span>/
+					<span>디스크용량: ${diskDto.disk_volume}</span>/
+					<c:if test="${diskDto.disk_category eq 'SSD'}">
+					<span class="w3-label w3-green">${diskDto.disk_category}</span>
+					</c:if>
+					<c:if test="${diskDto.disk_category eq 'HDD'}">
+					<span class="w3-label w3-red">${diskDto.disk_category}</span>
+					</c:if>
+					</div>
 			</div>
 		</div>
 	</c:forEach>

@@ -1,5 +1,7 @@
 package com.database.p_mainboard.dto;
 
+import org.apache.ibatis.type.Alias;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -7,6 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Alias("mainboardDTO")
 public class MainboardDTO {
   private int mb_no;
   private String mb_name;

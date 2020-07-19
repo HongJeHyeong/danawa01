@@ -10,12 +10,12 @@
 		select count(*) from p_case
 	</select>
 	
-	<!-- case_gc_length ? 이하 값// WHERE case_gc_length <= ? -->
-	<select id="caseList" parameterType="int" resultType="com.database.p_case.dto.CaseDTO">
+	<!-- case_gc_length ? 이상 값// WHERE case_gc_length <= ? -->
+	<select id="caseList" parameterType="int" resultType="caseDTO">
 	SELECT *
 	FROM
-	(SELECT * FROM p_case WHERE case_status=0) pcase
-	WHERE case_gc_length <![CDATA[ <= ]]> #{caseLeng}
+	(SELECT * FROM p_case WHERE case_status=0) p_case
+	WHERE case_gc_length <![CDATA[ >= ]]> #{caseLeng}
 	ORDER BY case_gc_length,case_price;
 	</select>
 

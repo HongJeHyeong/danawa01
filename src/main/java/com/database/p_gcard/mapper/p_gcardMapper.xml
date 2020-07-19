@@ -10,8 +10,24 @@
 select count(*) from p_gcard
 	</select>
 
-	<select id="getGcardInfo" resultType="com.database.p_gcard.dto.GcardDTO" parameterType="int">
+	<select id="getGcardInfo" resultType="gcardDTO" parameterType="int">
 	SELECT * FROM p_gcard WHERE gc_no = #{gc_no}
+	</select>
+
+	<!-- gc chipsetList -->
+	<select id="gcardChipsetList" resultType="String">
+	SELECT gc_chipset 
+	FROM p_gcard
+	GROUP BY gc_chipset asc
+	ORDER BY gc_chipset
+	</select>
+	
+	<!-- gc List -->
+	<select id="gcardList" resultType="gcardDTO" parameterType="String">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_gcard WHERE gc_status=0 AND gc_chipset like CONCAT('%', #{gc_chipset})) p_graphic
+	ORDER BY gc_chipset,gc_price
 	</select>
 
 </mapper>		 

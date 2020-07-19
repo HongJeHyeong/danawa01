@@ -1,10 +1,11 @@
 package com.database.p_gcard.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.database.p_cpu.dto.CpuDTO;
 import com.database.p_gcard.dto.GcardDTO;
 
 public class GcardDAO extends SqlSessionDaoSupport {
@@ -24,5 +25,14 @@ public class GcardDAO extends SqlSessionDaoSupport {
 	  return gcardDTO;
   }
   //Gcard 상세정보 가져오기 ------------------------------------------------------------------------
-
+  
+  public List<GcardDTO> getGcardList(String gc_chipset){
+	  return sqlSession.selectList("p_gcard.gcardList",gc_chipset);
+  }
+  
+  public List<String> getGcardChipsetList() {
+	  return sqlSession.selectList("p_gcard.gcardChipsetList");
+  }
+  
+  
 }

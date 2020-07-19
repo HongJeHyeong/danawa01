@@ -1,6 +1,6 @@
 package com.database.p_disk.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -14,8 +14,8 @@ public class DiskDAO extends SqlSessionDaoSupport {
   @Autowired
   private SqlSessionTemplate sqlSession;
   
-  public ArrayList<DiskDTO> getDiskList(String category){
-	  return (ArrayList)sqlSession.selectList("p_disk.diskList",category);
+  public List<DiskDTO> getDiskList(String category){
+	  return sqlSession.selectList("p_disk.diskList",category);
   }
   
 }
