@@ -1,5 +1,7 @@
 package com.database.p_cpu.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +26,8 @@ public class CpuDAO extends SqlSessionDaoSupport {
   }
   //CPU 상세정보 가져오기 ------------------------------------------------------------------------
 
+  //case List
+  public List<CpuDTO> getCpuList(String company){
+	  return sqlSession.selectList("p_cpu.cpuList", company);
+  }
 }

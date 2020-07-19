@@ -10,5 +10,11 @@
 select count(*) from qna
 	</select>
 
+	<!-- 글쓰기처리 -->
+	<insert id="insQna" parameterType="com.database.qna.dto.QnaDTO">
+	insert into qna(qna_title, qna_content, fk_member_no) values(#{qna_title}, #{qna_content}, #{fk_member_no})
+	</insert>
+
+
 
 </mapper>		 

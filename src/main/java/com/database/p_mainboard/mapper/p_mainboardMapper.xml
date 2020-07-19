@@ -11,8 +11,26 @@ select count(*) from p_mainboard
 	</select>
 
 	<!-- Mainboard 상세정보 구하기 -->
-	<select id="getMainboardInfo" resultType="com.database.p_mainboard.dto.MainboardDTO" parameterType="int">
+	<select id="getMainboardInfo" resultType="mainboardDTO" parameterType="int">
 	SELECT * FROM p_mainboard WHERE mb_no = #{mb_no}
 	</select>
 	<!-- Mainboard 상세정보 구하기 -->
+	
+	
+	<!-- Mainboard socketList -->
+	<select id="mainboardSocketList" resultType="String">
+		SELECT mb_socket 
+		FROM p_mainboard
+		GROUP BY mb_socket asc
+		ORDER BY mb_socket
+	</select>
+	
+	<!-- Mainboard List  -->
+	
+	<select id="mainboardList" resultType="mainboardDTO" parameterType="String">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_mainboard WHERE mb_status=0 AND mb_socket like CONCAT('%', #{mb_socket})) p_main
+	ORDER BY mb_socket,mb_ramslot,mb_price
+	</select>
 </mapper>		 
