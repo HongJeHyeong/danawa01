@@ -1,29 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-        <div class="w3-container w3-section">
-            <div class="rowLine">
-                <!--상품내 구분-->
-                <div class="w3-green">
-                    <select class="w3-input w90" name="" id="itemSel" onchange="changeDiskCategory(this)">
-                        <option value="전체">전체</option>
-                        <option value="SSD">SSD</option>
-                        <option value="HDD">HDD</option>
-                    </select>
-                </div>
-                <!--상품 제목 검색창-->
-                <div class="w3-yellow">
-                    <input class="w3-input w3-border w3-cyan myInput" placeholder="상품제목 검색" onkeyup="myFunction()"
-                        type="text">
-                </div>
-                <!--상품 상세정보 검색창-->
-                <div class="w3-cyan">
-                    <input class="w3-input w3-border w3-cyan myInput2" placeholder="상품 상세정보 검색" onkeyup="my2Function()"
-                        type="text">
-                </div>
-            </div>
-        </div>
-        <div class="w3-container itemList">
-            <!--상품구분-->
-
-
-        </div>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="listForm">
+	<c:forEach items="#{list}" var="diskDto">
+		<div class="w3-card w3-padding-4 item">
+			<div class="w3-row">
+				<div class="w3-col" style="width: 70px;">
+					<img width="100%" src="${diskDto.disk_image}">
+				</div>
+				<div class="w3-rest">
+					<div class="w3-large itemInner">${diskDto.disk_name}</div>
+					<div class="">
+						<span class="w3-left">${diskDto.disk_price}</span> <span class="w3-right">
+							<button type="button" class="w3-button w3-round-large w3-cyan">&gt;</button>
+						</span>
+					</div>
+				</div>
+				<div class="w3-col w3-red itemContent" style="white-space: normal;">
+					<span>회사:${diskDto.disk_company}</span>/<span>디스크크기: ${diskDto.disk_type}</span>/<span>디스크용량: ${diskDto.disk_volume}</span></div>
+			</div>
+		</div>
+	</c:forEach>
+</div>
