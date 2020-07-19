@@ -13,12 +13,7 @@ public class CaseDAO extends SqlSessionDaoSupport {
   @Autowired
   private SqlSessionTemplate sqlSession;
 
-  public ArrayList<CaseDTO> getCaseAllList(CaseDTO caseDTO){
-	  return (ArrayList)sqlSession.selectList("p_case.caseAllList", caseDTO);
+  public ArrayList<CaseDTO> getCaseList(int caseLeng){
+	  return (ArrayList)sqlSession.selectList("p_case.caseList", caseLeng);
   }
-  
-  public ArrayList<CaseDTO> getCaseList(CaseDTO caseDTO,int caseLeng){
-	  return (ArrayList)sqlSession.selectList("p_case.caseList", caseDTO);
-  }
-  
 }

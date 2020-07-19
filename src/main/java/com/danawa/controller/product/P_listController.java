@@ -48,23 +48,11 @@ public class P_listController {
 	private RamDAO p_ramDAO;
 	
 	
-	@RequestMapping("/caseAllList")
-	public ModelAndView caseAllList() {
-		CaseDTO caseDTO = new CaseDTO();
-		
-		ArrayList<CaseDTO> list = p_caseDAO.getCaseAllList(caseDTO);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("list", list);
-		mv.setViewName("/p_list/caseList");
-		return mv;
-	}
-	
 	@RequestMapping("/caseList")
-	public ModelAndView caseList(CaseDTO caseDTO,int caseLeng) {
-		ArrayList<CaseDTO> list = p_caseDAO.getCaseList(caseDTO, caseLeng);
+	public ModelAndView caseList(int caseLeng) {
+		ArrayList<CaseDTO> list = p_caseDAO.getCaseList(caseLeng);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
-		mv.addObject("caseLeng", caseDTO.getCase_gc_length());
 		mv.setViewName("/p_list/caseList");
 		return mv;
 	}
@@ -88,26 +76,27 @@ public class P_listController {
 		return mv;
 	}
 	
-	@RequestMapping("/diskAllList")
-	public ModelAndView diskAllList() {
-		DiskDTO diskDTO = new DiskDTO();
-		
-		ArrayList<DiskDTO> list = p_diskDAO.getDiskAllList(diskDTO);
+	
+	
+	
+	
+	
+	@RequestMapping("/diskList")
+	public String diskList() {
+		return "/p_list/tttt";
+	}
+	@RequestMapping("/diskListForm")
+	public ModelAndView diskListForm(String disk_category) {
+		ArrayList<DiskDTO> list = p_diskDAO.getDiskList(disk_category);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
-		mv.setViewName("/p_list/tttt");
+		mv.setViewName("/p_list/diskListForm");
 		return mv;
 	}
 	
-	@RequestMapping("/diskList")
-	public ModelAndView diskSHList(DiskDTO diskDTO,String disk_category) {
-		ArrayList<DiskDTO> list = p_diskDAO.getDiskSHList(diskDTO,disk_category);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("list", list);
-		mv.addObject("disk_category", diskDTO.getDisk_category());
-		mv.setViewName("/p_list/tttt");
-		return mv;
-	}
+	
+	
+	
 	
 	
 	

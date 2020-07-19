@@ -9,21 +9,13 @@
 	<select id="countAll" resultType="int">
 		select count(*) from p_disk
 	</select>
-
-	<select id="diskAllList" parameterType="com.database.p_disk.dto.DiskDTO" resultType="com.database.p_disk.dto.DiskDTO">
-	SELECT *
-	FROM
-	(SELECT * FROM p_disk WHERE disk_status = 0) pdisk
-	ORDER BY disk_type,disk_volume,disk_price
-	</select>
 	
 	<!-- disk_status=0 인것중에서 SSD,HDD 중 볼륨 작은것 정렬후 가격낮은순 -->
-	<select id="diskSHList" parameterType="com.database.p_disk.dto.DiskDTO" resultType="com.database.p_disk.dto.DiskDTO">
+	<select id="diskList" parameterType="String" resultType="com.database.p_disk.dto.DiskDTO">
 	SELECT *
 	FROM 
-	(SELECT * FROM p_disk WHERE disk_status = 0) pdisk
-	WHERE disk_category=#{disk_category}
-	ORDER BY disk_type,disk_volume,disk_price
+	(SELECT * FROM p_disk WHERE disk_status = 0) p_disk
+	WHERE disk_category like CONCAT('%', #{category})
 	</select>
 
 </mapper>		 

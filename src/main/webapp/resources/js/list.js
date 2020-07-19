@@ -43,18 +43,16 @@ function my2Function() {
 //disk
 /* =============================================================================================================== */
 function changeDiskCategory(e) {
-  var it = e.value;
-
+  var it = e.value;//전체,SSD,HDD
+  console.log(it);
+  
   if (it === "전체") {
-    $(".itemList").load("diskFull.html");
+	$(".itemList").load("../p_list/diskListForm?disk_category=%");//전체불러오기 아직 미완성
   } else if (it === "SSD") {
-    $(".itemList").load("SSD.html");
+	$(".itemList").load("../p_list/diskListForm?disk_category="+it);
   } else if (it === "HDD") {
-    $(".itemList").load("HDD.html");
+	$(".itemList").load("../p_list/diskListForm?disk_category="+it);
   }
-  // var url = "/product/p_disk?keyword=" + it;
-
-  // $(".itemList").load(url);
 }
 
 /* =============================================================================== */

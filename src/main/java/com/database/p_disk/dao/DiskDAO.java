@@ -14,12 +14,8 @@ public class DiskDAO extends SqlSessionDaoSupport {
   @Autowired
   private SqlSessionTemplate sqlSession;
   
-  public ArrayList<DiskDTO> getDiskAllList(DiskDTO DiskDTO){
-	  return (ArrayList)sqlSession.selectList("p_disk.diskAllList",DiskDTO);
-  }
-  
-  public ArrayList<DiskDTO> getDiskSHList(DiskDTO DiskDTO,String disk_category){
-	  return (ArrayList)sqlSession.selectList("p_disk.diskSHList",DiskDTO);
+  public ArrayList<DiskDTO> getDiskList(String category){
+	  return (ArrayList)sqlSession.selectList("p_disk.diskList",category);
   }
   
 }

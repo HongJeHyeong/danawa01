@@ -10,16 +10,8 @@
 		select count(*) from p_case
 	</select>
 	
-	<!-- 전체리스트 case_status=0 인것중에서 케이스 작은것 정렬후 가격낮은순 -->
-	<select id="caseAllList" parameterType="com.database.p_case.dto.CaseDTO" resultType="com.database.p_case.dto.CaseDTO">
-	SELECT * 
-	FROM 
-	(SELECT * FROM p_case WHERE case_status=0) pcase
-	ORDER BY case_gc_length,case_price;
-	</select>
-	
 	<!-- case_gc_length ? 이하 값// WHERE case_gc_length <= ? -->
-	<select id="caseList" parameterType="com.database.p_case.dto.CaseDTO" resultType="com.database.p_case.dto.CaseDTO">
+	<select id="caseList" parameterType="int" resultType="com.database.p_case.dto.CaseDTO">
 	SELECT *
 	FROM
 	(SELECT * FROM p_case WHERE case_status=0) pcase
