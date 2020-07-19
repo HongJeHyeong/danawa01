@@ -1,5 +1,7 @@
 package com.database.p_power.dto;
 
+import org.apache.ibatis.type.Alias;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -7,6 +9,7 @@ import lombok.ToString;
 @ToString
 @Setter
 @Getter
+@Alias("powerDTO")
 public class PowerDTO {
     private int power_no;
     private String power_name;

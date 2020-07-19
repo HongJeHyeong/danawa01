@@ -1,5 +1,7 @@
 package com.database.p_cooler.dto;
 
+import org.apache.ibatis.type.Alias;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -7,6 +9,7 @@ import lombok.ToString;
 @ToString
 @Setter
 @Getter
+@Alias("coolerDTO")
 public class CoolerDTO {
     private int cooler_no;
     private String cooler_name;

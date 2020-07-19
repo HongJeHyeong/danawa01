@@ -1,6 +1,6 @@
 package com.database.p_case.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -13,7 +13,7 @@ public class CaseDAO extends SqlSessionDaoSupport {
   @Autowired
   private SqlSessionTemplate sqlSession;
 
-  public ArrayList<CaseDTO> getCaseList(int caseLeng){
-	  return (ArrayList)sqlSession.selectList("p_case.caseList", caseLeng);
+  public List<CaseDTO> getCaseList(int caseLeng){
+	  return sqlSession.selectList("p_case.caseList", caseLeng);
   }
 }

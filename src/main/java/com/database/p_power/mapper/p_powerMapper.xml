@@ -9,6 +9,15 @@
 	<select id="countAll" resultType="int">
 select count(*) from p_power
 	</select>
-
-
+	
+	<!-- powerList -->
+	<select id="powerList" parameterType="int" resultType="powerDTO">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_power WHERE power_status=0) p_power
+	WHERE power_capacity <![CDATA[ >= ]]> #{power_capacity}
+	ORDER BY power_capacity,power_price
+	
+	</select>
 </mapper>		 
+
