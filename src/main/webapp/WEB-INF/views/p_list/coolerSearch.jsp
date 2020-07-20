@@ -5,7 +5,7 @@
             <!--상품내 구분-->
             <div class="w3-green">
                 <select class="w3-input w90 itemSel" name="" onchange="changeCoolerCategory(this)">
-                    <option value="전체">전체</option>
+                    <option value="">전체</option>
                     <option value="공냉">공냉</option>
                     <option value="수냉">수냉</option>
                 </select>

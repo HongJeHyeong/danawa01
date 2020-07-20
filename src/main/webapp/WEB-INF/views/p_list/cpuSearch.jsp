@@ -5,7 +5,7 @@
             <!--상품내 구분-->
             <div class="w3-green">
                 <select class="w3-input w90" name="" id="itemSel" onchange="changeCpuCategory(this)">
-                    <option value="전체">전체</option>
+                    <option value="">전체</option>
                     <option value="AMD">AMD</option>
                     <option value="Intel">Intel</option>
                 </select>
