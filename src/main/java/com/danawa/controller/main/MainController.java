@@ -73,4 +73,15 @@ public class MainController {
 		//4.View
 	  return "/member/login";
 	}
+	
+	@RequestMapping("/logout")
+	public String logout() {
+		System.out.println("Logout 진입성공");
+		
+		//1.파라미터받기
+		//2.비지니스로직(<->Service<->DAO<->myBatis<->DB)
+		//3.Model
+		//4.View
+		return "member/login";
+	}
 }
