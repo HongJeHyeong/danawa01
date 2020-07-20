@@ -10,6 +10,11 @@
 select count(*) from p_power
 	</select>
 	
+		<!-- Power 정보 불러오기 -->	
+	<select id="getPowerInfo" resultType="powerDTO" parameterType="int">
+		SELECT * FROM p_power WHERE power_no = #{power_no}
+	</select>
+	
 	<!-- powerList -->
 	<select id="powerList" parameterType="int" resultType="powerDTO">
 	SELECT * 
