@@ -40,7 +40,7 @@
             <div class="w3-col s6">
 
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./cpuForm')">CPU</button>
+                <button type="button" class="w3-button" onclick="loadForm('./cpuForm?cpu_no=386')">CPU</button>
               </div>
               <div class="w3-col">
                 <button type="button" class="w3-button" onclick="loadForm('./mainboardForm')">Mainboard</button>

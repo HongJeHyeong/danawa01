@@ -142,6 +142,49 @@ public class ProductController {
 		return mv;
 	}
 	
+	@RequestMapping("/updateCpu")
+	public ModelAndView updateProc(CpuDTO cpuDTO) {
+		System.out.println("ProductController의 updateCpu() 메소드 호출 ----");
+		System.out.println("ProductController의 updateCpu()의 cpuDTO 값="+cpuDTO);
+		ModelAndView mv = new ModelAndView();
+		
+		String path = "D:\\danawaImages\\cpu";
+		
+		String oriName = cpuDTO.getFile().getOriginalFilename();
+		//원본파일명
+		
+		int endIndex = oriName.lastIndexOf(".");
+		//원본파일명 aa.png 인덱스 
+		
+		String fileN = "CPU";
+		//파일명을 CPU로 변환하기 위한 변수명
+		String extN = oriName.substring(endIndex+1);
+		//파일확장자 변수명
+		
+		String changeName = fileN+"."+extN;
+		//새로운 파일명으로 바뀐 변수
+		
+		String saveName = FileUtil.rename(path, changeName);
+		System.out.println(saveName);
+		
+		File file = new File(path+saveName);
+		
+		try {
+			cpuDTO.getFile().transferTo(file);
+		} catch (Exception e) {
+			System.out.println("파일 복사 에러=" + e);
+		}
+		
+		cpuDTO.setCpu_image(saveName);
+		
+		cpuDAO.updateCpu(cpuDTO);
+		
+		RedirectView rv = new RedirectView("../product/bbb");
+		mv.setView(rv);
+		
+		return mv;
+	}
+	
 	// CPU
 	// ---------------------------------------------------------------------------------------------------------
 
@@ -624,7 +667,7 @@ public class ProductController {
 		
 		diskDTO.setDisk_image(saveName);
 		
-		diskDAO.insertDisk(diskDTO);
+//		diskDAO.insertDisk(diskDTO);
 		
 		ModelAndView mv = new ModelAndView();
 		RedirectView rv = new RedirectView("../product/bbb");

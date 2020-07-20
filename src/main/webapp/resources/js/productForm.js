@@ -45,6 +45,7 @@ function round1(e) {
 }
 // 클럭 Up , Down 부분 JavaScript -------------------------------------------------
 
+//------------------------------------------------------------------------------
 function updateFormLoadValue() {
   //1. bb_input >> aa_input  ,,,  bb_select >> aa_select로 값 이동
   let aa_input_arr = document.getElementsByClassName("get_input");
@@ -80,4 +81,9 @@ function updateFormLoadValue() {
       console.log(op[j].selected);
     }
   }
+}
+//------------------------------------------------------------------------------
+function SubmitForm(callUrl) {
+  window.location = callUrl;
+  alert(callUrl);
 }
