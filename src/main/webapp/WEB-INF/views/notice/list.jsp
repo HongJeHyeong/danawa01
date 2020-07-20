@@ -39,7 +39,9 @@
 	margin: 0px;
 	padding: 0px;
 }
-
+ul{
+   list-style:none;
+   }
 .noticediv {
 	display: inline-block;
 	white-space: nowrap;
@@ -80,32 +82,32 @@
 						<div class="noticediv" style="width: 30%;">${data.notice_title}</div>
 						<div class="noticediv" style="width: 10%;">관리자</div>
 						<div class="noticediv" style="width: 20%;">${data.notice_regdate}</div>
-						<div class="noticediv" style="width: 20%;">${data.notice_enddate}</div>
-					</ul>
+						<div class="noticediv" style="width: 20%;">${data.notice_enddate}</div></li>
 				</c:forEach>
+					</ul>
 				
 	<!-- 페이징처리 출력 부분 -->
 <!-- mv.addObject("PAGEINFO",pageInfo); -->
-	<table id="" width="auto">
-		<tbody>
+	<table id="" style="margin:auto" >
+		<tbody >
 			<tr>
 				<td style="text-align:center;">
 				<!-- prev 출력 -->
-				<c:if test="${PAGEINFO.nowPage == 1 }">		 <!--c:if test="${PAGEINFO.nowPage eq 1 }"-->
+				<%-- <c:if test="${PAGEINFO.nowPage == 1 }">		 <!--c:if test="${PAGEINFO.nowPage eq 1 }"-->
 					[Prev]
-				</c:if>
+				</c:if> --%>
 				
 				<c:if test="${PAGEINFO.nowPage != 1 }">		 <!--c:if test="${PAGEINFO.nowPage ne 1 }"-->
-					<a href="../board/list?nowPage=${PAGEINFO.nowPage-1 }"> [Prev]</a>
+					<a href="../notice/list?nowPage=${PAGEINFO.nowPage-1 }"> [Prev]</a>
 				</c:if>
 				<!-- [1] [2] [3] 출력-->
 				<c:forEach var="count" begin="${PAGEINFO.startPage }" end="${PAGEINFO.endPage }">
 				<a href="../notice/list?nowPage=${count }">[${count}]</a> 
 				</c:forEach>
 				<!-- next 출력 -->
-				<c:if test="${PAGEINFO.nowPage==PAGEINFO.totalPage }">
+				<%-- <c:if test="${PAGEINFO.nowPage==PAGEINFO.totalPage }">
 				[next]
-				</c:if>
+				</c:if> --%>
 				<c:if test="${PAGEINFO.nowPage!=PAGEINFO.totalPage }">
 				<a href="../notice/list?nowPage=${PAGEINFO.nowPage+1 }">[next]</a>
 				</c:if>
