@@ -1,6 +1,7 @@
 package com.database.member.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -29,9 +30,27 @@ public int IdCheck(String id) {
 	return result;
 }
 
-public void inputForm(MemberDTO dto) {
+public void inputMem(MemberDTO dto) {
 	// TODO Auto-generated method stub
-	sqlSession.insert("member.inputForm", dto);
+	sqlSession.insert("member.inputMem", dto);
+}
+
+public MemberDTO mypage(String id) {
+	// TODO Auto-generated method stub
+	MemberDTO result = sqlSession.selectOne("member.myPage",id);
+	return result;
+}
+
+public List memberList() {
+	// TODO Auto-generated method stub
+	List list = sqlSession.selectList("member.memberList");
+	return list;
+}
+
+public void modify(MemberDTO dto) {
+	// TODO Auto-generated method stub
+	sqlSession.update("member.modify",dto);
+	System.out.println("모디파이sql에 다녀옴");
 }
 
 
