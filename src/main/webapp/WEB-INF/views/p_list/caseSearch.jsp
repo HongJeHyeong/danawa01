@@ -8,7 +8,7 @@
                     <input type="range" class="slideVal" min="0" max="600" step="50" value="0"
                         onchange="caseSlide(this)">
                     <div class="subrowLine">
-                        <input type="number" min="0" max="600" step="50" class="slideNum" placeholder="최대값" />
+                        <input type="number" min="0" max="600" step="50" class="slideNum" placeholder="최소값" />
                         <input type="button" onclick="changeCaseCategory(this)" value="검색">
                     </div>
                 </div>

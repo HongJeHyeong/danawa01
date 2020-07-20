@@ -26,9 +26,33 @@ public class DiskDAO extends SqlSessionDaoSupport {
 	  return diskDTO;
   }
   //Disk 상세정보 가져오기 ------------------------------------------------------------------------
-  
-  public List<DiskDTO> getDiskList(String category){
-	  return sqlSession.selectList("p_disk.diskList",category);
+  // Disk 정보 입력하기
+  // ------------------------------------------------------------------------
+  public void insertDisk(DiskDTO diskDTO) {
+    sqlSession.insert("p_disk.insertDisk", diskDTO);
   }
+  // Disk 정보 입력하기
+  // ------------------------------------------------------------------------
+  
+	public List<DiskDTO> getDiskList(String category) {
+		return sqlSession.selectList("p_disk.diskList", category);
+	}
+//----------------------------------------------------------
+	public List<DiskDTO> getHddList(int volume) {
+		return sqlSession.selectList("p_disk.hddList", volume);
+	}
+
+/*	public List<Integer> getHddVolumeList() {
+		return sqlSession.selectList("p_disk.hddVolumeList");
+	}*/
+
+	public List<DiskDTO> getSsdList(int volume) {
+
+		return sqlSession.selectList("p_disk.ssdList", volume);
+	}
+
+/*	public List<Integer> getSsdVolumeList() {
+		return sqlSession.selectList("p_disk.ssdVolumeList");
+	}*/
   
 }
