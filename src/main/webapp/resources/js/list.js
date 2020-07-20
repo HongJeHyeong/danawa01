@@ -52,12 +52,11 @@ function changeDiskCategory(e) {
   console.log(it);
 
   if (it === "전체") {
-    $("#itemList").load("../p_list/diskList?disk_category="); // 전체불러오기 아직
-    // 미완성
+    $("#itemList").load("./diskList?category=");
   } else if (it === "SSD") {
-    $("#itemList").load("../p_list/diskList?disk_category=" + it);
+    $("#itemList").load("./diskList?category=" + it);
   } else if (it === "HDD") {
-    $("#itemList").load("../p_list/diskList?disk_category=" + it);
+    $("#itemList").load("./diskList?category=" + it);
   }
 }
 
@@ -68,15 +67,12 @@ function changeCoolerCategory(e) {
   var it = e.value;
 
   if (it === "전체") {
-    $("#itemList").load("coolerFull.html");
+    $("#itemList").load("./coolerList?type=");
   } else if (it === "공냉") {
-    $("#itemList").load("acool.html");
+    $("#itemList").load("./coolerList?type="+it);
   } else if (it === "수냉") {
-    $("#itemList").load("wcool.html");
+    $("#itemList").load("./coolerList?type="+it);
   }
-  // var url = "/product/p_cooler?keyword=" + it;
-
-  // $("#itemList").load(url);
 }
 
 /* =============================================================================================================== */
@@ -92,14 +88,13 @@ function caseSlide() {
 }
 
 function changeCaseCategory() {
-  var caseLang = document.getElementsByClassName("slideNum")[0].value;
-  if (caseLang == "") {
-    caseLang = 0;
+  var caseLeng = document.getElementsByClassName("slideNum")[0].value;
+  if (caseLeng == "") {
+    caseLeng = 0;
   }
-  console.log(caseLang);
-  var url = "/product/p_case?caseLeng=" + caseLeng;
+  console.log(caseLeng);
 
-  $("#itemList").load(url);
+  $("#itemList").load("./caseList?caseLeng=" + caseLeng);
 }
 
 // ----slide
@@ -110,15 +105,12 @@ function changeCpuCategory(e) {
   var it = e.value;
 
   if (it === "전체") {
-    $("#itemList").load("cpuFull.html");
+    $("#itemList").load("./cpuList?company=");
   } else if (it === "AMD") {
-    $("#itemList").load("amd.html");
+    $("#itemList").load("./cpuList?company="+it);
   } else if (it === "Intel") {
-    $("#itemList").load("intel.html");
+    $("#itemList").load("./cpuList?company="+it);
   }
-  // var url = "/product/p_cpu?keyword=" + it;
-
-  // $("#itemList").load(url);
 }
 /* =============================================================================================================== */
 
@@ -135,14 +127,13 @@ function powerSlide() {
 }
 
 function changePowerCategory() {
-  var maxPower = document.getElementsByClassName("slideNum")[0].value;
-  if (maxPower == "") {
-    maxPower = 0;
+  var capacity = document.getElementsByClassName("slideNum")[0].value;
+  if (capacity == "") {
+	  capacity = 0;
   }
-  console.log(maxPower);
-  // var url = "/product/p_power?keyword=" + maxPower;
-
-  // $("#itemList").load(url);
+  console.log(capacity);
+  
+  $("#itemList").load("./powerList?capacity=" + capacity);
 }
 /* =============================================================================================================== */
 
@@ -154,7 +145,7 @@ function changeGraphicCategory(e) {
   it = replaceAll(it, " ", "_");
   console.log(it);
 
-  $("#itemList").load("../p_list/gcardList?gc_chipset=" + it);
+  $("#itemList").load("./gcardList?gc_chipset=" + it);
 }
 /* =============================================================================================================== */
 
@@ -163,18 +154,7 @@ function changeGraphicCategory(e) {
 function changeMainboardCategory(e) {
   var it = e.value;
 
-  if (it === "전체") {
-    $("#itemList").load("mainFull.html");
-  } else if (it === "1200") {
-    $("#itemList").load("1200.html");
-  } else if (it === "1151v2") {
-    $("#itemList").load("1151v2.html");
-  } else if (it === "AM4") {
-    $("#itemList").load("AM4.html");
-  }
-  // var url = "/product/p_mb?keyword=" + it;
-
-  // $("#itemList").load(url);
+  $("#itemList").load("./mbList?socket=" + it);
 }
 /* =============================================================================================================== */
 
@@ -184,18 +164,15 @@ function changeRamCategory(e) {
   var it = e.value;
 
   if (it === "전체") {
-    $("#itemList").load("ramFull.html");
+    $("#itemList").load("./ramList?volume=");
   } else if (it === "ram4") {
-    $("#itemList").load("ram4.html");
+    $("#itemList").load("./ramList?volume=4");
   } else if (it === "ram8") {
-    $("#itemList").load("ram8.html");
+    $("#itemList").load("./ramList?volume=8");
   } else if (it === "ram16") {
-    $("#itemList").load("ram16.html");
+    $("#itemList").load("./ramList?volume=16");
   } else if (it === "ram32") {
-    $("#itemList").load("ram32.html");
+    $("#itemList").load("./ramList?volume=32");
   }
-  // var url = "/product/p_ram?keyword=" + it;
-
-  // $("#itemList").load(url);
 }
 /* =============================================================================================================== */

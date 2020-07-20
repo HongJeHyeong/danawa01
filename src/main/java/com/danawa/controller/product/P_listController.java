@@ -1,6 +1,5 @@
 package com.danawa.controller.product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,10 +102,10 @@ public class P_listController {
 		return "/p_list/diskSearch";
 	}
 	@RequestMapping("/diskList")
-	public ModelAndView diskList(@RequestParam String disk_category) {
+	public ModelAndView diskList(@RequestParam String category) {
 		/*System.out.println(disk_category);*/
 		
-		List<DiskDTO> list = p_diskDAO.getDiskList(disk_category);
+		List<DiskDTO> list = p_diskDAO.getDiskList(category);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
 		mv.setViewName("/p_list/diskList");
@@ -174,8 +173,7 @@ public class P_listController {
 		return "/p_list/ramSearch";
 	}
 	@RequestMapping("/ramList")
-	public ModelAndView ramList(@RequestParam int volume) {
-		
+	public ModelAndView ramList(@RequestParam String volume) {
 		List<RamDTO> list = p_ramDAO.getRamList(volume);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list",list);

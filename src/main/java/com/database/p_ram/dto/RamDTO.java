@@ -15,7 +15,7 @@ public class RamDTO {
   private int ram_no;
   private String ram_name;
   private String ram_company;
-  private int ram_volume;
+  private String ram_volume;
   private int ram_clock;
   private String ram_regdate;
   private int ram_status;

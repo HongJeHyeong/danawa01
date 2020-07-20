@@ -15,7 +15,7 @@ select count(*) from p_ram
 	</select>
 
 	<!-- ramList -->
-	<select id="ramList" parameterType="int" resultType="ramDTO">
+	<select id="ramList" parameterType="String" resultType="ramDTO">
 	SELECT * 
 	FROM
 	(SELECT * FROM p_ram WHERE ram_status=0) p_ram

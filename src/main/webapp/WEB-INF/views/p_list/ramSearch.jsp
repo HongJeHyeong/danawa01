@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<form name="" action="">
     <div class="w3-container w3-section">
         <div class="rowLine">
             <!--상품내 구분-->
@@ -30,4 +29,5 @@
 
 
     </div>
-</form>
+<script src="${pageContext.request.contextPath}/resources/js/list.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
