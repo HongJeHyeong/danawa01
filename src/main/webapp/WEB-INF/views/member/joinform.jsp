@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>JoinFormClient.jsp</title>
+	<title></title>
 
 
 
@@ -25,7 +25,6 @@
 	<!-- 카카오맵 api -->
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=83e40c4e40825188941c71c9755c0bb7&libraries=services">
-
 		</script>
 
 	<style>
@@ -65,7 +64,7 @@
 				<!--  main content start here!!!----------------------------------------------------------- -->
 
 				<!-- formformformformformformformformform -->
-				<form class="w3-container" name="inputForm" action="../PreMember/inputForm"
+				<form class="w3-container" name="inputMem" action="../PreMember/inputMem"
 					method="post">
 					<!-- 아이디 .................. -->
 					<div class="w3-row w3-section">
@@ -113,16 +112,16 @@
 							</select>
 						</div>
 						<div class="w3-col s4">
-							<input type="text" class="w3-input w3-border" name="member_tel2" id="member_tel2" pattern="^\d{3,4}$">
+							<input type="text" class="w3-input w3-border" maxlength="4" name="member_tel2" id="member_tel2" required pattern="^\d{3,4}$">
 						</div>
 						<div class="w3-col s4">
-							<input type="text" class="w3-input w3-border" name="member_tel3" id="member_tel3" pattern="^\d{4,4}$">
+							<input type="text" class="w3-input w3-border" maxlength="4" name="member_tel3" id="member_tel3" required pattern="^\d{4,4}$">
 						</div>
 					</div>
 					<!-- 주소 .................. -->
 					<div class="w3-row w3-center w3-section">
 						<div class="w3-col w3-left" style="width: 100px;">
-							<input type="text" name="zipcode" id="zipcode" placeholder="우편번호" readonly class="w3-input">
+							<input type="text" name="zipcode" id="zipcode" placeholder="우편번호" readonly required class="w3-input">
 						</div>
 						<div class="w3-col w3-right" style="width: 100px;">
 							<button type="button" onclick="openDaumPostcode()"
@@ -130,7 +129,7 @@
 						</div>
 					</div>
 					<div class="w3-row w3-center w3-section">
-						<input type="text" name="member_addr" id="member_addr" class="w3-input" placeholder="주소" readonly>
+						<input type="text" name="member_addr" id="member_addr" class="w3-input" required placeholder="주소" readonly>
 					</div>
 					<div class="w3-row w3-center w3-section">
 						<input type="text" name="member_addr2" id="member_addr2" class="w3-input" pattern="^[^;]{1,30}$"
@@ -213,28 +212,27 @@
 				id: document.getElementById("member_id").value,
 			}
 
-			$
-				.ajax({
-					type: "get",
-					//dataType : "text",
-					url: "../PreMember/IdCheck",
-					data: data1,
-					dataType: "text",
-					success: function (result) {
-						console.log("result2=" + result);
-						var temp_response = result.trim() + "";
-						console.log("temp_response=" + temp_response);
-						console.log("temp_response.length="
-							+ temp_response.length);
-						if (temp_response == 0) {
-							whereShowPwCheckResult.innerHTML = '<div class="w3-green"> 사용가능 </div>';
-							isIdOK = 1;
-						} else {
-							whereShowPwCheckResult.innerHTML = '<div class="w3-red"> 사용불가 </div>';
-						}
-
+			$.ajax({
+				type: "get",
+				//dataType : "text",
+				url: "../PreMember/IdCheck",
+				data: data1,
+				dataType: "text",
+				success: function (result) {
+					console.log("result2=" + result);
+					var temp_response = result.trim() + "";
+					console.log("temp_response=" + temp_response);
+					console.log("temp_response.length="
+						+ temp_response.length);
+					if (temp_response == 0) {
+						whereShowPwCheckResult.innerHTML = '<div class="w3-green"> 사용가능 </div>';
+						isIdOK = 1;
+					} else {
+						whereShowPwCheckResult.innerHTML = '<div class="w3-red"> 사용불가 </div>';
 					}
-				});
+
+				}
+			});
 		} // checkId() end
 
 		window.onload = function () {
