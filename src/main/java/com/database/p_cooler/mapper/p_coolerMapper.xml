@@ -9,6 +9,12 @@
 	<select id="countAll" resultType="int">
 select count(*) from p_cooler
 	</select>
-
-
+	
+	<select id="coolerList" parameterType="String" resultType="coolerDTO">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_cooler WHERE cooler_status=0) p_cooler
+	WHERE cooler_type like CONCAT('%', #{cooler_type})
+	ORDER BY cooler_type,cooler_price;
+	</select>
 </mapper>		 

@@ -50,7 +50,7 @@ public class DataSouceTest extends TotalTest {
 				tablename = tablename + "_____________________";
 				tablename = tablename.substring(0, 20);
 
-				System.out.println(tablename + count);
+				System.out.println((i+1) + "\t" + tablename + count);
 			}
 
 		} catch (Exception e) {

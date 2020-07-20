@@ -10,8 +10,16 @@
 select count(*) from p_ram
 	</select>
 
-	<select id="getRamInfo" resultType="com.database.p_ram.dto.RamDTO" parameterType="int">
+	<select id="getRamInfo" resultType="ramDTO" parameterType="int">
 		SELECT * FROM p_ram WHERE ram_no = #{ram_no}
 	</select>
 
+	<!-- ramList -->
+	<select id="ramList" parameterType="int" resultType="ramDTO">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_ram WHERE ram_status=0) p_ram
+	WHERE ram_volume like CONCAT('%', #{ram_volume})
+	ORDER BY ram_volume,ram_clock,ram_price
+	</select>
 </mapper>		 
