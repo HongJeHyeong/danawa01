@@ -2,7 +2,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>케이스 ${job}</h4>
-<form action="" method="post">
+
+<form action="./insertCase" method="post" name="caseForm">
 
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
@@ -85,7 +86,7 @@
 
   <!-- input hidden 파트 -->
   <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${caseDTO.case_name}">
-  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="${caseDTO.case_length}">
+  <input type="text" name="hdn_value" id="hdn_gc_length" class="put_input" value="${caseDTO.case_gc_length}">
   <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${caseDTO.case_price}">
 
   <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${caseDTO.case_company}">

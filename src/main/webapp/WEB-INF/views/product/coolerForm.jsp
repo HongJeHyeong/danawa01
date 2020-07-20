@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>쿨러 ${job}</h4>
-<form action="" method="post">
+<form action="./insertCooler" method="post" name="coolerForm">
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
