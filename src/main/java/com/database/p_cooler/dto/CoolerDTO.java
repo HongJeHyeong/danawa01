@@ -1,6 +1,7 @@
 package com.database.p_cooler.dto;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,5 +19,6 @@ public class CoolerDTO {
     private String cooler_regdate;
     private int cooler_stock;
     private int cooler_price;
-    private int cooler_image;
+    private MultipartFile file;
+    private String cooler_image;
 }

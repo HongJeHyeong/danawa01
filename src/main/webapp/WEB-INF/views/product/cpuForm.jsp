@@ -3,7 +3,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>CPU ${job}</h4>
 
-<form action="post" action="" name="cpuForm">
+<form method="post" action="./insertCpu" name="cpuForm" encType="multipart/form-data">
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -23,7 +23,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">제조사</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_company" class="w3-select get_select">
+          <select name="cpu_company" id="cpu_company" class="w3-select get_select">
             <option value="">제조사</option>
             <option value="Intel">인텔</option>
             <option value="AMD">AMD</option>
@@ -36,7 +36,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">코어</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_core" class="w3-select coreSelect get_select">
+          <select name="cpu_core" id="cpu_core" class="w3-select coreSelect get_select">
             <option value="">코어</option>
             <option value="4">4</option>
             <option value="6">6</option>
@@ -53,7 +53,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">스레드</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_thread" class="w3-select get_select">
+          <select name="cpu_thread" id="cpu_thread" class="w3-select get_select">
             <option value="">스레드</option>
             <option value="4">4</option>
             <option value="6">6</option>
@@ -75,7 +75,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">그래픽</span>
         <span class="w3-twothird span_radio">
-          <select name="select_value" id="cpu_graphic" class="w3-select get_select">
+          <select name="cpu_graphic" id="cpu_graphic" class="w3-select get_select">
             <option value="">유무</option>
             <option value="1">O</option>
             <option value="0">X</option>
@@ -88,7 +88,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">쿨러</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_cooler" class="w3-select get_select">
+          <select name="cpu_cooler" id="cpu_cooler" class="w3-select get_select">
             <option value="">유무</option>
             <option value="1">O</option>
             <option value="0">X</option>
@@ -101,7 +101,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">소켓</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_socket" class="w3-select get_select">
+          <select name="cpu_socket" id="cpu_socket" class="w3-select get_select">
             <option value="">소켓</option>
             <option value="1151v2">1151v2 [인텔]</option>
             <option value="1200">1200 [인텔]</option>
@@ -138,7 +138,7 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-round w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-round w3-small"></span>
       </div>
     </div>
   </div>

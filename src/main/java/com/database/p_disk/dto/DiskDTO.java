@@ -1,6 +1,7 @@
 package com.database.p_disk.dto;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,5 +21,6 @@ public class DiskDTO {
     private String disk_regdate;
     private int disk_stock;
     private int disk_price;
+    private MultipartFile file;
     private String disk_image;
 }

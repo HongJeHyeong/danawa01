@@ -1,6 +1,7 @@
 package com.database.p_case.dto;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,5 +19,6 @@ public class CaseDTO {
 	private String case_regdate;
 	private int case_stock;
 	private int case_price;
+	private MultipartFile file;
 	private String case_image;
 }
