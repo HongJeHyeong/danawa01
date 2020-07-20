@@ -101,11 +101,11 @@
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="트라이던트">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="165555">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${ramDTO.ram_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${ramDTO.ram_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="G.SKILL">
-  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="8">
-  <input type="text" name="hdn_value" id="hdn_clock" class="put_select" value="3200">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${ramDTO.ram_company}">
+  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="${ramDTO.ram_volume}">
+  <input type="text" name="hdn_value" id="hdn_clock" class="put_select" value="${ramDTO.ram_clock}">
   <!-- input hidden 파트 -->
 </form>

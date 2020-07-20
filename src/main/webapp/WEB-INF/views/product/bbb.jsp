@@ -9,9 +9,11 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- CDN OFFLINE- sw_topNav.css -->
   <!-- CDN - sw_topNav.css -->
+  <!-- 
   <link rel="stylesheet" href="https://storage.googleapis.com/sw-css/css/sw-1.0.0.css">
-  <link rel="stylesheet" href="../product/asset/css/productForm.css">
-  <script src="../product/asset/js/productForm.js"></script>
+   -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/productForm.css">
+  <script src="${pageContext.request.contextPath}/resources/js/productForm.js"></script>
 
 
 </head>
@@ -22,15 +24,10 @@
 
   <!-- HEAD ------------------------------------------------------------------------------------ -->
   <!-- head가 맨 나중?나중에 나온 요소가 레이어 맨위로... ---------------------------------------->
-  <div id="mySidenav" class="sidenav" style="background: cyan;">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">aa11</a> <a href="#">bb22</a> <a href="#">cc33</a> <a href="#">dd44</a>
-  </div>
 
   <div id="main">
     <!-- responsive template by SW ----------------------------------------------------------- -->
     <!-- Need   W3CSS  +  FONT AS4  +  sw+topnav offline ------------------------------------- -->
-    <div class="sw-topnav-margin">&nbsp;</div>
     <!-- CONTENT ------------------------------------------------------------------------------------ -->
     <div class="sw-center">
       <!-- 가로복 제한 400~1200 ---------------------------------------------------------------------------------->
@@ -43,31 +40,31 @@
             <div class="w3-col s6">
 
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./cpuForm.jsp')">CPU</button>
+                <button type="button" class="w3-button" onclick="loadForm('./cpuForm')">CPU</button>
               </div>
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./mainboardForm.jsp')">Mainboard</button>
+                <button type="button" class="w3-button" onclick="loadForm('./mainboardForm')">Mainboard</button>
               </div>
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./gcardForm.jsp')">gcard</button>
+                <button type="button" class="w3-button" onclick="loadForm('./gcardForm')">gcard</button>
               </div>
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./powerForm.jsp')">power</button>
+                <button type="button" class="w3-button" onclick="loadForm('./powerForm')">power</button>
               </div>
             </div>
             <div class="w3-col s6">
 
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./coolerForm.jsp')">cooler</button>
+                <button type="button" class="w3-button" onclick="loadForm('./coolerForm')">cooler</button>
               </div>
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./ramForm.jsp')">ram</button>
+                <button type="button" class="w3-button" onclick="loadForm('./ramForm?ram_no=15')">ram</button>
               </div>
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./caseForm.jsp')">case</button>
+                <button type="button" class="w3-button" onclick="loadForm('./caseForm')">case</button>
               </div>
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./diskForm.jsp')">disk</button>
+                <button type="button" class="w3-button" onclick="loadForm('./diskForm')">disk</button>
               </div>
             </div>
           </div>
@@ -75,6 +72,8 @@
           <div id="hereLoadForm"></div>
 
           <script>
+
+
             // function loadForm(loadUrl) {
             //   console.log("-----");
             //   var request = new XMLHttpRequest();
@@ -210,16 +209,6 @@
 
     <!-- HEAD ------------------------------------------------------------------------------------ -->
     <!-- head가 맨 나중?나중에 나온 요소가 레이어 맨위로... ---------------------------------------->
-    <header class="topnav w3-card w3-cyan" id="topNav">
-      <div class="w3-row" style="height: 50px;">
-        <span class="w3-left" onclick="openNav()" style="margin: 7px 7px 0px 7px;"> <i class="material-icons"
-            style="font-size: 36px">menu</i>
-        </span>
-        <div class="w3-left" style="margin-top: 10px; font-size: 20px;">웰컴투
-          시안월드</div>
-        <div class="w3-right" style="margin: 10px 10px; font-size: 20px;">회원아이콘</div>
-      </div>
-    </header>
 
 
   </div>
@@ -242,6 +231,7 @@
     window.onresize = function () {
       closeNav();
     };
+
   </script>
 </body>
 

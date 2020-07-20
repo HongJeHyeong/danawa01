@@ -126,12 +126,12 @@
   <!-- Row 5 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="MSI B450M 박격포 맥스">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="115850">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${mainboardDTO.mb_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${mainboardDTO.mb_price}">
 
-  <input type="text" name="hdn_value" id="hdn_socket" class="put_select" value="AM4">
-  <input type="text" name="hdn_value" id="hdn_chipset" class="put_select" value="B450">
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="MSI">
-  <input type="text" name="hdn_value" id="hdn_ramslot" class="put_select" value="4">
+  <input type="text" name="hdn_value" id="hdn_socket" class="put_select" value="${mainboardDTO.mb_socket}">
+  <input type="text" name="hdn_value" id="hdn_chipset" class="put_select" value="${mainboardDTO.mb_chipset}">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${mainboardDTO.mb_company}">
+  <input type="text" name="hdn_value" id="hdn_ramslot" class="put_select" value="${mainboardDTO.mb_ramslot}">
   <!-- input hidden 파트 -->
 </form>
