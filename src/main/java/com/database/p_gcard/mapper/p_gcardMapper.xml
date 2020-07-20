@@ -14,6 +14,13 @@ select count(*) from p_gcard
 	SELECT * FROM p_gcard WHERE gc_no = #{gc_no}
 	</select>
 
+	<!-- Gcard 정보 입력 -->
+	<insert id="insertGcard">
+	INSERT INTO p_gcard(gc_name, gc_company, gc_chipset, gc_length, gc_min_power, gc_regdate, gc_price, gc_image)
+	VALUES(#{gc_name},#{gc_company},#{gc_chipset},#{gc_length},#{gc_min_power},now(),#{gc_price},#{gc_image})
+	</insert>
+	<!-- Gcard 정보 입력 -->
+	
 	<!-- gc chipsetList -->
 	<select id="gcardChipsetList" resultType="String">
 	SELECT gc_chipset 

@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<form name="" action="">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <div class="w3-container w3-section">
         <div class="rowLine">
             <!--상품내 구분-->
             <div class="w3-green">
                 <select class="w3-input w90" name="" id="itemSel" onchange="changeMainboardCategory(this)">
                     <option value="전체">전체</option>
-                    <option value="1200">1200</option>
-                    <option value="1151v2">1151v2</option>
-                    <option value="AM4">AM4</option>
+					<c:forEach items="${list}" var="socket">
+						<option value="${socket}">${socket}</option>
+					</c:forEach>
                 </select>
             </div>
             <!--상품 제목 검색창-->
@@ -29,4 +29,5 @@
 
 
     </div>
-</form>
+<script src="${pageContext.request.contextPath}/resources/js/list.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

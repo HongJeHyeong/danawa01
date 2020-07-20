@@ -25,6 +25,14 @@ public class CoolerDAO extends SqlSessionDaoSupport {
 	  return coolerDTO;
   }
   //Cooler 상세정보 가져오기 ------------------------------------------------------------------------
+  
+  // Cooler 정보 입력하기
+  // ------------------------------------------------------------------------
+  public void insertCooler(CoolerDTO coolerDTO) {
+    sqlSession.insert("p_cooler.insertCooler", coolerDTO);
+  }
+  // Cooler 정보 입력하기
+  // ------------------------------------------------------------------------
 
   public List<CoolerDTO> getCoolerList(String type){
 	  return sqlSession.selectList("p_cooler.coolerList",type);

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- CDN - W3CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!-- CDN - Font Awesome 4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CDN - Google Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- CDN - sw_topNav.css -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/sw-css/css/sw-1.0.0.css">
+
+  <style>
+    th {
+      font-size: large;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <div id="main">
+    <!-- responsive template by SW ----------------------------------------------------------- -->
+    <!-- Need   W3CSS  +  FONT AS4  +  sw+topnav offline ------------------------------------- -->
+    <div class="sw-topnav-margin">
+      &nbsp;
+    </div>
+    <!-- CONTENT ------------------------------------------------------------------------------------ -->
+    <div class="sw-center">
+      <!-- 가로복 제한 400~1200 ---------------------------------------------------------------------------------->
+      <div class="sw-container-700">
+        <div class="w3-container">
+          <!-- 3 main content start here!!!----------------------------------------------------------- -->
+          <!-- 2 main content start here!!!----------------------------------------------------------- -->
+          <!-- 1 main content start here!!!----------------------------------------------------------- -->
+
+
+          <h4> 조립갤러리</h4>
+
+
+
+
+          <c:forEach items="${ list }" var="dto">
+
+            <div class="w3-row w3-section w3-border-bottom pointer-cursor" onclick="go2view(this)">
+              <input type="hidden" value="14" class="no">
+              <div class=""> 라이젠3700 2080 배그풀옵 견적 </div>
+              <div class="">
+                <span class="w3-left w3-small">
+
+                  <!-- 관리자 아닐때 -->
+                  <!-- <c:if test="${ RESULT<10 }">
+                    박범수
+                  </c:if> -->
+
+                  <!-- 관리자일때 -->
+                  <c:if test="${ RESULT<10 }">
+                    <a href="member/content">박범수</a>
+                  </c:if>
+                  | 04-15 | 47
+                </span>
+                <span class="w3-right">1,456,450</span>
+              </div>
+            </div>
+          </c:forEach>
+
+
+
+
+          <script>
+            function go2view(e) {
+
+              var a = e.children[0].value;
+              console.log(a);
+
+            }
+          </script>
+
+
+        </div>
+      </div>
+      <!-- main content end----------------------------------------------------------------------- -->
+    </div>
+  </div>
+
+  <!-- HEAD ------------------------------------------------------------------------------------ -->
+  <!-- head가 맨 나중?나중에 나온 요소가 레이어 맨위로... ---------------------------------------->
+  <header class="topnav w3-card-4" id="topNav">
+    <a href="#" class="active">다너놔</a>
+    <a href="#">견적짜기</a>
+    <a href="#">견적게시판</a>
+    <a href="#">공지사항</a>
+    <a href="#">QNA</a>
+    <a href="#">마이페이지</a>
+    <a href="javascript:void(0);" class="icon" onclick="responsiveMenuPopUp()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </header>
+
+  <script>
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function responsiveMenuPopUp() {
+      var x = document.getElementById("topNav");
+      if (x.className === "topnav w3-card-4") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav w3-card-4";
+      }
+    }
+
+    window.onresize = function () {
+      var x = document.getElementById("topNav");
+      x.className = "topnav w3-card-4";
+
+    }
+  </script>
+
+
+
+</body>
+
+</html>
