@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"  %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -453,51 +454,7 @@
   </div>
 
   <!-- HEAD ------------------------------------------------------------------------------------ -->
-  <!-- head가 맨 나중?나중에 나온 요소가 레이어 맨위로... ---------------------------------------->
-  <header class="topnav w3-card-4" id="topNav">
-    <a href="#" class="active">다너놔</a>
-    <a href="#">견적짜기</a>
-    <a href="#">견적게시판</a>
-    <a href="#">공지사항</a>
-    <a href="#">QNA</a>
-    <a href="#">마이페이지</a>
-    <a href="javascript:void(0);" class="icon" onclick="responsiveMenuPopUp()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </header>
-
-  <script>
-    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-    function responsiveMenuPopUp() {
-      var x = document.getElementById("topNav");
-      if (x.className == "topnav w3-card-4") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav w3-card-4";
-      }
-    }
-
-    window.onresize = function () {
-      var x = document.getElementById("topNav");
-      x.className = "topnav w3-card-4";
-
-      swiper_tab();
-      scrollTop();
-    }
-  </script>
-
-
-
-  <script>
-
-    function catogory_change() {
-      var a1 = document.getElementById("category_selecter").value;
-      console.log(a1);
-      $("#searchFormHere").load("../p_list/" + a1 + "Search");
-
-    }
-
-  </script>
+  <tf:TopNav grade="${grade}" />
 
 
 
