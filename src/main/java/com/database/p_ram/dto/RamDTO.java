@@ -1,6 +1,7 @@
 package com.database.p_ram.dto;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,5 +20,6 @@ public class RamDTO {
   private String ram_regdate;
   private int ram_status;
   private int ram_price;
+  private MultipartFile file;
   private String ram_image;
 }

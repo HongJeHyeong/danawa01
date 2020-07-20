@@ -104,6 +104,12 @@ function checked() {
 					<c:if test="${sessionScope.grade >= 2}">
 						<button type="button" class="w3-button w3-xlarge fa fa-male" onclick="w3_open()"></button>
 					</c:if>
+					<div class="w3-col w3-right" style="width: 100px;">
+							<button type="button" 
+								class="w3-button w3-baemint" style="margin-top:10px">주문내역</button>
+						</div>
+					
+					
 						<!-- Page Content -->
 						<div class="w3-section w3-center">
 
@@ -176,7 +182,7 @@ function checked() {
 
 							<div class="w3-col s6">
 								<input class="w3-button w3-baemint w3-block" type="button" value="로그아웃"
-									onClick="location='../PreMember/logout'">
+									onClick="location='../logout'">
 							</div>
 						</div>
 					</div>

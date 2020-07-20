@@ -10,6 +10,17 @@
 select count(*) from p_cooler
 	</select>
 	
+		<!-- Cooler 정보 불러오기 -->	
+	<select id="getCoolerInfo" resultType="coolerDTO" parameterType="int">
+		SELECT * FROM p_cooler WHERE cooler_no = #{cooler_no}
+	</select>
+
+	<!-- Cooler 정보 입력하기 -->
+	<insert id="insertCooler">
+	INSERT INTO p_cooler(cooler_name, cooler_company, cooler_type, cooler_regdate, cooler_price, cooler_iamge)
+	VALUES(#{cooler_name},#{cooler_company},#{cooler_type},now(),#{cooler_price},#{cooler_image})
+	</insert>
+	
 	<select id="coolerList" parameterType="String" resultType="coolerDTO">
 	SELECT * 
 	FROM

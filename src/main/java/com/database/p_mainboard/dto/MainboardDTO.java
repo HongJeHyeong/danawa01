@@ -1,6 +1,7 @@
 package com.database.p_mainboard.dto;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,5 +21,6 @@ public class MainboardDTO {
   private String mb_regdate;
   private int mb_status;
   private int mb_price;
+  private MultipartFile file;
   private String mb_image;
 }

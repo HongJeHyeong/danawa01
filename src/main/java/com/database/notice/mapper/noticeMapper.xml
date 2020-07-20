@@ -9,6 +9,9 @@
 	<select id="countAll" resultType="int">
 select count(*) from notice
 	</select>
-
+	
+	<select id="list" resultType="noticeDTO" parameterType="noticeDTO">
+	select * from notice where notice_no between #{start} and #{end}
+	</select>
 
 </mapper>		 
