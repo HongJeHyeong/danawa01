@@ -1,7 +1,6 @@
 
 <%@ tag language="java" pageEncoding="UTF-8" body-content="empty"
 	trimDirectiveWhitespaces="true" trimDirectiveWhitespaces="true"%>
-<%@ attribute name="color"%>
 <%@ attribute name="grade" type="java.lang.Integer" required="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -20,6 +19,10 @@
 	<!--  ......................................................................-->
 	<c:if test="${ grade>=2 }">
 		<a href="#">관리자</a>
+	</c:if>
+	<!--  ......................................................................-->
+	<c:if test="${ grade==null || grade<1 }">
+		<a href="./login">로그인</a>
 	</c:if>
 	<!--  ......................................................................-->
 
