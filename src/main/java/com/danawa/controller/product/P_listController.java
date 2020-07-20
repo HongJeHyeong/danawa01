@@ -173,7 +173,10 @@ public class P_listController {
 		return "/p_list/ramSearch";
 	}
 	@RequestMapping("/ramList")
-	public ModelAndView ramList(@RequestParam String volume) {
+	public ModelAndView ramList(@RequestParam int volume) {
+		
+		  System.out.println("@RequestParam  "+volume);
+		
 		List<RamDTO> list = p_ramDAO.getRamList(volume);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list",list);

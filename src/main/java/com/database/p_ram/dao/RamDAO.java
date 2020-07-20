@@ -26,7 +26,9 @@ public class RamDAO extends SqlSessionDaoSupport {
   }
   //Gcard 상세정보 가져오기 ------------------------------------------------------------------------
   
-  public List<RamDTO> getRamList(String volume){
+  public List<RamDTO> getRamList(int volume){
+	  
+	  System.out.println("dao  "+volume);
 	  return sqlSession.selectList("p_ram.ramList", volume);
   }
 }

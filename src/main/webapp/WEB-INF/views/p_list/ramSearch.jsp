@@ -5,11 +5,11 @@
             <!--상품내 구분-->
             <div class="w3-green">
                 <select class="w3-input w90" name="" id="itemSel" onchange="changeRamCategory(this)">
-                    <option value="전체">전체</option>
-                    <option value="ram4">ram4</option>
-                    <option value="ram8">ram8</option>
-                    <option value="ram16">ram16</option>
-                    <option value="ram32">ram32</option>
+                    <option value="0">전체</option>
+                    <option value="4">ram4</option>
+                    <option value="8">ram8</option>
+                    <option value="16">ram16</option>
+                    <option value="32">ram32</option>
                 </select>
             </div>
             <!--상품 제목 검색창-->

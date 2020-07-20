@@ -163,16 +163,6 @@ function changeMainboardCategory(e) {
 function changeRamCategory(e) {
   var it = e.value;
 
-  if (it === "전체") {
-    $("#itemList").load("./ramList?volume=");
-  } else if (it === "ram4") {
-    $("#itemList").load("./ramList?volume=4");
-  } else if (it === "ram8") {
-    $("#itemList").load("./ramList?volume=8");
-  } else if (it === "ram16") {
-    $("#itemList").load("./ramList?volume=16");
-  } else if (it === "ram32") {
-    $("#itemList").load("./ramList?volume=32");
-  }
+    $("#itemList").load("./ramList?volume="+it);
 }
 /* =============================================================================================================== */
