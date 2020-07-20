@@ -105,7 +105,7 @@ function checked() {
 						<button type="button" class="w3-button w3-xlarge fa fa-male" onclick="w3_open()"></button>
 					</c:if>
 					<div class="w3-col w3-right" style="width: 100px;">
-							<button type="button" onclick="#"
+							<button type="button" 
 								class="w3-button w3-baemint" style="margin-top:10px">주문내역</button>
 						</div>
 					

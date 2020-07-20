@@ -26,6 +26,15 @@ public class PowerDAO extends SqlSessionDaoSupport {
   }
   //Power 상세정보 가져오기 ------------------------------------------------------------------------
   
+  // Power 정보 입력하기
+  // ------------------------------------------------------------------------
+  public void insertPower(PowerDTO powerDTO) {
+    sqlSession.insert("p_power.insertPower", powerDTO);
+  }
+  // Power 정보 입력하기
+  // ------------------------------------------------------------------------
+
+  
   public List<PowerDTO> getPowerList(int capacity){
 	  return sqlSession.selectList("p_power.powerList",capacity);
   }

@@ -16,6 +16,12 @@ select count(*) from p_mainboard
 	</select>
 	<!-- Mainboard 상세정보 구하기 -->
 	
+		<!-- Mainboard 정보 입력하기 -->
+	<insert id="insertMainboard">
+	INSERT INTO p_mainboard(mb_name, mb_company, mb_socket, mb_chipset, mb_ramslot, mb_regdate, mb_price, mb_image)
+	VALUES(#{mb_name},#{mb_company},#{mb_socket},#{mb_chipset},#{mb_ramslot},now(),#{mb_price},#{mb_image})
+	</insert>
+	<!-- Mainboard 정보 입력하기 -->
 	
 	<!-- Mainboard socketList -->
 	<select id="mainboardSocketList" resultType="String">
