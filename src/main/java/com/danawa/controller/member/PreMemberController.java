@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,21 +25,15 @@ import com.database.member.dto.MemberDTO;
 @Controller
 @RequestMapping("/PreMember")
 public class PreMemberController {
+	
 	@Autowired
 	private MemberDAO memberDAO ;
 	
 	
 	
-	@RequestMapping("/myPage")
-	public String myPage() {
-		
-		return "member/mypage";
-	}
-	
-	
-	@RequestMapping("/inputForm")
-	public String inputForm(MemberDTO dto) {
-		memberDAO.inputForm(dto);
+	@RequestMapping("/inputMem")
+	public String inputMem(MemberDTO dto) {
+		memberDAO.inputMem(dto);
 		
 		return "/member/login";
 	}
@@ -67,13 +62,15 @@ public class PreMemberController {
 	
 	
 	@RequestMapping("/logout")
-	public void logout() {
+	public String logout() {
 		System.out.println("Logout 진입성공");
 		
 		//1.파라미터받기
 		//2.비지니스로직(<->Service<->DAO<->myBatis<->DB)
 		//3.Model
 		//4.View
+		return "member/login";
+		
 	}
 	//http://localhost/app/member/loginProc
 	@RequestMapping("/loginProc")

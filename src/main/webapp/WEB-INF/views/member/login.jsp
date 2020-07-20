@@ -83,22 +83,22 @@
 
 			
 				<div style="color:white">
-					<form action="../PreMember/loginProc" method="POST" name="loginForm">
+					<form action="./PreMember/loginProc" method="POST" name="loginForm">
 						<!-- ------------------------------------------------------------- -->
 						<label class="w3-left w3-section">아이디</label>
 						<!-- ------------------------------------------------------------- -->
-						<input type="text" class="w3-input" name="member_id" id="member_id" />
+						<input type="text" class="w3-input" name="member_id" id="member_id"  required/>
 						<!-- ------------------------------------------------------------- -->
 						<label class="w3-left w3-section">비밀번호</label>
 						<!-- ------------------------------------------------------------- -->
-						<input type="password" class="w3-input" style="font-family: Arial, Helvetica, sans-serif;" name="member_pw" id="member_pw" />
+						<input type="password" class="w3-input" style="font-family: Arial, Helvetica, sans-serif;" required name="member_pw" id="member_pw" />
 						<!-- ------------------------------------------------------------- -->
 
 						<div class="grid w3-section">
 							<button class="w3-button  w3-border" type="submit" style="color:#45c1bf">
 								로그인</button>
 							<button class="w3-button  w3-border" type="button" style="color:#45c1bf"
-								onClick="location.href='../PreMember/join'">
+								onClick="location.href='./PreMember/join'">
 								회원가입</button>
 						</div>
 					</form>

@@ -5,8 +5,8 @@ import java.util.Date;
 import org.apache.ibatis.type.Alias;
 
 import lombok.Getter;
-import lombok.ToString;
 import lombok.Setter;
+import lombok.ToString;
 
 
 @Getter
