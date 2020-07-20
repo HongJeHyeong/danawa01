@@ -10,6 +10,17 @@
 		select count(*) from p_case
 	</select>
 	
+		<!-- Case 정보 불러오기 -->	
+	<select id="getCaseInfo" resultType="caseDTO" parameterType="int">
+		SELECT * FROM p_case WHERE case_no = #{case_no}
+	</select>
+
+	<!-- Case 정보 입력하기 -->
+	<insert id="insertCase">
+	INSERT INTO p_case(case_name, case_company, case_gc_length, case_regdate, case_price, case_image)
+	VALUES(#{case_name},#{case_company},#{case_gc_length},now(),#{case_price},#{case_image})
+	</insert>
+	
 	<!-- case_gc_length ? 이상 값// WHERE case_gc_length <= ? -->
 	<select id="caseList" parameterType="int" resultType="caseDTO">
 	SELECT *

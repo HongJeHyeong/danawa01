@@ -1,6 +1,7 @@
 package com.database.p_gcard.dto;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,5 +21,6 @@ public class GcardDTO {
   private String gc_regdate;
   private int gc_status;
   private int gc_price;
+  private MultipartFile file;
   private String gc_image;
 }

@@ -60,7 +60,7 @@ public class PreMemberController {
 	}
 	
 	
-	
+/*	
 	@RequestMapping("/logout")
 	public String logout() {
 		System.out.println("Logout 진입성공");
@@ -71,7 +71,7 @@ public class PreMemberController {
 		//4.View
 		return "member/login";
 		
-	}
+	}*/
 	//http://localhost/app/member/loginProc
 	@RequestMapping("/loginProc")
 	public ModelAndView loginProc(MemberDTO memberDTO,HttpSession session) {
