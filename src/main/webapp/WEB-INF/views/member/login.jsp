@@ -87,11 +87,11 @@
 						<!-- ------------------------------------------------------------- -->
 						<label class="w3-left w3-section">아이디</label>
 						<!-- ------------------------------------------------------------- -->
-						<input type="text" class="w3-input" name="member_id" id="member_id" />
+						<input type="text" class="w3-input" name="member_id" id="member_id"  required/>
 						<!-- ------------------------------------------------------------- -->
 						<label class="w3-left w3-section">비밀번호</label>
 						<!-- ------------------------------------------------------------- -->
-						<input type="password" class="w3-input" style="font-family: Arial, Helvetica, sans-serif;" name="member_pw" id="member_pw" />
+						<input type="password" class="w3-input" style="font-family: Arial, Helvetica, sans-serif;" required name="member_pw" id="member_pw" />
 						<!-- ------------------------------------------------------------- -->
 
 						<div class="grid w3-section">
