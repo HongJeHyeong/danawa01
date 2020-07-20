@@ -10,6 +10,17 @@
 		select count(*) from p_disk
 	</select>
 	
+		<!-- Disk 정보 불러오기 -->	
+	<select id="getDiskInfo" resultType="diskDTO" parameterType="int">
+		SELECT * FROM p_disk WHERE disk_no = #{disk_no}
+	</select>
+
+	<!-- Disk 정보 입력하기 -->
+	<insert id="insertDisk">
+	INSERT INTO p_disk(disk_category, disk_name, disk_company, disk_type, disk_volume, disk_regdate, disk_price, disk_iamge)
+	VALUES(#{disk_category},#{disk_name},#{disk_company},#{disk_type},#{disk_volume},now(),#{disk_price},#{disk_image})
+	</insert>
+	
 	<!-- disk_status=0 인것중에서 SSD,HDD 중 볼륨 작은것 정렬후 가격낮은순 -->
 	<select id="diskList" parameterType="String" resultType="diskDTO">
 	SELECT *
