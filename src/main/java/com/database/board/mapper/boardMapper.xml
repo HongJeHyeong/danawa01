@@ -7,8 +7,31 @@
 
 	<!-- for test -->
 	<select id="countAll" resultType="int">
-select count(*) from member
+select count(*) from board
 	</select>
+
+
+
+	<!-- 글 목록 조회 -->
+	<select id="boardList" resultType="int">
+		SELECT 
+		board_no,
+		member_id,
+		board_title,
+		board_regdate,
+		board_hit,
+		assem_total_price
+		FROM board , member
+		WHERE board.fk_member_no = member.member_no;
+	</select>
+
+	<!-- 조회수증가 -->
+	<update id="hitUp" parameterType="int">
+		UPDATE board
+		SET    b_hit = b_hit+1
+		WHERE  b_No  = #{oriNo} 
+	</update>
+
 
 
 </mapper>		 
