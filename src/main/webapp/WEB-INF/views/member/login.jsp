@@ -83,7 +83,7 @@
 
 			
 				<div style="color:white">
-					<form action="../PreMember/loginProc" method="POST" name="loginForm">
+					<form action="./PreMember/loginProc" method="POST" name="loginForm">
 						<!-- ------------------------------------------------------------- -->
 						<label class="w3-left w3-section">아이디</label>
 						<!-- ------------------------------------------------------------- -->
@@ -98,7 +98,7 @@
 							<button class="w3-button  w3-border" type="submit" style="color:#45c1bf">
 								로그인</button>
 							<button class="w3-button  w3-border" type="button" style="color:#45c1bf"
-								onClick="location.href='../PreMember/join'">
+								onClick="location.href='./PreMember/join'">
 								회원가입</button>
 						</div>
 					</form>
