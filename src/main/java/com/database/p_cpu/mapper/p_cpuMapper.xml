@@ -9,6 +9,18 @@
 	<select id="countAll" resultType="int">
 select count(*) from p_cpu
 	</select>
-
-
+	
+	<!-- Cpu 정보 불러오기 -->	
+	<select id="getCpuInfo" resultType="com.database.p_cpu.dto.CpuDTO" parameterType="int">
+		SELECT * FROM p_cpu WHERE cpu_no = #{cpu_no}
+	</select>
+	
+	<!-- cpuList -->
+	<select id="cpuList" parameterType="String" resultType="cpuDTO">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_cpu WHERE cpu_status=0) p_cpu
+	WHERE cpu_company like CONCAT('%', #{cpu_company})
+	ORDER BY cpu_clock,cpu_price,cpu_company
+	</select>
 </mapper>		 

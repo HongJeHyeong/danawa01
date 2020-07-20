@@ -1,1 +1,101 @@
 김석근
+/* 
+---------------------------------------Q&A-----------------------------------------------
+CREATE TABLE `qna` (
+	`qna_no` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`qna_desc` BIGINT(20) NOT NULL COMMENT '글 순서',
+	`qna_title` VARCHAR(60) NOT NULL COLLATE 'utf8_general_ci',
+	`qna_content` TEXT(65535) NOT NULL COLLATE 'utf8_general_ci',
+	`qna_regdate` DATETIME NOT NULL,
+	`fk_member_no` BIGINT(20) NOT NULL,
+	`qna_reply_cnt` TINYINT(20) NOT NULL DEFAULT '0' COMMENT '(원글) 답변이 달렸는가',
+	PRIMARY KEY (`qna_no`) USING BTREE,
+	INDEX `FK_member_TO_QNA` (`fk_member_no`) USING BTREE,
+	CONSTRAINT `FK_member_TO_QNA` FOREIGN KEY (`fk_member_no`) REFERENCES `danawa`.`member` (`member_no`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COMMENT='1질문 1답글'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+---------------------------------------답글-----------------------------------------------
+CREATE TABLE `qna_reply` (
+	`q_reply_no` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`q_reply_qna_no` BIGINT(20) NOT NULL,
+	`q_reply_content` TEXT(65535) NOT NULL COLLATE 'utf8_general_ci',
+	`q_reply_regdate` DATETIME NOT NULL,
+	PRIMARY KEY (`q_reply_no`) USING BTREE,
+	INDEX `FK_QNA_TO_QNA_reply` (`q_reply_qna_no`) USING BTREE,
+	CONSTRAINT `FK_QNA_TO_QNA_reply` FOREIGN KEY (`q_reply_qna_no`) REFERENCES `danawa`.`qna` (`qna_no`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COMMENT='관리자만 댓글을 달수 있다.'
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+---------------------------------------멤버-----------------------------------------------
+CREATE TABLE `member` (
+	`member_no` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`member_id` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci',
+	`member_pw` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci',
+	`member_name` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci',
+	`member_email` VARCHAR(30) NOT NULL COLLATE 'utf8_general_ci',
+	`member_tel1` VARCHAR(9) NOT NULL COLLATE 'utf8_general_ci',
+	`member_tel2` VARCHAR(12) NOT NULL COLLATE 'utf8_general_ci',
+	`member_tel3` VARCHAR(12) NOT NULL COLLATE 'utf8_general_ci',
+	`member_addr` VARCHAR(90) NOT NULL COLLATE 'utf8_general_ci',
+	`member_addr2` VARCHAR(90) NOT NULL COLLATE 'utf8_general_ci',
+	`member_regdate` DATE NOT NULL,
+	`member_grade` INT(11) NOT NULL DEFAULT '1' COMMENT '1 일반 2 스탭 3 관리자',
+	PRIMARY KEY (`member_no`) USING BTREE,
+	UNIQUE INDEX `UQ_member_id` (`member_id`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+
+*/
+
+-- 리스트(list.do)  no, title, content,  member_id(fk), regdate, reply_cnt
+SELECT qna_no          AS no,
+       qna_title       AS title, 
+       member_id       AS id,
+       qna_regdate     AS regdate,
+       qna_reply_cnt   AS reply_cnt
+FROM   qna, member
+WHERE  qna_no = #{원글번호}
+       AND
+       qna.fk_member_no = member.member_no   
+
+
+-- 답글조회
+--1번글 댓글확인
+SELECT q_reply_qna_no,
+       q_reply_content,
+       q_reply_regdate
+FROM   qna_reply
+WHERE  q_reply_qna_no = #{원글번호}
+
+
+--글쓰기
+insert into qna(qna_title, qna_content, fk_member_no) values(#{글제목}, #{글내용}, #{멤버번호받아옴})
+
+
+--글수정
+UPDATE qna
+SET    qna_title=#{글수정제목},
+       qna_content=#{글수정내용}
+where  qna_no = #{원글번호}
+commit;
+
+
+--답글수정
+UPDATE qna_reply
+SET    q_reply_content=#{답글수정내용}
+WHERE  q_reply_no=#{답글번호}
+
+--상세보기
+
+
+
+

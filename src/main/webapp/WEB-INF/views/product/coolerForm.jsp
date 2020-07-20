@@ -85,10 +85,10 @@
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="농협 촤라락">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="128000">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${coolerDTO.cooler_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${coolerDTO.cooler_price}">
 
-  <input type="text" name="hdn_value" id="hdncompany" class="put_select" value="Antec">
-  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="air cooling">
+  <input type="text" name="hdn_value" id="hdncompany" class="put_select" value="${coolerDTO.cooler_company}">
+  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="${coolerDTO.cooler_type}">
   <!-- input hidden 파트 -->
 </form>
