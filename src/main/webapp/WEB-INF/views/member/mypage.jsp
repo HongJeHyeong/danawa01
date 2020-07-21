@@ -182,7 +182,7 @@ function checked() {
 
 							<div class="w3-col s6">
 								<input class="w3-button w3-baemint w3-block" type="button" value="로그아웃"
-									onClick="location='../logout'">
+									onClick="location='../PreMember/logout'">
 							</div>
 						</div>
 					</div>
