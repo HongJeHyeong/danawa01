@@ -64,24 +64,5 @@ public class MainController {
 		System.out.println(" Insert Session 3  ");
 		System.out.println("");
 	}
-	@RequestMapping("/login")
-	public String Login(HttpSession session) {
-	  System.out.println("login진입성공");
-		//1.파라미터받기
-		//2.비지니스로직(<->Service<->DAO<->myBatis<->DB)
-		//3.Model
-		//4.View
-	  return "/member/login";
-	}
-	
-	@RequestMapping("/logout")
-	public String logout() {
-		System.out.println("Logout 진입성공");
-		
-		//1.파라미터받기
-		//2.비지니스로직(<->Service<->DAO<->myBatis<->DB)
-		//3.Model
-		//4.View
-		return "member/logout";
-	}
+
 }
