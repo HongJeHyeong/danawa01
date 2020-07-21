@@ -26,4 +26,7 @@ SELECT
 	<update id="update" parameterType="noticeDTO">
 		update notice set notice_title=#{notice_title},notice_regdate=#{notice_regdate},notice_enddate=#{notice_enddate},notice_content=#{notice_content} where notice_no=#{notice_no}
 	</update>
+	<insert id="write" parameterType="noticeDTO">
+		insert into notice(notice_title,notice_content,notice_regdate,notice_enddate) values(#{notice_title},#{notice_content},#{notice_regdate},#{notice_enddate})
+	</insert>
 </mapper>		 
