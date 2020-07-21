@@ -2,7 +2,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>RAM ${job}</h4>
-<form action="./insertRam" method="post" name="ramForm">
+<form action="./insertRam" method="post" name="ramForm" encType="multipart/form-data" id="ramForm">
+
+<c:if test="${ramDTO.ram_no!=null}">
+<input type="hidden" value="${ramDTO.ram_no}" name="ram_no" id="ram_no">
+</c:if>
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -94,10 +100,10 @@
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
   <c:choose>
   	<c:when test="${job eq '수정 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-yellow button-80" onsubmit="SubmitForm('./updateRam?ram_no${ramDTO.ram_no}')">수정
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormRam()">수정
   	</button></c:when>
   	<c:when test="${job eq '등록 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80" onsubmit="SubmitForm('./insertRam')">등록
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
   	</button></c:when>
   </c:choose>
   </div>

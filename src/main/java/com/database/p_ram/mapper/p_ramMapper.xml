@@ -20,6 +20,17 @@ select count(*) from p_ram
 	VALUES(#{ram_name},#{ram_company},#{ram_volume},#{ram_clock},now(),#{ram_price},#{ram_image})
 	</insert>
 	<!-- Ram 정보 입력하기 -->
+	
+	<!-- Ram 정보 수정하기 -->
+	<update id="updateRam">
+	UPDATE p_ram SET	ram_name = #{ram_name},
+						ram_company = #{ram_company},
+						ram_volume = #{ram_volume},
+						ram_clock = #{ram_clock},
+						ram_price = #{ram_price},
+						ram_image = #{ram_image}
+	WHERE ram_no = #{ram_no}
+	</update>
 
 	<!-- ramList -->
 	<select id="ramList" resultType="ramDTO">

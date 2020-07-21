@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.database.p_case.dto.CaseDTO;
 import com.database.p_cooler.dto.CoolerDTO;
 
 public class CoolerDAO extends SqlSessionDaoSupport {
@@ -25,6 +26,12 @@ public class CoolerDAO extends SqlSessionDaoSupport {
 	  return coolerDTO;
   }
   //Cooler 상세정보 가져오기 ------------------------------------------------------------------------
+  
+	// Cooler 정보 수정하기 ---------------------------------------------------------
+	public void updateCooler(CoolerDTO coolerDTO) {
+		sqlSession.update("p_cooler.updateCooler", coolerDTO);
+	}
+	// Cooler 정보 수정하기 ---------------------------------------------------------
   
   // Cooler 정보 입력하기
   // ------------------------------------------------------------------------
