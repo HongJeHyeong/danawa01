@@ -29,5 +29,48 @@
 	WHERE disk_category like CONCAT('%', #{category})
 	ORDER BY disk_type,disk_volume,disk_price
 	</select>
-
+	
+	<!-- ssd volume 정렬-->
+<!-- 	<select id="ssdVolumeList" resultType="int">
+	SELECT disk_volume
+	FROM p_disk
+	WHERE disk_category="ssd"
+	GROUP BY disk_volume asc
+	ORDER BY disk_volume
+	</select> -->
+	
+	
+	<!-- ssdList -->
+	<select id="ssdList" parameterType="int" resultType="diskDTO">
+	SELECT *
+	FROM 
+	(SELECT * FROM p_disk WHERE disk_status = 0) p_disk
+	<if test='value!=0'>
+	WHERE disk_volume BETWEEN #{value} AND #{value}*2-1
+	</if>
+	ORDER BY disk_volume,disk_price,disk_type
+	</select>	
+	
+	
+	<!-- hdd volume 정렬-->
+<!-- 	<select id="hddVolumeList" resultType="int">
+	SELECT disk_volume
+	FROM p_disk
+	WHERE disk_category="hdd"
+	GROUP BY disk_volume asc
+	ORDER BY disk_volume
+	</select> -->
+	
+	
+	<!-- disk_status=0 인것중에서 HDD-->
+	<select id="hddList" parameterType="int" resultType="diskDTO">
+	SELECT *
+	FROM 
+	(SELECT * FROM p_disk WHERE disk_status = 0) p_disk
+	<if test='value!=0'>
+	WHERE disk_volume BETWEEN #{value} AND #{value}*2-1
+	</if>
+	ORDER BY disk_volume,disk_price,disk_type
+	</select>
+	
 </mapper>		 

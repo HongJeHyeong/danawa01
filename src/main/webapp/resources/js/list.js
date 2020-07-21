@@ -51,13 +51,29 @@ function changeDiskCategory(e) {
   var it = e.value; // 전체,SSD,HDD
   console.log(it);
 
-  if (it === "전체") {
-    $("#itemList").load("./diskList?category=");
-  } else if (it === "SSD") {
-    $("#itemList").load("./diskList?category=" + it);
-  } else if (it === "HDD") {
-    $("#itemList").load("./diskList?category=" + it);
-  }
+    $("#itemList").load("./diskList?category="+it);
+  
+}
+
+/* =============================================================================== */
+// SSD
+/* =============================================================================================================== */
+function changeSsdCategory(e) {
+	var it = e.value;
+	console.log(it);
+	
+	$("#itemList").load("./ssdList?volume="+it);
+	
+}
+
+/* =============================================================================== */
+// HDD
+/* =============================================================================================================== */
+function changeHddCategory(e) {
+	var it = e.value;
+	console.log(it);
+	$("#itemList").load("./hddList?volume="+it);
+	
 }
 
 /* =============================================================================== */
@@ -65,14 +81,7 @@ function changeDiskCategory(e) {
 /* =============================================================================================================== */
 function changeCoolerCategory(e) {
   var it = e.value;
-
-  if (it === "전체") {
-    $("#itemList").load("./coolerList?type=");
-  } else if (it === "공냉") {
     $("#itemList").load("./coolerList?type="+it);
-  } else if (it === "수냉") {
-    $("#itemList").load("./coolerList?type="+it);
-  }
 }
 
 /* =============================================================================================================== */
@@ -103,14 +112,7 @@ function changeCaseCategory() {
 // cpu
 function changeCpuCategory(e) {
   var it = e.value;
-
-  if (it === "전체") {
-    $("#itemList").load("./cpuList?company=");
-  } else if (it === "AMD") {
     $("#itemList").load("./cpuList?company="+it);
-  } else if (it === "Intel") {
-    $("#itemList").load("./cpuList?company="+it);
-  }
 }
 /* =============================================================================================================== */
 

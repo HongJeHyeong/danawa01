@@ -82,6 +82,6 @@ public class MainController {
 		//2.비지니스로직(<->Service<->DAO<->myBatis<->DB)
 		//3.Model
 		//4.View
-		return "member/login";
+		return "member/logout";
 	}
 }
