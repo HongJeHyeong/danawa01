@@ -7,7 +7,7 @@
 		<div class="w3-card w3-padding-4 item">
 			<div class="w3-row">
 				<div class="w3-col" style="width: 70px;">
-					<img width="100%" src="${dto.cooler_image}">
+					<img width="70px;" src="${dto.cooler_image}">
 				</div>
 				<div class="w3-rest">
 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -75,18 +76,16 @@ public class ProductController {
 	// ---------------------------------------------------------------------------------------------------------
 	// CPU
 	@RequestMapping("/cpuForm")
-	public ModelAndView cpuForm(HttpServletRequest request) {
+	public ModelAndView cpuForm(@RequestParam(required=false) int cpu_no) {
 		System.out.println("ProductController의 cpuForm() 메소드 호출 ----");
 		ModelAndView mv = new ModelAndView();
 		
-		String str_cpu_no = request.getParameter("cpu_no");
-		System.out.println("ProductController의 cpuForm()의 cpu_no String 값="+str_cpu_no);
+		System.out.println("ProductController의 cpuForm()의 cpu_no String 값="+cpu_no);
 		
-		if(str_cpu_no == null) {
+		if(cpu_no == 0) {
 			mv.addObject("job", "등록 페이지");
 			
 		}else {
-			int cpu_no = Integer.parseInt(str_cpu_no);
 			System.out.println("ProductController의 cpuForm()의 cpu_no 값="+cpu_no);
 			
 			CpuDTO cpuDTO = cpuDAO.getCpuInfo(cpu_no);
@@ -143,7 +142,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/updateCpu")
-	public ModelAndView updateProc(CpuDTO cpuDTO) {
+	public ModelAndView updateCpu( CpuDTO cpuDTO) {
 		System.out.println("ProductController의 updateCpu() 메소드 호출 ----");
 		System.out.println("ProductController의 updateCpu()의 cpuDTO 값="+cpuDTO);
 		ModelAndView mv = new ModelAndView();
@@ -167,7 +166,7 @@ public class ProductController {
 		String saveName = FileUtil.rename(path, changeName);
 		System.out.println(saveName);
 		
-		File file = new File(path+saveName);
+		File file = new File(path,saveName);
 		
 		try {
 			cpuDTO.getFile().transferTo(file);
@@ -253,6 +252,49 @@ public class ProductController {
 		RedirectView rv = new RedirectView("../product/bbb");
 		
 		mv.setView(rv);
+		return mv;
+	}
+	
+	@RequestMapping("/updateMainboard")
+	public ModelAndView updateMainboard(MainboardDTO mainboardDTO) {
+		System.out.println("ProductController의 updateMainboard() 메소드 호출 ----");
+		System.out.println("ProductController의 updateMainboard()의 mainboardDTO 값="+mainboardDTO);
+		ModelAndView mv = new ModelAndView();
+		
+		String path = "D:\\danawaImages\\mainboard";
+		
+		String oriName = mainboardDTO.getFile().getOriginalFilename();
+		//원본파일명
+		
+		int endIndex = oriName.lastIndexOf(".");
+		//원본파일명 aa.png 인덱스 
+		
+		String fileN = "MAINBOARD";
+		//파일명을 CPU로 변환하기 위한 변수명
+		String extN = oriName.substring(endIndex+1);
+		//파일확장자 변수명
+		
+		String changeName = fileN+"."+extN;
+		//새로운 파일명으로 바뀐 변수
+		
+		String saveName = FileUtil.rename(path, changeName);
+		System.out.println(saveName);
+		
+		File file = new File(path,saveName);
+		
+		try {
+			mainboardDTO.getFile().transferTo(file);
+		} catch (Exception e) {
+			System.out.println("파일 복사 에러=" + e);
+		}
+		
+		mainboardDTO.setMb_image(saveName);
+		
+		mainboardDAO.updateMainboard(mainboardDTO);
+		
+		RedirectView rv = new RedirectView("../product/bbb");
+		mv.setView(rv);
+		
 		return mv;
 	}
 	

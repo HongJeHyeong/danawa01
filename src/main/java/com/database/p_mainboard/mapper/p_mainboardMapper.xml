@@ -23,6 +23,19 @@ select count(*) from p_mainboard
 	</insert>
 	<!-- Mainboard 정보 입력하기 -->
 	
+	<!-- Mainboard 정보 수정하기 -->
+	<update id="updateMainboard" parameterType="mainboardDTO">
+	UPDATE p_mainboard SET	mb_name =		#{mb_name},
+							mb_company = 	#{mb_company},
+							mb_socket = 	#{mb_socket},
+							mb_chipset = 	#{mb_chipset},
+							mb_ramslot =	#{mb_ramslot},
+							mb_price = 		#{mb_price},
+							mb_image =		#{mb_image}
+	WHERE mb_no = #{mb_no}
+	</update>	
+	<!-- Mainboard 정보 수정하기 -->
+	
 	<!-- Mainboard socketList -->
 	<select id="mainboardSocketList" resultType="String">
 		SELECT mb_socket 
@@ -30,6 +43,8 @@ select count(*) from p_mainboard
 		GROUP BY mb_socket asc
 		ORDER BY mb_socket
 	</select>
+	<!-- Mainboard socketList -->
+	
 	
 	<!-- Mainboard List  -->
 	
