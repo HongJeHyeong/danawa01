@@ -149,7 +149,7 @@
 				<!-- formformformformformformformformform -->
 				<script>
 					function back2index() {
-						location.href = "../login";
+						location.href = "../PreMember/login";
 					}
 
 					

@@ -8,7 +8,7 @@
 </head>
 <body>
 <% session.invalidate();
-response.sendRedirect("./login");
+response.sendRedirect("../PreMember/login");
 %>  
 </body>
 </html>
