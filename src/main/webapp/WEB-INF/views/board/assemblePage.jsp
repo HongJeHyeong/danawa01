@@ -11,7 +11,7 @@
   <!-- CDN - W3CSS -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- CDN - sw_topNav.css -->
-  <link rel="stylesheet" href="https://storage.googleapis.com/sw-css/css/sw-1.0.0.css">
+  <link rel="stylesheet" href="https://swsw1005.github.io/css/sw-1.0.0.css">
   <!-- CDN - swiper -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 
@@ -20,10 +20,13 @@
   <!-- CDN - Google Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-
-
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list.css" />
-
+  <script src="${pageContext.request.contextPath}/resources/js/p_list.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/p_list.css" />
+  <!-- <link rel="stylesheet" href="https://swsw1005.github.io/css/p_list.css" /> -->
+  <!-- CDN - jquery 3.4.1 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <!-- <script src="https://swsw1005.github.io/js/p_list.js"></script> -->
 
   <style>
     .pre_line {
@@ -36,7 +39,7 @@
     }
 
     #tab2 {
-      /* background: blue; */
+      background: blue;
       /* height: 1700px; */
     }
 
@@ -179,7 +182,8 @@
             <div class="w3-margin w3-padding w3-border w3-round-large">
               <div class="w3-row">
                 <span class="w3-left w3-large w3-bold" onclick="goTab1('mainboard')">&lt; MainBoard</span>
-                <span id="mainboard_price" class="w3-right price1" style="margin-top: 5px;"><strong>123.450</strong></span>
+                <span id="mainboard_price" class="w3-right price1"
+                  style="margin-top: 5px;"><strong>123.450</strong></span>
               </div>
               <div id="mainboard_name" class="w3-large w3-section pre_line">ASUS TUF Z390-PLUS GAMING 아이보라</div>
               <div id="mainboard_info" class="w3-small pre_line">인텔(소켓1151v2)/(인텔) Z390/ATX (30.5x24.4cm)/DDR4/메모리 용량:최대
@@ -435,6 +439,17 @@
           }, 500);
         }
 
+
+
+        function catogory_change() {
+          var a1 = document.getElementById("category_selecter").value;
+          console.log(a1);
+          a1 += "Search";
+          console.log(a1);
+          $("#searchFormHere").load("../p_list/" + a1);
+
+        }
+
       </script>
 
 
@@ -458,10 +473,7 @@
   <tf:TopNav grade="${grade}" />
 
 
-  <!-- CDN - jquery 3.4.1 -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/js/p_list.js"></script>
+
 </body>
 
 </html>
