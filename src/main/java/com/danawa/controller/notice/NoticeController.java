@@ -76,6 +76,21 @@ public class NoticeController {
 		RedirectView rv=new RedirectView("../notice/content");
 		mv.setView(rv);
 		return mv;
+	}
+	@RequestMapping("/writeForm")
+	public void wirteForm() {
 		
 	}
+	@RequestMapping("/writeProc")
+	public ModelAndView wirteForm(NoticeDTO dto) {
+		
+		noticeDAO.write(dto);
+		
+		ModelAndView mv= new ModelAndView();
+		RedirectView rv=new RedirectView("../notice/list");
+		mv.setView(rv);
+		return mv;
+		
+	}
+	
 }
