@@ -13,20 +13,22 @@
 
 					<div class="w3-large itemInner">${dto.cooler_name}</div>
 					<div class="">
-						<span class="w3-left"><fmt:formatNumber value="${dto.cooler_price}" type="currency" /></span><span class="w3-right">
+						<span class="w3-left">
+							<fmt:formatNumber value="${dto.cooler_price}" type="currency" /></span><span
+							class="w3-right">
 							<button type="button" class="w3-button w3-round-large w3-cyan">&gt;</button>
 						</span>
 					</div>
 				</div>
 				<div class="w3-col w3-red itemContent" style="white-space: normal;">
-				<span>회사:${dto.cooler_company}</span>/
-				<c:if test="${dto.cooler_type eq '공냉'}">
-				<span class="w3-label w3-green">${dto.cooler_type}</span>
-				</c:if>
-				<c:if test="${dto.cooler_type eq '수냉'}">
-				<span class="w3-label w3-blue">${dto.cooler_type}</span>
-				</c:if>
-				/<span>등록일: ${dto.cooler_regdate}</span>
+					<span>회사:${dto.cooler_company}</span>/
+					<c:if test="${dto.cooler_type eq '공냉'}">
+						<span class="w3-tag w3-green">${dto.cooler_type}</span>
+					</c:if>
+					<c:if test="${dto.cooler_type eq '수냉'}">
+						<span class="w3-tag w3-blue">${dto.cooler_type}</span>
+					</c:if>
+					/<span>등록일: ${dto.cooler_regdate}</span>
 				</div>
 			</div>
 		</div>
