@@ -83,7 +83,43 @@ function updateFormLoadValue() {
   }
 }
 //------------------------------------------------------------------------------
-function SubmitForm(callUrl) {
-  window.location = callUrl;
-  alert(callUrl);
+function submitFormCpu() {
+	var form = document.getElementById("cpuForm");
+	form.action="./updateCpu";
+	form.submit();
+}
+function submitFormMb() {
+	var form = document.getElementById("mainboardForm");
+	form.action="./updateMainboard";
+	form.submit();
+}
+function submitFormGc() {
+	var form = document.getElementById("gcardForm");
+	form.action="./updateGcard";
+	form.submit();
+}
+function submitFormRam() {
+	var form = document.getElementById("ramForm");
+	form.action="./updateRam";
+	form.submit();
+}
+function submitFormDisk() {
+	var form = document.getElementById("diskForm");
+	form.action="./updateDisk";
+	form.submit();
+}
+function submitFormPower() {
+	var form = document.getElementById("powerForm");
+	form.action="./updatePower";
+	form.submit();
+}
+function submitFormCase() {
+	var form = document.getElementById("caseForm");
+	form.action="./updateCase";
+	form.submit();
+}
+function submitFormCooler() {
+	var form = document.getElementById("coolerForm");
+	form.action="./updateCooler";
+	form.submit();
 }

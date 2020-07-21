@@ -39,7 +39,7 @@
 	margin: 0px;
 	padding: 0px;
 }
-ul{
+/* ul{
    list-style:none;
    }
 .noticediv {
@@ -48,8 +48,51 @@ ul{
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.rows{
+	cursor:pointer;
+} */
+
+    #aa {
+            margin: auto;
+            max-width: 700px;
+        }
+
+
+        .row {
+            /* border: 1px solid cyan; */
+            margin: 5px 7px;
+            cursor:pointer;
+        }
+
+        .row1 {
+            display: grid;
+            grid-template-columns: 1fr 50px;
+            /* background: violet; */
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+
+        .row2 {
+            display: grid;
+            grid-template-columns: 150px 170px;
+            /* background: yellowgreen; */
+            margin: 5px;
+        }
+
+        .title {
+            font-weight: bolder;
+        }
+
 </style>
 <script>
+$(document).ready(function(){
+	$(".row").click(function(){
+		var notice_no = $(this).find("#notice_no").text();
+		var nowPage= $(this).find("#nowPage").val();
+		/* console.log(nowPage + " / "+ no); */
+		location="../notice/content?notice_no="+notice_no+"&nowPage="+nowPage 
+	});
+});
 	
 </script>
 </head>
@@ -69,7 +112,23 @@ ul{
 				<div style="margin-top: 15px;">
 					<h2>공지사항</h2>
 				</div>
-
+				     <c:forEach items="${list}" var="data">
+                    <div id="aa" class="w3-card">
+                        <div class="row" onclick="bbaku(this)">
+                            <input type="hidden" name="nowPage" id="nowPage" value="${nowPage }">
+                            <div class="row1">
+                                <span class="title">${data.notice_title}</span>
+                                <span class="w3-tag" name="notice_no" id="notice_no">${data.notice_no}</span>
+                            </div>
+                            <div class="row2">
+                                <span class="w3-gray-text w3-small"> ${data.notice_regdate} | ${data.notice_enddate} </span>
+                            </div>
+                        </div>
+                        <!-- ................................................................. -->
+                </c:forEach>
+				
+				
+<%-- 
 				<ul class="w3-ul w3-hoverable">
 					<li><div class="noticediv" style="width: 10%;">#</div>
 						<div class="noticediv" style="width: 30%;">제목</div>
@@ -78,13 +137,15 @@ ul{
 						<div class="noticediv" style="width: 20%;">마감일</div>
 						
 				<c:forEach items="${list}" var="data">
-					<li><div class="noticediv" style="width: 10%;">${data.notice_no}</div>
+					<li class="rows">
+						<div class="noticediv" name="notice_no" id="notice_no" style="width: 10%;">${data.notice_no}</div>
+						<input type="hidden" name="nowPage" id="nowPage" value="${nowPage }">
 						<div class="noticediv" style="width: 30%;">${data.notice_title}</div>
 						<div class="noticediv" style="width: 10%;">관리자</div>
 						<div class="noticediv" style="width: 20%;">${data.notice_regdate}</div>
 						<div class="noticediv" style="width: 20%;">${data.notice_enddate}</div></li>
 				</c:forEach>
-					</ul>
+					</ul> --%>
 				
 	<!-- 페이징처리 출력 부분 -->
 <!-- mv.addObject("PAGEINFO",pageInfo); -->
@@ -97,20 +158,17 @@ ul{
 					[Prev]
 				</c:if> --%>
 				
+				<div class="w3-bar">
 				<c:if test="${PAGEINFO.nowPage != 1 }">		 <!--c:if test="${PAGEINFO.nowPage ne 1 }"-->
-					<a href="../notice/list?nowPage=${PAGEINFO.nowPage-1 }"> [Prev]</a>
+					<button class="w3-bar-item w3-button" onclick="location='../notice/list?nowPage=${PAGEINFO.nowPage-1 }'"> &laquo;</a>
 				</c:if>
-				<!-- [1] [2] [3] 출력-->
 				<c:forEach var="count" begin="${PAGEINFO.startPage }" end="${PAGEINFO.endPage }">
-				<a href="../notice/list?nowPage=${count }">[${count}]</a> 
+				<button class="w3-bar-item w3-button" onclick="location='../notice/list?nowPage=${count}'">${count}</button>
 				</c:forEach>
-				<!-- next 출력 -->
-				<%-- <c:if test="${PAGEINFO.nowPage==PAGEINFO.totalPage }">
-				[next]
-				</c:if> --%>
 				<c:if test="${PAGEINFO.nowPage!=PAGEINFO.totalPage }">
-				<a href="../notice/list?nowPage=${PAGEINFO.nowPage+1 }">[next]</a>
+				<button class="w3-bar-item w3-button" onclick="location='../notice/list?nowPage=${PAGEINFO.nowPage-1 }'"> &raquo;</a>
 				</c:if>
+				</div>
 				</td>
 			</tr>
 		</tbody>
@@ -122,7 +180,10 @@ ul{
 			<tr>
 			<td style="text-align:center;">
 			<c:if test="${sessionScope.grade >=2}">
-			<button  type="button" id="wBtn" onclick="location='../board/writeFrm'">글쓰기</button>
+			<div class="w3-bar">
+			<button type="button" class="w3-bar-item w3-button" onclick="location='../notice/writeForm'">글쓰기</button>
+			<!-- <button  type="button" id="wBtn" onclick="location='../board/writeFrm'">글쓰기</button> -->
+			</div>
 			</c:if>
 			</td>
 			</tr>

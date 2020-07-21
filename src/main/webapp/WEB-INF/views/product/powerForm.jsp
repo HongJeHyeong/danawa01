@@ -2,7 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>파워 ${job}</h4>
-<form action="./insertPower" method="post" name="powerForm">
+<form action="./insertPower" method="post" name="powerForm" encType="multipart/form-data" id="powerForm">
+
+<c:if test="${powerDTO.power_no!=null}">
+<input type="hidden" value="${powerDTO.power_no}" name="power_no" id="power_no">
+</c:if>
+
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -86,10 +93,10 @@
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
   <c:choose>
   	<c:when test="${job eq '수정 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-yellow button-80" onsubmit="SubmitForm('./updatePower?power_no${powerDTO.power_no}')">수정
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormPower()">수정
   	</button></c:when>
   	<c:when test="${job eq '등록 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80" onsubmit="SubmitForm('./insertPower')">등록
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
   	</button></c:when>
   </c:choose>
   </div>

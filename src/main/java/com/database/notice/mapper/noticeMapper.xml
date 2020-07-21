@@ -16,4 +16,17 @@ SELECT
   @rownum:=@rownum+1 as row,notice_no,notice_title,notice_content,notice_image,notice_regdate,notice_enddate from notice,(select @rownum:=0) p order by notice_no desc) cnt where cnt.row between #{start} and #{end};
 
 	</select>
+	
+	<select id="content" resultType="noticeDTO" parameterType="int">
+		select * from notice where notice_no=#{notice_no}
+	</select>
+	<delete id="del" parameterType="int">
+		delete from notice where notice_no=#{notice_no}
+	</delete>
+	<update id="update" parameterType="noticeDTO">
+		update notice set notice_title=#{notice_title},notice_regdate=#{notice_regdate},notice_enddate=#{notice_enddate},notice_content=#{notice_content} where notice_no=#{notice_no}
+	</update>
+	<insert id="write" parameterType="noticeDTO">
+		insert into notice(notice_title,notice_content,notice_regdate,notice_enddate) values(#{notice_title},#{notice_content},#{notice_regdate},#{notice_enddate})
+	</insert>
 </mapper>		 
