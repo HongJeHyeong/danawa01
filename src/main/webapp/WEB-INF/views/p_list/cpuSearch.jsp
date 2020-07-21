@@ -27,7 +27,7 @@
 
 
     </div>
-<script src="${pageContext.request.contextPath}/resources/js/list.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/p_list.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/p_list.css"/>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
