@@ -2,7 +2,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>HDD/SSD ${job}</h4>
-<form action="" method="post">
+<form action="./insertDisk" method="post" name="diskForm" encType="multipart/form-data" id="diskForm">
+
+<c:if test="${diskDTO.disk_no!=null}">
+<input type="hidden" value="${diskDTO.disk_no}" name="disk_no" id="disk_no">
+</c:if>
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -109,30 +115,33 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-small"></span>
       </div>
     </div>
   </div>
   <!-- Row 4 종료 -->
 
   <!-- Row 5 시작 -->
-  <div class="w3-row w3-section">
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">등록</button>
-    <button type="reset" class="w3-button w3-round button-80 w3-border w3-right w3-teal">재작성</button>
+    <div class="w3-row w3-section">
+    <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormDisk()">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
+  	</button></c:when>
+  </c:choose>
   </div>
   <!-- Row 5 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="삼성 EVO 970">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="119800">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${diskDTO.disk_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${diskDTO.disk_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="삼성">
-  <input type="text" name="hdn_value" id="hdn_category" class="put_select" value="SSD">
-  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="M.2">
-  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="1000">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${diskDTO.disk_company}">
+  <input type="text" name="hdn_value" id="hdn_category" class="put_select" value="${diskDTO.disk_category}">
+  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="${diskDTO.disk_type}">
+  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="${diskDTO.disk_volume}">
   <!-- input hidden 파트 -->
 </form>

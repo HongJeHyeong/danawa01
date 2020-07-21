@@ -2,7 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>파워 ${job}</h4>
-<form action="" method="post">
+<form action="./insertPower" method="post" name="powerForm" encType="multipart/form-data" id="powerForm">
+
+<c:if test="${powerDTO.power_no!=null}">
+<input type="hidden" value="${powerDTO.power_no}" name="power_no" id="power_no">
+</c:if>
+
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -75,7 +82,7 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-small"></span>
       </div>
     </div>
   </div>
@@ -83,21 +90,23 @@
 
   <!-- Row 4 시작 -->
   <div class="w3-row w3-section">
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">등록</button>
-    <button type="reset" class="w3-button w3-round button-80 w3-border w3-right w3-teal">재작성</button>
+    <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormPower()">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
+  	</button></c:when>
+  </c:choose>
   </div>
-
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="잘만">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="68700">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${powerDTO.power_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${powerDTO.power_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="잘만">
-  <input type="text" name="hdn_value" id="hdn_capacity" class="put_select" value="600">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${powerDTO.power_company}">
+  <input type="text" name="hdn_value" id="hdn_capacity" class="put_select" value="${powerDTO.power_capacity}">
   <!-- input hidden 파트 -->
 </form>

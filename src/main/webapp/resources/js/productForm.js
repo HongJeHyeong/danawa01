@@ -45,6 +45,7 @@ function round1(e) {
 }
 // 클럭 Up , Down 부분 JavaScript -------------------------------------------------
 
+//------------------------------------------------------------------------------
 function updateFormLoadValue() {
   //1. bb_input >> aa_input  ,,,  bb_select >> aa_select로 값 이동
   let aa_input_arr = document.getElementsByClassName("get_input");
@@ -80,4 +81,45 @@ function updateFormLoadValue() {
       console.log(op[j].selected);
     }
   }
+}
+//------------------------------------------------------------------------------
+function submitFormCpu() {
+	var form = document.getElementById("cpuForm");
+	form.action="./updateCpu";
+	form.submit();
+}
+function submitFormMb() {
+	var form = document.getElementById("mainboardForm");
+	form.action="./updateMainboard";
+	form.submit();
+}
+function submitFormGc() {
+	var form = document.getElementById("gcardForm");
+	form.action="./updateGcard";
+	form.submit();
+}
+function submitFormRam() {
+	var form = document.getElementById("ramForm");
+	form.action="./updateRam";
+	form.submit();
+}
+function submitFormDisk() {
+	var form = document.getElementById("diskForm");
+	form.action="./updateDisk";
+	form.submit();
+}
+function submitFormPower() {
+	var form = document.getElementById("powerForm");
+	form.action="./updatePower";
+	form.submit();
+}
+function submitFormCase() {
+	var form = document.getElementById("caseForm");
+	form.action="./updateCase";
+	form.submit();
+}
+function submitFormCooler() {
+	var form = document.getElementById("coolerForm");
+	form.action="./updateCooler";
+	form.submit();
 }

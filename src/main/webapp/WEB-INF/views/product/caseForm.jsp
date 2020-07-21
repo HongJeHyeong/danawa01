@@ -2,7 +2,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>케이스 ${job}</h4>
-<form action="" method="post">
+
+<form action="./insertCase" method="post" name="caseForm" encType="multipart/form-data" id="caseForm">
+
+<c:if test="${caseDTO.case_no!=null}">
+<input type="hidden" value="${caseDTO.case_no}" name="case_no" id="case_no">
+</c:if>
 
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
@@ -66,7 +71,7 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-small"></span>
       </div>
     </div>
   </div>
@@ -74,20 +79,23 @@
 
   <!-- Row 4 시작 -->
   <div class="w3-row w3-section">
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">등록</button>
-    <button type="reset" class="w3-button w3-round button-80 w3-border w3-right w3-teal">재작성</button>
+    <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormCase()">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
+  	</button></c:when>
+  </c:choose>
   </div>
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="DLA23">
-  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="350">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="81655">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${caseDTO.case_name}">
+  <input type="text" name="hdn_value" id="hdn_gc_length" class="put_input" value="${caseDTO.case_gc_length}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${caseDTO.case_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="darkFlash">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${caseDTO.case_company}">
   <!-- input hidden 파트 -->
 </form>

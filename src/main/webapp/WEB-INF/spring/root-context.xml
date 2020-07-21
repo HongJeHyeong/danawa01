@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:tx="http://www.springframework.org/schema/tx" 
-	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
@@ -12,8 +13,10 @@
 	<context:annotation-config />
 
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://34.64.219.135:3306/danawa" />
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="jdbcUrl"
+			value="jdbc:mysql://34.64.219.135:3306/danawa" />
 		<property name="username" value="java00" />
 		<property name="password" value="123456" />
 
@@ -29,15 +32,18 @@
 	</bean>
 
 	<!-- 2. 트랜잭션+1 -->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
 
 
 	<!-- myBatis 등록 부분이다 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- myBatis를 위한 환경 설정 파일을 어디에 무슨이름으로 만들어 놓을지를 지정하는 부분 우리는 com폴더/ourDo폴더/mybatis폴더생성/myBatis-config.xml 
 			파일을 생성 -->
 		<!-- (중요부분) myBatis와 연결하는 데이터베이스(컨넥션 풀)을 지정하는 부분 -->
@@ -46,17 +52,21 @@
 			<value>classpath:/mybatis/mybatis-config.xml</value>
 		</property>
 
+		<property name="typeAliasesPackage" value="com.database"></property>
 		<!-- 여기에 포함된 경로이면 일일히 등록안해도 ok -->
-		<property name="mapperLocations" value="classpath:/com/database/**/*Mapper.xml"></property>
+		<property name="mapperLocations"
+			value="classpath:/com/database/**/*Mapper.xml"></property>
 		<!-- 출처: https://coding-restaurant.tistory.com/109 [코딩맛집] -->
 	</bean>
 
 	<!-- SqlSession 사용을 위한 빈처리 부분 -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 
-	<context:component-scan base-package="com.danawa"></context:component-scan>
+	<context:component-scan
+		base-package="com.danawa"></context:component-scan>
 
 
 </beans>

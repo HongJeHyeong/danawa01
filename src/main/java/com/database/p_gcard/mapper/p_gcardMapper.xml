@@ -10,5 +10,42 @@
 select count(*) from p_gcard
 	</select>
 
+	<select id="getGcardInfo" resultType="gcardDTO" parameterType="int">
+	SELECT * FROM p_gcard WHERE gc_no = #{gc_no}
+	</select>
+
+	<!-- Gcard 정보 입력 -->
+	<insert id="insertGcard">
+	INSERT INTO p_gcard(gc_name, gc_company, gc_chipset, gc_length, gc_min_power, gc_regdate, gc_price, gc_image)
+	VALUES(#{gc_name},#{gc_company},#{gc_chipset},#{gc_length},#{gc_min_power},now(),#{gc_price},#{gc_image})
+	</insert>
+	<!-- Gcard 정보 입력 -->
+	
+	<!-- Gcard 정보 수정하기 -->
+	<update id="updateGcard">
+	UPDATE p_gcard SET	gc_name = #{gc_name},
+						gc_company = #{gc_company},
+						gc_length = #{gc_length},
+						gc_min_power = #{gc_min_power},
+						gc_price = #{gc_price},
+						gc_image = #{gc_image}
+	WHERE gc_no = #{gc_no}
+	</update>
+	
+	<!-- gc chipsetList -->
+	<select id="gcardChipsetList" resultType="String">
+	SELECT gc_chipset 
+	FROM p_gcard
+	GROUP BY gc_chipset asc
+	ORDER BY gc_chipset
+	</select>
+	
+	<!-- gc List -->
+	<select id="gcardList" resultType="gcardDTO" parameterType="String">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_gcard WHERE gc_status=0 AND gc_chipset like CONCAT('%', #{gc_chipset})) p_graphic
+	ORDER BY gc_chipset,gc_price
+	</select>
 
 </mapper>		 

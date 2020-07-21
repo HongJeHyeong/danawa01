@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAliases>
         <typeAlias type="java.lang.Integer" alias="int"/>
         <typeAlias type="java.lang.String" alias="String"/>
+     <!--   <typeAlias type="com.database.member.dto.MemberDTO" alias="mdto"/> -->
 
         <!-- 
         <package name="com.danawa.**"/>

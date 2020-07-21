@@ -10,5 +10,44 @@
 select count(*) from qna
 	</select>
 
+	<!-- 글쓰기처리 -->
+	<insert id="insQna" parameterType="qnaDTO">
+	insert into qna(qna_title, qna_content, fk_member_no, qna_regdate) values(#{qna_title}, #{qna_content}, #{fk_member_no}, now())
+	</insert>
+	
+
+    <!-- 총 게시물수 조회 -->
+	<select id="totalCnt" resultType="int">
+	    SELECT  count(*) AS cnt
+		FROM    qna
+	</select>
+	
+	<!-- 리스트 -->
+	<select id="qnaList" parameterType="qnaDTO" resultType="qnaDTO">
+  SELECT 
+	qna_no,
+	member_id,
+	qna_title,
+	qna_regdate,
+	qna_reply_cnt
+  FROM qna, member
+  WHERE qna.fk_member_no=member.member_no ORDER BY qna_no desc 
+  LIMIT #{start},3  
+	</select>
+	
+	<!-- 상세보기 -->
+	<select id="getContent" parameterType="int" resultType="qnaDTO">
+SELECT  qna_no,
+        member_id,
+        qna_title,
+        qna_content,
+        qna_reply_cnt
+FROM    qna, member
+WHERE   qna_no = #{qna_no}
+        AND
+        qna.fk_member_no = member.member_no;
+	</select>
+
+
 
 </mapper>		 

@@ -7,8 +7,83 @@
 
 	<!-- for test -->
 	<select id="countAll" resultType="int">
-select count(*) from p_disk
+		select count(*) from p_disk
+	</select>
+	
+		<!-- Disk 정보 불러오기 -->	
+	<select id="getDiskInfo" resultType="diskDTO" parameterType="int">
+		SELECT * FROM p_disk WHERE disk_no = #{disk_no}
 	</select>
 
-
+	<!-- Disk 정보 입력하기 -->
+	<insert id="insertDisk" parameterType="diskDTO">
+	INSERT INTO p_disk(disk_category, disk_name, disk_company, disk_type, disk_volume, disk_regdate, disk_price, disk_image)
+	VALUES(#{disk_category},#{disk_name},#{disk_company},#{disk_type},#{disk_volume},now(),#{disk_price},#{disk_image})
+	</insert>
+	
+	<!-- Disk 정보 수정하기 -->
+	<update id="updateDisk">
+	UPDATE p_disk SET	disk_category = #{disk_category},
+						disk_name = #{disk_name},
+						disk_company = #{disk_company},
+						disk_type = #{disk_type},
+						disk_volume = #{disk_volume},
+						disk_price = #{disk_price},
+						disk_image = #{disk_image}
+	WHERE disk_no = #{disk_no}
+						
+	</update>
+	
+	<!-- disk_status=0 인것중에서 SSD,HDD 중 볼륨 작은것 정렬후 가격낮은순 -->
+	<select id="diskList" parameterType="String" resultType="diskDTO">
+	SELECT *
+	FROM 
+	(SELECT * FROM p_disk WHERE disk_status = 0) p_disk
+	WHERE disk_category like CONCAT('%', #{category})
+	ORDER BY disk_type,disk_volume,disk_price
+	</select>
+	
+	<!-- ssd volume 정렬-->
+<!-- 	<select id="ssdVolumeList" resultType="int">
+	SELECT disk_volume
+	FROM p_disk
+	WHERE disk_category="ssd"
+	GROUP BY disk_volume asc
+	ORDER BY disk_volume
+	</select> -->
+	
+	
+	<!-- ssdList -->
+	<select id="ssdList" parameterType="int" resultType="diskDTO">
+	SELECT *
+	FROM 
+	(SELECT * FROM p_disk WHERE disk_status = 0) p_disk
+	<if test='value!=0'>
+	WHERE disk_volume BETWEEN #{value} AND #{value}*2-1
+	</if>
+	ORDER BY disk_volume,disk_price,disk_type
+	</select>	
+	
+	
+	<!-- hdd volume 정렬-->
+<!-- 	<select id="hddVolumeList" resultType="int">
+	SELECT disk_volume
+	FROM p_disk
+	WHERE disk_category="hdd"
+	GROUP BY disk_volume asc
+	ORDER BY disk_volume
+	</select> -->
+	
+	
+	<!-- disk_status=0 인것중에서 HDD-->
+	<select id="hddList" parameterType="int" resultType="diskDTO">
+	SELECT *
+	FROM 
+	(SELECT * FROM p_disk WHERE disk_status = 0) p_disk
+	<if test='value!=0'>
+	WHERE disk_volume BETWEEN #{value} AND #{value}*2-1
+	</if>
+	ORDER BY disk_volume,disk_price,disk_type
+	</select>
+	
 </mapper>		 

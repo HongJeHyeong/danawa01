@@ -2,7 +2,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>RAM ${job}</h4>
-<form action="" method="post">
+<form action="./insertRam" method="post" name="ramForm" encType="multipart/form-data" id="ramForm">
+
+<c:if test="${ramDTO.ram_no!=null}">
+<input type="hidden" value="${ramDTO.ram_no}" name="ram_no" id="ram_no">
+</c:if>
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -83,7 +89,7 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-small"></span>
       </div>
     </div>
   </div>
@@ -91,21 +97,24 @@
 
   <!-- Row 4 시작 -->
   <div class="w3-row w3-section">
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">등록</button>
-    <button type="reset" class="w3-button w3-round button-80 w3-border w3-right w3-teal">재작성</button>
+    <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormRam()">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
+  	</button></c:when>
+  </c:choose>
   </div>
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="트라이던트">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="165555">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${ramDTO.ram_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${ramDTO.ram_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="G.SKILL">
-  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="8">
-  <input type="text" name="hdn_value" id="hdn_clock" class="put_select" value="3200">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${ramDTO.ram_company}">
+  <input type="text" name="hdn_value" id="hdn_volume" class="put_select" value="${ramDTO.ram_volume}">
+  <input type="text" name="hdn_value" id="hdn_clock" class="put_select" value="${ramDTO.ram_clock}">
   <!-- input hidden 파트 -->
 </form>

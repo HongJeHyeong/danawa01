@@ -9,6 +9,38 @@
 	<select id="countAll" resultType="int">
 select count(*) from p_cpu
 	</select>
-
-
+	
+	<!-- Cpu 정보 불러오기 -->	
+	<select id="getCpuInfo" resultType="cpuDTO" parameterType="int">
+		SELECT * FROM p_cpu WHERE cpu_no = #{cpu_no}
+	</select>
+	
+	<!-- CPU 정보 입력하기 -->
+	<insert id="insertCpu" parameterType="cpuDTO">
+		INSERT INTO p_cpu(cpu_name, cpu_company, cpu_clock, cpu_core, cpu_thread, cpu_socket, cpu_graphic,cpu_cooler, cpu_regdate, cpu_price, cpu_image)
+		VALUES(#{cpu_name}, #{cpu_company}, #{cpu_clock}, #{cpu_core}, #{cpu_thread}, #{cpu_socket}, #{cpu_graphic}, #{cpu_cooler}, now(), #{cpu_price}, #{cpu_image})
+	</insert>
+	
+	<!-- CPU 정보 수정하기 -->
+	<update id="updateCpu" parameterType="cpuDTO">
+	UPDATE p_cpu SET 	cpu_name = #{cpu_name},
+						cpu_company = #{cpu_company},
+						cpu_clock = #{cpu_clock},
+						cpu_thread = #{cpu_thread},
+						cpu_socket = #{cpu_socket},
+						cpu_graphic = #{cpu_graphic},
+						cpu_cooler = #{cpu_cooler},
+						cpu_price = #{cpu_price},
+						cpu_image = #{cpu_image}
+	WHERE cpu_no = #{cpu_no}
+	</update>
+	
+	<!-- cpuList -->
+	<select id="cpuList" parameterType="String" resultType="cpuDTO">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_cpu WHERE cpu_status=0) p_cpu
+	WHERE cpu_company like CONCAT('%', #{cpu_company})
+	ORDER BY cpu_clock,cpu_price,cpu_company
+	</select>
 </mapper>		 

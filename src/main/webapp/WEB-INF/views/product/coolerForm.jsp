@@ -2,7 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>쿨러 ${job}</h4>
-<form action="" method="post">
+<form action="./insertCooler" method="post" name="coolerForm" encType="multipart/form-data" id="coolerForm">
+
+<c:if test="${coolerDTO.cooler_no!=null}">
+<input type="hidden" value="${coolerDTO.cooler_no}" name="cooler_no" id="cooler_no">
+</c:if>
+
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -67,7 +74,7 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-small"></span>
       </div>
     </div>
   </div>
@@ -75,20 +82,23 @@
 
   <!-- Row 4 시작 -->
   <div class="w3-row w3-section">
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">등록</button>
-    <button type="reset" class="w3-button w3-round button-80 w3-border w3-right w3-teal">재작성</button>
+    <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormCooler()">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
+  	</button></c:when>
+  </c:choose>
   </div>
   <!-- Row 4 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="농협 촤라락">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="128000">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${coolerDTO.cooler_name}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${coolerDTO.cooler_price}">
 
-  <input type="text" name="hdn_value" id="hdncompany" class="put_select" value="Antec">
-  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="air cooling">
+  <input type="text" name="hdn_value" id="hdncompany" class="put_select" value="${coolerDTO.cooler_company}">
+  <input type="text" name="hdn_value" id="hdn_type" class="put_select" value="${coolerDTO.cooler_type}">
   <!-- input hidden 파트 -->
 </form>

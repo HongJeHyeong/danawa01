@@ -3,7 +3,14 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>CPU ${job}</h4>
 
-<form action="post" action="" name="cpuForm">
+<form method="post" name="cpuForm" encType="multipart/form-data" action="./insertCpu" id="cpuForm">
+
+
+<c:if test="${cpuDTO.cpu_no!=null}">
+<input type="text" value="${cpuDTO.cpu_no}" name="cpu_no" id="cpu_no">
+</c:if>
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -23,7 +30,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">제조사</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_company" class="w3-select get_select">
+          <select name="cpu_company" id="cpu_company" class="w3-select get_select">
             <option value="">제조사</option>
             <option value="Intel">인텔</option>
             <option value="AMD">AMD</option>
@@ -36,7 +43,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">코어</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_core" class="w3-select coreSelect get_select">
+          <select name="cpu_core" id="cpu_core" class="w3-select coreSelect get_select">
             <option value="">코어</option>
             <option value="4">4</option>
             <option value="6">6</option>
@@ -53,7 +60,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">스레드</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_thread" class="w3-select get_select">
+          <select name="cpu_thread" id="cpu_thread" class="w3-select get_select">
             <option value="">스레드</option>
             <option value="4">4</option>
             <option value="6">6</option>
@@ -75,7 +82,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">그래픽</span>
         <span class="w3-twothird span_radio">
-          <select name="select_value" id="cpu_graphic" class="w3-select get_select">
+          <select name="cpu_graphic" id="cpu_graphic" class="w3-select get_select">
             <option value="">유무</option>
             <option value="1">O</option>
             <option value="0">X</option>
@@ -88,7 +95,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">쿨러</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_cooler" class="w3-select get_select">
+          <select name="cpu_cooler" id="cpu_cooler" class="w3-select get_select">
             <option value="">유무</option>
             <option value="1">O</option>
             <option value="0">X</option>
@@ -101,7 +108,7 @@
       <div class="w3-row">
         <span class="w3-third span_label">소켓</span>
         <span class="w3-twothird">
-          <select name="select_value" id="cpu_socket" class="w3-select get_select">
+          <select name="cpu_socket" id="cpu_socket" class="w3-select get_select">
             <option value="">소켓</option>
             <option value="1151v2">1151v2 [인텔]</option>
             <option value="1200">1200 [인텔]</option>
@@ -138,7 +145,7 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-round w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-round w3-small"></span>
       </div>
     </div>
   </div>
@@ -146,28 +153,29 @@
 
   <!-- Row 6 시작 -->
   <div class="w3-row w3-section">
-    <!-- Choose 쓸꺼임 ㄱㄷ -->
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round w3-right w3-yellow button-80">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록</button>
-    <!-- Choose 쓸꺼임 ㄱㄷ -->
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormCpu()">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
+  	</button></c:when>
+  </c:choose>
   </div>
   <!-- Row 6 종료 -->
 
   <!-- input 파트 -->
-  <input type="text" name="hdn_value" class="put_input" id="hdn_name" value="라이젠 3600">
-  <input type="text" name="hdn_value" class="put_input" id="hdn_clock" value="3.5">
-  <input type="text" name="hdn_value" class="put_input" id="hdn_price" value="375150">
+  <input type="text" name="hdn_value" class="put_input" id="hdn_name" value="${cpuDTO.cpu_name}">
+  <input type="text" name="hdn_value" class="put_input" id="hdn_clock" value="${cpuDTO.cpu_clock}">
+  <input type="text" name="hdn_value" class="put_input" id="hdn_price" value="${cpuDTO.cpu_price}">
 
-  <input type="text" name="hdn_value" class="put_select" id="hdn_company" value="AMD">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_core" value="8">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_thread" value="16">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_graphic" value="1">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_cooler" value="1">
-  <input type="text" name="hdn_value" class="put_select" id="hdn_cocket" value="AM4">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_company" value="${cpuDTO.cpu_company}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_core" value="${cpuDTO.cpu_core}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_thread" value="${cpuDTO.cpu_thread}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_graphic" value="${cpuDTO.cpu_graphic}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_cooler" value="${cpuDTO.cpu_cooler}">
+  <input type="text" name="hdn_value" class="put_select" id="hdn_socket" value="${cpuDTO.cpu_socket}">
   <!-- input 파트 -->
 
 </form>

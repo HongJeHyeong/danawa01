@@ -7,8 +7,39 @@
 
 	<!-- for test -->
 	<select id="countAll" resultType="int">
-select count(*) from p_case
+		select count(*) from p_case
 	</select>
+	
+		<!-- Case 정보 불러오기 -->	
+	<select id="getCaseInfo" resultType="caseDTO" parameterType="int">
+		SELECT * FROM p_case WHERE case_no = #{case_no}
+	</select>
+
+	<!-- Case 정보 입력하기 -->
+	<insert id="insertCase">
+	INSERT INTO p_case(case_name, case_company, case_gc_length, case_regdate, case_price, case_image)
+	VALUES(#{case_name},#{case_company},#{case_gc_length},now(),#{case_price},#{case_image})
+	</insert>
+	
+	<!-- Case 정보 수정하기 -->
+	<update id="updateCase">
+	UPDATE p_case SET 	case_name = #{case_name},
+						case_company = #{case_company},
+						case_gc_length = #{case_gc_length},
+						case_price = #{case_price},
+						case_image = #{case_image}
+	WHERE case_no = #{case_no}
+	</update>
+	
+	<!-- case_gc_length ? 이상 값// WHERE case_gc_length <= ? -->
+	<select id="caseList" parameterType="int" resultType="caseDTO">
+	SELECT *
+	FROM
+	(SELECT * FROM p_case WHERE case_status=0) p_case
+	WHERE case_gc_length <![CDATA[ >= ]]> #{caseLeng}
+	ORDER BY case_gc_length,case_price;
+	</select>
+
 
 
 </mapper>		 

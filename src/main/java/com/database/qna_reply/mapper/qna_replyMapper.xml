@@ -9,6 +9,11 @@
 	<select id="countAll" resultType="int">
 select count(*) from qna_reply
 	</select>
+	
+<!-- 	<insert id="ins_qnareply">
+	   INSERT INTO qna_reply(q_reply_qna_no,  q_reply_content, q_reply_regdate) VALUES(#{}, #{}, NOW());
+	   
+	</insert> -->
 
 
 </mapper>		 

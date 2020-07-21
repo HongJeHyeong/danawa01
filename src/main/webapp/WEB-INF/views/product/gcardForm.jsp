@@ -2,7 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>그래픽카드 ${job}</h4>
-<form action="" method="post">
+<form action="./insertGcard" method="post" name="gcardForm" encType="multipart/form-data" id="gcardForm">
+
+<c:if test="${gcardDTO.gc_no!=null}">
+<input type="hidden" value="${gcardDTO.gc_no}" name="gc_no" id="gc_no">
+</c:if>
+
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -107,7 +114,7 @@
     <div class="w3-half">
       <div class="w3-row">
         <span class="w3-col s3 span_label">사진</span>
-        <span class="w3-col s9"><input type="file" name="" id="" class="w3-button w3-small"></span>
+        <span class="w3-col s9"><input type="file" name="file" id="file" class="w3-button w3-small"></span>
       </div>
     </div>
   </div>
@@ -115,23 +122,25 @@
 
   <!-- Row 5 시작 -->
   <div class="w3-row w3-section">
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round button-80 w3-border w3-right w3-teal">등록</button>
-    <button type="reset" class="w3-button w3-round button-80 w3-border w3-right w3-teal">재작성</button>
+    <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormGc()">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
+  	</button></c:when>
+  </c:choose>
   </div>
-
   <!-- Row 5 종료 -->
 
   <!-- input hidden 파트 -->
-  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="갤럭시 HOF">
-  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="287">
-  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="1700000">
+  <input type="text" name="hdn_value" id="hdn_name" class="put_input" value="${gcardDTO.gc_name}">
+  <input type="text" name="hdn_value" id="hdn_length" class="put_input" value="${gcardDTO.gc_length}">
+  <input type="text" name="hdn_value" id="hdn_price" class="put_input" value="${gcardDTO.gc_price}">
 
-  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="갤럭시">
-  <input type="text" name="hdn_value" id="hdn_min_power" class="put_select" value="600">
-  <input type="text" name="hdn_value" id="hdn_chipset" class="put_select" value="RTX 2070 SUPER">
+  <input type="text" name="hdn_value" id="hdn_company" class="put_select" value="${gcardDTO.gc_company}">
+  <input type="text" name="hdn_value" id="hdn_min_power" class="put_select" value="${gcardDTO.gc_min_power}">
+  <input type="text" name="hdn_value" id="hdn_chipset" class="put_select" value="${gcardDTO.gc_chipset}">
   <!-- input hidden 파트 -->
 </form>

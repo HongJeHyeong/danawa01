@@ -10,5 +10,36 @@
 select count(*) from p_ram
 	</select>
 
+	<select id="getRamInfo" resultType="ramDTO" parameterType="int">
+		SELECT * FROM p_ram WHERE ram_no = #{ram_no}
+	</select>
+	
+		<!-- Ram 정보 입력하기 -->
+	<insert id="insertRam">
+	INSERT INTO p_ram(ram_name, ram_company, ram_volume, ram_clock, ram_regdate, ram_price, ram_image)
+	VALUES(#{ram_name},#{ram_company},#{ram_volume},#{ram_clock},now(),#{ram_price},#{ram_image})
+	</insert>
+	<!-- Ram 정보 입력하기 -->
+	
+	<!-- Ram 정보 수정하기 -->
+	<update id="updateRam">
+	UPDATE p_ram SET	ram_name = #{ram_name},
+						ram_company = #{ram_company},
+						ram_volume = #{ram_volume},
+						ram_clock = #{ram_clock},
+						ram_price = #{ram_price},
+						ram_image = #{ram_image}
+	WHERE ram_no = #{ram_no}
+	</update>
 
+	<!-- ramList -->
+	<select id="ramList" resultType="ramDTO">
+	SELECT * 
+	FROM
+	(SELECT * FROM p_ram WHERE ram_status=0) p_ram
+	<if test='value!=0'>
+	WHERE ram_volume = #{value}
+	</if>
+	ORDER BY ram_volume,ram_clock,ram_price
+	</select>
 </mapper>		 
