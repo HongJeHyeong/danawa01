@@ -39,7 +39,7 @@
 	margin: 0px;
 	padding: 0px;
 }
-ul{
+/* ul{
    list-style:none;
    }
 .noticediv {
@@ -50,11 +50,43 @@ ul{
 }
 .rows{
 	cursor:pointer;
-}
+} */
+
+    #aa {
+            margin: auto;
+            max-width: 700px;
+        }
+
+
+        .row {
+            /* border: 1px solid cyan; */
+            margin: 5px 7px;
+            cursor:pointer;
+        }
+
+        .row1 {
+            display: grid;
+            grid-template-columns: 1fr 50px;
+            /* background: violet; */
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+
+        .row2 {
+            display: grid;
+            grid-template-columns: 120px 170px;
+            /* background: yellowgreen; */
+            margin: 5px;
+        }
+
+        .title {
+            font-weight: bolder;
+        }
+
 </style>
 <script>
 $(document).ready(function(){
-	$(".rows").click(function(){
+	$(".row").click(function(){
 		var notice_no = $(this).find("#notice_no").text();
 		var nowPage= $(this).find("#nowPage").val();
 		/* console.log(nowPage + " / "+ no); */
@@ -80,7 +112,23 @@ $(document).ready(function(){
 				<div style="margin-top: 15px;">
 					<h2>공지사항</h2>
 				</div>
-
+				     <c:forEach items="${list}" var="data">
+                    <div id="aa" class="w3-card">
+                        <div class="row" onclick="bbaku(this)">
+                            <input type="hidden" name="nowPage" id="nowPage" value="${nowPage }">
+                            <div class="row1">
+                                <span class="title">${data.notice_title}</span>
+                                <span class="w3-tag" name="notice_no" id="notice_no">${data.notice_no}</span>
+                            </div>
+                            <div class="row2">
+                                <span class="w3-gray-text w3-small"> ${data.notice_regdate} | ${data.notice_enddate} </span>
+                            </div>
+                        </div>
+                        <!-- ................................................................. -->
+                </c:forEach>
+				
+				
+<%-- 
 				<ul class="w3-ul w3-hoverable">
 					<li><div class="noticediv" style="width: 10%;">#</div>
 						<div class="noticediv" style="width: 30%;">제목</div>
@@ -97,7 +145,7 @@ $(document).ready(function(){
 						<div class="noticediv" style="width: 20%;">${data.notice_regdate}</div>
 						<div class="noticediv" style="width: 20%;">${data.notice_enddate}</div></li>
 				</c:forEach>
-					</ul>
+					</ul> --%>
 				
 	<!-- 페이징처리 출력 부분 -->
 <!-- mv.addObject("PAGEINFO",pageInfo); -->
