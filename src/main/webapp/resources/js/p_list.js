@@ -51,29 +51,26 @@ function changeDiskCategory(e) {
   var it = e.value; // 전체,SSD,HDD
   console.log(it);
 
-    $("#itemList").load("./diskList?category="+it);
-  
+  $("#itemList").load("../p_list/diskList?category=" + it);
 }
 
 /* =============================================================================== */
 // SSD
 /* =============================================================================================================== */
 function changeSsdCategory(e) {
-	var it = e.value;
-	console.log(it);
-	
-	$("#itemList").load("./ssdList?volume="+it);
-	
+  var it = e.value;
+  console.log(it);
+
+  $("#itemList").load("../p_list/ssdList?volume=" + it);
 }
 
 /* =============================================================================== */
 // HDD
 /* =============================================================================================================== */
 function changeHddCategory(e) {
-	var it = e.value;
-	console.log(it);
-	$("#itemList").load("./hddList?volume="+it);
-	
+  var it = e.value;
+  console.log(it);
+  $("#itemList").load("../p_list/hddList?volume=" + it);
 }
 
 /* =============================================================================== */
@@ -81,7 +78,7 @@ function changeHddCategory(e) {
 /* =============================================================================================================== */
 function changeCoolerCategory(e) {
   var it = e.value;
-    $("#itemList").load("./coolerList?type="+it);
+  $("#itemList").load("../p_list/coolerList?type=" + it);
 }
 
 /* =============================================================================================================== */
@@ -103,7 +100,7 @@ function changeCaseCategory() {
   }
   console.log(caseLeng);
 
-  $("#itemList").load("./caseList?caseLeng=" + caseLeng);
+  $("#itemList").load("../p_list/caseList?caseLeng=" + caseLeng);
 }
 
 // ----slide
@@ -112,7 +109,7 @@ function changeCaseCategory() {
 // cpu
 function changeCpuCategory(e) {
   var it = e.value;
-    $("#itemList").load("./cpuList?company="+it);
+  $("#itemList").load("../p_list/cpuList?company=" + it);
 }
 /* =============================================================================================================== */
 
@@ -131,11 +128,11 @@ function powerSlide() {
 function changePowerCategory() {
   var capacity = document.getElementsByClassName("slideNum")[0].value;
   if (capacity == "") {
-	  capacity = 0;
+    capacity = 0;
   }
   console.log(capacity);
-  
-  $("#itemList").load("./powerList?capacity=" + capacity);
+
+  $("#itemList").load("../p_list/powerList?capacity=" + capacity);
 }
 /* =============================================================================================================== */
 
@@ -147,7 +144,7 @@ function changeGraphicCategory(e) {
   it = replaceAll(it, " ", "_");
   console.log(it);
 
-  $("#itemList").load("./gcardList?gc_chipset=" + it);
+  $("#itemList").load("../p_list/gcardList?gc_chipset=" + it);
 }
 /* =============================================================================================================== */
 
@@ -156,7 +153,7 @@ function changeGraphicCategory(e) {
 function changeMainboardCategory(e) {
   var it = e.value;
 
-  $("#itemList").load("./mbList?socket=" + it);
+  $("#itemList").load("../p_list/mbList?socket=" + it);
 }
 /* =============================================================================================================== */
 
@@ -165,6 +162,6 @@ function changeMainboardCategory(e) {
 function changeRamCategory(e) {
   var it = e.value;
 
-    $("#itemList").load("./ramList?volume="+it);
+  $("#itemList").load("../p_list/ramList?volume=" + it);
 }
 /* =============================================================================================================== */
