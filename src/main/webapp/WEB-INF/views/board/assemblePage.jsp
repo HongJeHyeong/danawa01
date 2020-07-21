@@ -11,7 +11,7 @@
   <!-- CDN - W3CSS -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- CDN - sw_topNav.css -->
-  <link rel="stylesheet" href="https://storage.googleapis.com/sw-css/css/sw-1.0.0.css">
+  <link rel="stylesheet" href="https://swsw1005.github.io/css/sw-1.0.0.css">
   <!-- CDN - swiper -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 
@@ -21,9 +21,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list.css" />
-
+  <link rel="stylesheet" href="https://swsw1005.github.io/css/p_list.css" />
+  <!-- CDN - jquery 3.4.1 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://swsw1005.github.io/js/p_list.js"></script>
 
   <style>
     .pre_line {
@@ -36,7 +38,7 @@
     }
 
     #tab2 {
-      /* background: blue; */
+      background: blue;
       /* height: 1700px; */
     }
 
@@ -435,6 +437,17 @@
           }, 500);
         }
 
+
+
+        function catogory_change() {
+          var a1 = document.getElementById("category_selecter").value;
+          console.log(a1);
+          a1 += "Search";
+          console.log(a1);
+          $("#searchFormHere").load("../p_list/" + a1);
+
+        }
+
       </script>
 
 
@@ -458,10 +471,7 @@
   <tf:TopNav grade="${grade}" />
 
 
-  <!-- CDN - jquery 3.4.1 -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/js/p_list.js"></script>
+
 </body>
 
 </html>
