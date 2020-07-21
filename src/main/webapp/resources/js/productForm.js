@@ -83,7 +83,9 @@ function updateFormLoadValue() {
   }
 }
 //------------------------------------------------------------------------------
-function SubmitForm(callUrl) {
-  window.location = callUrl;
-  alert(callUrl);
+function submitForm() {
+	console.log("11111111111111111111111111");
+	var form = document.getElementById("cpuForm");
+	form.action="./updateCpu";
+	form.submit();
 }
