@@ -25,7 +25,6 @@ public class MainboardDAO extends SqlSessionDaoSupport {
 	  return mainboardDTO;
   }
   //Mainboard 상세정보 가져오기 ------------------------------------------------------------------------
-  
 
   // Mainboard 정보 입력하기
   // ------------------------------------------------------------------------

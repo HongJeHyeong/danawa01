@@ -23,24 +23,25 @@
 
 
   <!-- HEAD ------------------------------------------------------------------------------------ -->
-  <!-- head가 맨 나중?나중에 나온 요소가 레이어 맨위로... ---------------------------------------->
+  <!-- headê° ë§¨ ëì¤?ëì¤ì ëì¨ ììê° ë ì´ì´ ë§¨ìë¡... ---------------------------------------->
 
   <div id="main">
     <!-- responsive template by SW ----------------------------------------------------------- -->
     <!-- Need   W3CSS  +  FONT AS4  +  sw+topnav offline ------------------------------------- -->
     <!-- CONTENT ------------------------------------------------------------------------------------ -->
     <div class="sw-center">
-      <!-- 가로복 제한 400~1200 ---------------------------------------------------------------------------------->
+      <!-- ê°ë¡ë³µ ì í 400~1200 ---------------------------------------------------------------------------------->
       <div class="sw-container-700">
         <div class="w3-container">
           <!-- 3 main content start here!!!----------------------------------------------------------- -->
           <!-- 2 main content start here!!!----------------------------------------------------------- -->
           <!-- 1 main content start here!!!----------------------------------------------------------- -->
+          <h3>Insert</h3>
           <div class="w3-row">
             <div class="w3-col s6">
 
               <div class="w3-col">
-                <button type="button" class="w3-button" onclick="loadForm('./cpuForm?cpu_no=386')">CPU</button>
+                <button type="button" class="w3-button" onclick="loadForm('./cpuForm')">CPU</button>
               </div>
               <div class="w3-col">
                 <button type="button" class="w3-button" onclick="loadForm('./mainboardForm')">Mainboard</button>
@@ -65,6 +66,43 @@
               </div>
               <div class="w3-col">
                 <button type="button" class="w3-button" onclick="loadForm('./diskForm')">disk</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="hereLoadForm"></div>
+          <br>
+          <br>
+          <h3>Update</h3>
+          <div class="w3-row">
+            <div class="w3-col s6">
+
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./cpuForm?cpu_no=386')">CPU</button>
+              </div>
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./mainboardForm?mb_no=100')">Mainboard</button>
+              </div>
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./gcardForm?gc_no=26')">gcard</button>
+              </div>
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./powerForm?power_no=36')">power</button>
+              </div>
+            </div>
+            <div class="w3-col s6">
+
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./coolerForm?cooler_no=101')">cooler</button>
+              </div>
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./ramForm?ram_no=45')">ram</button>
+              </div>
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./caseForm?case_no=40')">case</button>
+              </div>
+              <div class="w3-col">
+                <button type="button" class="w3-button" onclick="loadForm('./diskForm?disk_no=163')">disk</button>
               </div>
             </div>
           </div>
@@ -208,7 +246,7 @@
     </div>
 
     <!-- HEAD ------------------------------------------------------------------------------------ -->
-    <!-- head가 맨 나중?나중에 나온 요소가 레이어 맨위로... ---------------------------------------->
+    <!-- headê° ë§¨ ëì¤?ëì¤ì ëì¨ ììê° ë ì´ì´ ë§¨ìë¡... ---------------------------------------->
 
 
   </div>

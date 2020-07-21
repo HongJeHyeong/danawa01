@@ -3,7 +3,11 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>케이스 ${job}</h4>
 
-<form action="./insertCase" method="post" name="caseForm">
+<form action="./insertCase" method="post" name="caseForm" encType="multipart/form-data" id="caseForm">
+
+<c:if test="${caseDTO.case_no!=null}">
+<input type="hidden" value="${caseDTO.case_no}" name="case_no" id="case_no">
+</c:if>
 
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
@@ -78,10 +82,10 @@
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
   <c:choose>
   	<c:when test="${job eq '수정 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-yellow button-80" onsubmit="SubmitForm('./updateCase?case_no${caseDTO.case_no}')">수정
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormCase()">수정
   	</button></c:when>
   	<c:when test="${job eq '등록 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80" onsubmit="SubmitForm('./insertCase')">등록
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
   	</button></c:when>
   </c:choose>
   </div>

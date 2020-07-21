@@ -2,7 +2,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>HDD/SSD ${job}</h4>
-<form action="./insertDisk" method="post" name="diskForm">
+<form action="./insertDisk" method="post" name="diskForm" encType="multipart/form-data" id="diskForm">
+
+<c:if test="${diskDTO.disk_no!=null}">
+<input type="hidden" value="${diskDTO.disk_no}" name="disk_no" id="disk_no">
+</c:if>
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -120,10 +126,10 @@
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
   <c:choose>
   	<c:when test="${job eq '수정 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-yellow button-80" onsubmit="SubmitForm('./updateDisk?disk_no${diskDTO.disk_no}')">수정
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormDisk()">수정
   	</button></c:when>
   	<c:when test="${job eq '등록 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80" onsubmit="SubmitForm('./insertDisk')">등록
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
   	</button></c:when>
   </c:choose>
   </div>

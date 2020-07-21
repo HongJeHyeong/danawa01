@@ -2,7 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>그래픽카드 ${job}</h4>
-<form action="./insertGcard" method="post" name="gcardForm">
+<form action="./insertGcard" method="post" name="gcardForm" encType="multipart/form-data" id="gcardForm">
+
+<c:if test="${gcardDTO.gc_no!=null}">
+<input type="hidden" value="${gcardDTO.gc_no}" name="gc_no" id="gc_no">
+</c:if>
+
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -118,10 +125,10 @@
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
   <c:choose>
   	<c:when test="${job eq '수정 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-yellow button-80" onsubmit="SubmitForm('./updateGcard?gcard_no${gcardDTO.gcard_no}')">수정
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormGc()">수정
   	</button></c:when>
   	<c:when test="${job eq '등록 페이지'}">
-  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80" onsubmit="SubmitForm('./insertGcard')">등록
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
   	</button></c:when>
   </c:choose>
   </div>
