@@ -31,6 +31,13 @@ public class CpuDAO extends SqlSessionDaoSupport {
 	  sqlSession.insert("p_cpu.insertCpu", cpuDTO);
   }
   //CPU 상품 등록하기 ---------------------------------------------------------------------------
+  
+  //CPU 상품 수정하기 ---------------------------------------------------------------------------
+  public void updateCpu(CpuDTO cpuDTO) {
+	  System.out.println("CpuDAO.updateCpu의 cpuDTO="+cpuDTO);
+	  sqlSession.update("p_cpu.updateCpu", cpuDTO);
+  }
+  //CPU 상품 수정하기 ---------------------------------------------------------------------------
 
   //case List
   public List<CpuDTO> getCpuList(String company){

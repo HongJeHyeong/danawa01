@@ -59,8 +59,16 @@ public class PreMemberController {
 	return "member/joinform";
 	}
 	
+	@RequestMapping("/login")
+	public String Login(HttpSession session) {
+	  System.out.println("login진입성공");
+		//1.파라미터받기
+		//2.비지니스로직(<->Service<->DAO<->myBatis<->DB)
+		//3.Model
+		//4.View
+	  return "/member/login";
+	}
 	
-/*	
 	@RequestMapping("/logout")
 	public String logout() {
 		System.out.println("Logout 진입성공");
@@ -69,9 +77,10 @@ public class PreMemberController {
 		//2.비지니스로직(<->Service<->DAO<->myBatis<->DB)
 		//3.Model
 		//4.View
-		return "member/login";
-		
-	}*/
+		return "member/logout";
+	}
+	
+	
 	//http://localhost/app/member/loginProc
 	@RequestMapping("/loginProc")
 	public ModelAndView loginProc(MemberDTO memberDTO,HttpSession session) {

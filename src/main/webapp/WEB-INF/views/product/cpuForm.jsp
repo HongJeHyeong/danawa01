@@ -3,7 +3,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h4>CPU ${job}</h4>
 
-<form method="post" action="./insertCpu" name="cpuForm" encType="multipart/form-data">
+<form method="post" name="cpuForm" encType="multipart/form-data" action="./updateCpu?cpu_no=${cpuDTO.cpu_no}">
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -146,14 +146,15 @@
 
   <!-- Row 6 시작 -->
   <div class="w3-row w3-section">
-    <!-- Choose 쓸꺼임 ㄱㄷ -->
-    <c:if test="${job eq '수정 페이지'}">
-      <!-- 만약 수정이라면  -->
-      <button type="submit" class="w3-button w3-round w3-right w3-yellow button-80">수정</button>
-    </c:if>
-    <button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록</button>
-    <!-- Choose 쓸꺼임 ㄱㄷ -->
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
+  <c:choose>
+  	<c:when test="${job eq '수정 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-yellow button-80">수정
+  	</button></c:when>
+  	<c:when test="${job eq '등록 페이지'}">
+  	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80" onclick="SubmitForm('./insertCpu')">등록
+  	</button></c:when>
+  </c:choose>
   </div>
   <!-- Row 6 종료 -->
 

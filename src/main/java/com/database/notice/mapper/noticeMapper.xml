@@ -11,7 +11,9 @@ select count(*) from notice
 	</select>
 	
 	<select id="list" resultType="noticeDTO" parameterType="noticeDTO">
-	select * from notice where notice_no between #{start} and #{end}
-	</select>
+select * from (
+SELECT
+  @rownum:=@rownum+1 as row,notice_no,notice_title,notice_content,notice_image,notice_regdate,notice_enddate from notice,(select @rownum:=0) p order by notice_no desc) cnt where cnt.row between #{start} and #{end};
 
+	</select>
 </mapper>		 

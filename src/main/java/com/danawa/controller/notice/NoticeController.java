@@ -29,7 +29,8 @@ public class NoticeController {
 		ArrayList list = noticeDAO.noticeList(pageInfo);
 		ModelAndView mv= new ModelAndView();
 		mv.addObject("list",list);
-		mv.addObject("pageInfo",pageInfo);
+		mv.addObject("PAGEINFO",pageInfo);
+		mv.addObject("cnt",totalCount);
 		mv.setViewName("./notice/list");
 		return mv;
 	}
