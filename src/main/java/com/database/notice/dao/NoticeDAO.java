@@ -34,4 +34,21 @@ public int getTotalCnt() {
 	return cnt;
 }
 
+public NoticeDTO Content(int notice_no) {
+	// TODO Auto-generated method stub
+	System.out.println("공지 DAO 넘버 = "+notice_no);
+	NoticeDTO dto=sqlSession.selectOne("notice.content",notice_no);
+	return dto;
+}
+
+public void del(int notice_no) {
+	// TODO Auto-generated method stub
+	sqlSession.delete("notice.del",notice_no);
+}
+
+public void update(NoticeDTO dto) {
+	// TODO Auto-generated method stub
+	sqlSession.update("notice.update",dto);
+}
+
 }
