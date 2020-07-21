@@ -22,6 +22,16 @@ select count(*) from p_power
 	</insert>
 	<!-- Power 정보 입력하기 -->
 	
+	<!-- Power 정보 수정하기 -->
+	<update id="updatePower">
+	UPDATE p_power SET	power_name = #{power_name},
+						power_company = #{power_company},
+						power_capacity = #{power_capacity},
+						power_price = #{power_price},
+						power_image = #{power_image}
+	WHERE power_no = #{power_no}
+	</update>
+	
 	<!-- powerList -->
 	<select id="powerList" parameterType="int" resultType="powerDTO">
 	SELECT * 

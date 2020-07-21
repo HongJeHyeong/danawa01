@@ -5,7 +5,12 @@
 
 <form method="post" name="cpuForm" encType="multipart/form-data" action="./insertCpu" id="cpuForm">
 
-<input type="hidden" value="${cpuDTO.cpu_no}" name="cpu_no" id="cpu_no">
+
+<c:if test="${cpuDTO.cpu_no!=null}">
+<input type="text" value="${cpuDTO.cpu_no}" name="cpu_no" id="cpu_no">
+</c:if>
+
+
   <!-- Row 1 시작 -->
   <div class="w3-row w3-section">
     <div class="w3-col-s2">
@@ -151,7 +156,7 @@
     <button type="reset" class="w3-button w3-round w3-right w3-teal button-80">재작성</button>
   <c:choose>
   	<c:when test="${job eq '수정 페이지'}">
-  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitForm()">수정
+  	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormCpu()">수정
   	</button></c:when>
   	<c:when test="${job eq '등록 페이지'}">
   	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
