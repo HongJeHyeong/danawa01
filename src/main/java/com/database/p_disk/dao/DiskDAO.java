@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.database.p_case.dto.CaseDTO;
 import com.database.p_disk.dto.DiskDTO;
 
 
@@ -26,9 +27,20 @@ public class DiskDAO extends SqlSessionDaoSupport {
 	  return diskDTO;
   }
   //Disk 상세정보 가져오기 ------------------------------------------------------------------------
+  
+	// Disk 정보 수정하기 ---------------------------------------------------------
+	public void updateDisk(DiskDTO diskDTO) {
+		sqlSession.update("p_disk.updateDisk", diskDTO);
+	}
+	// Disk 정보 수정하기 ---------------------------------------------------------
+  
+  
+  
+  
   // Disk 정보 입력하기
   // ------------------------------------------------------------------------
   public void insertDisk(DiskDTO diskDTO) {
+	  System.out.println("insertDisk DAO호출 ----");
     sqlSession.insert("p_disk.insertDisk", diskDTO);
   }
   // Disk 정보 입력하기

@@ -26,6 +26,10 @@ public class RamDAO extends SqlSessionDaoSupport {
   }
   //Gcard 상세정보 가져오기 ------------------------------------------------------------------------
   
+  public void updateRam(RamDTO ramDTO) {
+	  sqlSession.update("p_ram.updateRam", ramDTO);
+  }
+  
 
   // Ram 정보 입력하기
   // ------------------------------------------------------------------------

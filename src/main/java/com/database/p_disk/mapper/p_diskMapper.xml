@@ -16,10 +16,23 @@
 	</select>
 
 	<!-- Disk 정보 입력하기 -->
-	<insert id="insertDisk">
-	INSERT INTO p_disk(disk_category, disk_name, disk_company, disk_type, disk_volume, disk_regdate, disk_price, disk_iamge)
+	<insert id="insertDisk" parameterType="diskDTO">
+	INSERT INTO p_disk(disk_category, disk_name, disk_company, disk_type, disk_volume, disk_regdate, disk_price, disk_image)
 	VALUES(#{disk_category},#{disk_name},#{disk_company},#{disk_type},#{disk_volume},now(),#{disk_price},#{disk_image})
 	</insert>
+	
+	<!-- Disk 정보 수정하기 -->
+	<update id="updateDisk">
+	UPDATE p_disk SET	disk_category = #{disk_category},
+						disk_name = #{disk_name},
+						disk_company = #{disk_company},
+						disk_type = #{disk_type},
+						disk_volume = #{disk_volume},
+						disk_price = #{disk_price},
+						disk_image = #{disk_image}
+	WHERE disk_no = #{disk_no}
+						
+	</update>
 	
 	<!-- disk_status=0 인것중에서 SSD,HDD 중 볼륨 작은것 정렬후 가격낮은순 -->
 	<select id="diskList" parameterType="String" resultType="diskDTO">

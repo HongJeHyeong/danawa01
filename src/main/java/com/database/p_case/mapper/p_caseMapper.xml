@@ -21,6 +21,16 @@
 	VALUES(#{case_name},#{case_company},#{case_gc_length},now(),#{case_price},#{case_image})
 	</insert>
 	
+	<!-- Case 정보 수정하기 -->
+	<update id="updateCase">
+	UPDATE p_case SET 	case_name = #{case_name},
+						case_company = #{case_company},
+						case_gc_length = #{case_gc_length},
+						case_price = #{case_price},
+						case_image = #{case_image}
+	WHERE case_no = #{case_no}
+	</update>
+	
 	<!-- case_gc_length ? 이상 값// WHERE case_gc_length <= ? -->
 	<select id="caseList" parameterType="int" resultType="caseDTO">
 	SELECT *

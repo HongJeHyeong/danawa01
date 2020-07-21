@@ -51,4 +51,10 @@ public void update(NoticeDTO dto) {
 	sqlSession.update("notice.update",dto);
 }
 
+public void write(NoticeDTO dto) {
+	// TODO Auto-generated method stub
+	System.out.println("글쓰기 = "+dto );
+	sqlSession.insert("notice.write",dto);
+}
+
 }

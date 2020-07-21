@@ -59,23 +59,21 @@ $(document).ready(function(){
 		<div class="sw-container-1000">
 			<div class="w3-container">
 				<!--  main content start here!!!----------------------------------------------------------- -->
-		<form action="../notice/updateProc" method="post">
+		<form action="../notice/writeProc" method="post">
 			<label>제목</label>
-			<input class="w3-input w3-border" name="notice_title" value="${list.notice_title }">
-			<input type="hidden" name="notice_no" value="${list.notice_no }">
-			<input type="hidden" name="nowPage" value="${nowPage }">
+			<input class="w3-input w3-border" name="notice_title">
 			<hr/>
-			<label>시행일</label>
-			<input type="date" class="w3-input w3-border" name="notice_regdate" value="${list.notice_regdate}">~<input type="date" class="w3-input w3-border" name="notice_enddate" value="${list.notice_enddate}"> 
+			<label>시행일~마감일</label>
+			<input type="date" class="w3-input w3-border" name="notice_regdate">~<input type="date" class="w3-input w3-border" name="notice_enddate"> 
 			<hr/>
 			<label>내용</label>
             <textarea class="w3-input w3-border" rows="5" id="notice_content" name="notice_content" style="resize: none;"
-                >${list.notice_content}</textarea>
+                ></textarea>
 				<!-- main content end----------------------------------------------------------------------- -->
 				<div class="w3-bar">
-			<button class="w3-bar-item w3-button">수정</button>
+			<button class="w3-bar-item w3-button">등록</button>
 			<button type="reset" class="w3-bar-item w3-button">초기화</button>
-			<button type="button" class="w3-bar-item w3-button" onclick="location='../notice/content?nowPage=${nowPage }&notice_no=${list.notice_no }'">취소</button>
+			<button type="button" class="w3-bar-item w3-button" onclick="location='../notice/content'">취소</button>
 			</div>
 			</form>
 			</div>

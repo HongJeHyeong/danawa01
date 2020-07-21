@@ -27,7 +27,13 @@ public class CaseDAO extends SqlSessionDaoSupport {
 	}
 	// Case 상세정보 가져오기
 	// ------------------------------------------------------------------------
-
+	
+	// Case 정보 수정하기 ---------------------------------------------------------
+	public void updateCase(CaseDTO caseDTO) {
+		sqlSession.update("p_case.updateCase", caseDTO);
+	}
+	// Case 정보 수정하기 ---------------------------------------------------------
+	
 	// Case 정보 입력하기
 	// ------------------------------------------------------------------------
 	public void insertCase(CaseDTO caseDTO) {

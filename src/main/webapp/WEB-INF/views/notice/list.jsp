@@ -74,7 +74,7 @@
 
         .row2 {
             display: grid;
-            grid-template-columns: 120px 170px;
+            grid-template-columns: 150px 170px;
             /* background: yellowgreen; */
             margin: 5px;
         }
@@ -181,7 +181,7 @@ $(document).ready(function(){
 			<td style="text-align:center;">
 			<c:if test="${sessionScope.grade >=2}">
 			<div class="w3-bar">
-			<button class="w3-bar-item w3-button" onclick="location='../board/writeFrm'">글쓰기</button>
+			<button type="button" class="w3-bar-item w3-button" onclick="location='../notice/writeForm'">글쓰기</button>
 			<!-- <button  type="button" id="wBtn" onclick="location='../board/writeFrm'">글쓰기</button> -->
 			</div>
 			</c:if>
