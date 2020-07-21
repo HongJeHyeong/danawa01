@@ -23,14 +23,14 @@ select count(*) from p_cpu
 	
 	<!-- CPU 정보 수정하기 -->
 	<update id="updateCpu" parameterType="cpuDTO">
-	UPDATE p_cpu SET 	cpu_name = #{cpu_name}
-						cpu_company = #{cpu_company}
-						cpu_clock = #{cpu_clock}
-						cpu_thread = #{cpu_thread}
-						cpu_socket = #{cpu_socket}
-						cpu_graphic = #{cpu_graphic}
-						cpu_cooler = #{cpu_cooler}
-						cpu_price = #{cpu_price}
+	UPDATE p_cpu SET 	cpu_name = #{cpu_name},
+						cpu_company = #{cpu_company},
+						cpu_clock = #{cpu_clock},
+						cpu_thread = #{cpu_thread},
+						cpu_socket = #{cpu_socket},
+						cpu_graphic = #{cpu_graphic},
+						cpu_cooler = #{cpu_cooler},
+						cpu_price = #{cpu_price},
 						cpu_image = #{cpu_image}
 	WHERE cpu_no = #{cpu_no}
 	</update>
