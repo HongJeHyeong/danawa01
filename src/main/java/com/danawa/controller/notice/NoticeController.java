@@ -27,7 +27,7 @@ public class NoticeController {
 		System.out.println("공지사항 조회 list()nowPage=" +nowPage);
 		
 		int totalCount = noticeDAO.getTotalCnt();
-		PageUtil pageInfo = new PageUtil(nowPage,totalCount,3,5);
+		PageUtil pageInfo = new PageUtil(nowPage,totalCount,10,5);
 		
 		ArrayList list = noticeDAO.noticeList(pageInfo);
 		ModelAndView mv= new ModelAndView();
