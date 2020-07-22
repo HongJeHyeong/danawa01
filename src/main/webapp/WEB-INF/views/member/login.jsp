@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>조립쟁이마을</title>
+	<title>다너놔</title>
 
 	<!-- CDN - W3CSS -->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -84,7 +85,8 @@
 	</script>
 </head>
 
-<body style="background-color: black;">
+<body>
+<div class="sw-topnav-margin">&nbsp;</div>
 	<!-- CONTENT ------------------------------------------------------------------------------------ -->
 	<div class="sw-center">
 		<!-- 가로복 제한 400~1200 ---------------------------------------------------------------------------------->
@@ -93,10 +95,10 @@
 			<div class="w3-section w3-container w3-card-4">
 				<!-- 1 main content start here!!!----------------------------------------------------------- -->
 
-				<h1 class="w3-section" style="color:cyan">조립쟁이마을</h1>
+				<h1 class="w3-section" style="color:red">다너놔</h1>
 
 			
-				<div style="color:white">
+				<div>
 					<form action="../PreMember/loginProc" method="POST" name="loginForm">
 						<!-- ------------------------------------------------------------- -->
 						<label class="w3-left w3-section">아이디</label>
@@ -126,5 +128,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<tf:TopNav grade="${grade}" />
 </body>
 </html>
