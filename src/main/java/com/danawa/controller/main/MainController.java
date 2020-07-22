@@ -28,13 +28,12 @@ public class MainController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		return "redirect:main/home";
+	}
 
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
-
+	@RequestMapping("/main/home")
+	public String home2() {
+		logger.info("redirect to home");
 		return "main/home";
 	}
 

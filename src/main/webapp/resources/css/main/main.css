@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.pre_line {
+  white-space: pre-line;
+}
+
+#tab1 {
+  background: lightblue;
+  /* height: 1700px; */
+}
+
+#tab2 {
+  background: blue;
+  /* height: 1700px; */
+}
+
+.sw-small-button {
+  padding: 4px;
+  width: 28px;
+}
+
+.count_ram {
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+}
+
+#category_selecter {
+  margin: auto;
+  width: 90%;
+}
+
+.category_input {
+  /* width: 88%; */
+  /* margin-left: 2%; */
+  height: 40px;
+}

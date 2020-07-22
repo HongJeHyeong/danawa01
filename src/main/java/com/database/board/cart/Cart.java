@@ -105,6 +105,10 @@ public class Cart {
 
         boolean isNew = true;
 
+        if (disklist == null) {
+            disklist = new ArrayList<Cart_disk>();
+        }
+
         // 1. 기존에 담긴 물건인지 찾아본다
         for (int i = 0; i < disklist.size(); i++) {
             if (disklist.get(i).getB_d_no() == c_disk.getB_d_no()) {
@@ -123,7 +127,6 @@ public class Cart {
                 break; // for문 빠져간다.
             }
         }
-
         // 2. 기존에 안담긴 물건
         if (isNew) {
             Cart_disk temp_disk = new Cart_disk();
@@ -133,7 +136,6 @@ public class Cart {
             temp_disk.setDisk_name(c_disk.getDisk_name());
             disklist.add(temp_disk);
         }
-
     }
 
     public void clearCart() {
@@ -167,7 +169,6 @@ public class Cart {
                 disklist.remove(i);
             }
         }
-
     }
 
 }
