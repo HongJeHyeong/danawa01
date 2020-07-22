@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,14 +74,14 @@ $(document).ready(function(){
 				<div class="w3-bar">
 			<button class="w3-bar-item w3-button">등록</button>
 			<button type="reset" class="w3-bar-item w3-button">초기화</button>
-			<button type="button" class="w3-bar-item w3-button" onclick="location='../notice/content'">취소</button>
+			<button type="button" class="w3-bar-item w3-button" onclick="location='../notice/list'">취소</button>
 			</div>
 			</form>
 			</div>
 		</div>
 	</div>
 	<!-- main content end----------------------------------------------------------------------- -->
-
+<tf:TopNav grade="${grade}" />
 
 </body>
 </html>
