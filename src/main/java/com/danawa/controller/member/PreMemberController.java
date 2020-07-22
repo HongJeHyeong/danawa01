@@ -117,17 +117,7 @@ public class PreMemberController {
 				  
 			  }
 		  }
-		  Cookie[] ck2=request.getCookies();
-		  if(ck2!=null) {
-			  for (Cookie cookie : ck2) {
-				  System.out.println("쿠키2삭제전 = "+cookie.getValue()); 
-				  
-				  cookie.setMaxAge(0);
-				  response.addCookie(cookie);
-				  System.out.println("쿠키2삭제후 = "+cookie.getValue());
-				  
-			  }
-		  }
+		  
 		  session.invalidate();
 		//return "redirect:../";
 		return "redirect:../PreMember/login";
