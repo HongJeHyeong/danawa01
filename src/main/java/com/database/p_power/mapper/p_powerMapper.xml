@@ -14,16 +14,17 @@ select count(*) from p_power
 	<select id="getPowerInfo" resultType="powerDTO" parameterType="int">
 		SELECT * FROM p_power WHERE power_no = #{power_no}
 	</select>
+		<!-- Power 정보 불러오기 -->	
 	
-		<!-- Power 정보 입력하기 -->
-	<insert id="insertPower">
+	<!-- Power 정보 입력하기 -->
+	<insert id="insertPower" parameterType="powerDTO">
 	INSERT INTO p_power(power_name, power_company, power_capacity, power_regdate, power_price, power_image)
 	VALUES(#{power_name},#{power_company},#{power_capacity},now(),#{power_price},#{power_image})
 	</insert>
 	<!-- Power 정보 입력하기 -->
 	
 	<!-- Power 정보 수정하기 -->
-	<update id="updatePower">
+	<update id="updatePower" parameterType="powerDTO">
 	UPDATE p_power SET	power_name = #{power_name},
 						power_company = #{power_company},
 						power_capacity = #{power_capacity},
@@ -31,6 +32,13 @@ select count(*) from p_power
 						power_image = #{power_image}
 	WHERE power_no = #{power_no}
 	</update>
+	<!-- Power 정보 수정하기 -->
+	
+	<!-- Power 삭제하기 -->
+	<delete id="deletePower" parameterType="int">
+	DELETE FROM p_power WHERE power_no = #{power_no}
+	</delete>
+	<!-- Power 삭제하기 -->
 	
 	<!-- powerList -->
 	<select id="powerList" parameterType="int" resultType="powerDTO">

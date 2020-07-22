@@ -9,62 +9,65 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.database.p_case.dto.CaseDTO;
 import com.database.p_disk.dto.DiskDTO;
 
-
 public class DiskDAO extends SqlSessionDaoSupport {
 
-  @Autowired
-  private SqlSessionTemplate sqlSession;
-  
-  //Disk 상세정보 가져오기 ------------------------------------------------------------------------
-  public DiskDTO getDiskInfo(int disk_no) {
-	  System.out.println("DiskDAO의 getDiskInfo() 메소드 호출 ----");
-	  System.out.println("DiskDAO의 cpu_no 값="+disk_no);
-	  DiskDTO diskDTO = new DiskDTO();
-	  
-	  diskDTO = sqlSession.selectOne("getDiskInfo", disk_no);
-	  System.out.println("DiskDAO의 diskDTO 값="+diskDTO);
-	  
-	  return diskDTO;
-  }
-  //Disk 상세정보 가져오기 ------------------------------------------------------------------------
-  
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+
+	// Disk 상세정보 가져오기 ------------------------------------------------------------------------
+	public DiskDTO getDiskInfo(int disk_no) {
+		System.out.println("DiskDAO의 getDiskInfo() 메소드 호출 ----");
+		System.out.println("DiskDAO의 cpu_no 값=" + disk_no);
+		DiskDTO diskDTO = new DiskDTO();
+
+		diskDTO = sqlSession.selectOne("getDiskInfo", disk_no);
+		System.out.println("DiskDAO의 diskDTO 값=" + diskDTO);
+
+		return diskDTO;
+	}
+	// Disk 상세정보 가져오기 ------------------------------------------------------------------------
+
 	// Disk 정보 수정하기 ---------------------------------------------------------
 	public void updateDisk(DiskDTO diskDTO) {
 		sqlSession.update("p_disk.updateDisk", diskDTO);
 	}
 	// Disk 정보 수정하기 ---------------------------------------------------------
-  
-  
-  
-  
-  // Disk 정보 입력하기
-  // ------------------------------------------------------------------------
-  public void insertDisk(DiskDTO diskDTO) {
-	  System.out.println("insertDisk DAO호출 ----");
-    sqlSession.insert("p_disk.insertDisk", diskDTO);
-  }
-  // Disk 정보 입력하기
-  // ------------------------------------------------------------------------
-  
+
+	// Disk 정보 입력하기 ------------------------------------------------------------------------
+	public void insertDisk(DiskDTO diskDTO) {
+		System.out.println("insertDisk DAO호출 ----");
+		sqlSession.insert("p_disk.insertDisk", diskDTO);
+	}
+	// Disk 정보 입력하기 ------------------------------------------------------------------------
+	
+	// Disk 정보 삭제하기 -------------------------------------------------------------------------
+	public void deleteDisk(int disk_no) {
+		sqlSession.delete("p_disk.deleteDisk", disk_no);
+	}
+	// Disk 정보 삭제하기 -------------------------------------------------------------------------
+
 	public List<DiskDTO> getDiskList(String category) {
 		return sqlSession.selectList("p_disk.diskList", category);
 	}
+
 //----------------------------------------------------------
 	public List<DiskDTO> getHddList(int volume) {
 		return sqlSession.selectList("p_disk.hddList", volume);
 	}
 
-/*	public List<Integer> getHddVolumeList() {
-		return sqlSession.selectList("p_disk.hddVolumeList");
-	}*/
+	/*
+	 * public List<Integer> getHddVolumeList() { return
+	 * sqlSession.selectList("p_disk.hddVolumeList"); }
+	 */
 
 	public List<DiskDTO> getSsdList(int volume) {
 
 		return sqlSession.selectList("p_disk.ssdList", volume);
 	}
 
-/*	public List<Integer> getSsdVolumeList() {
-		return sqlSession.selectList("p_disk.ssdVolumeList");
-	}*/
-  
+	/*
+	 * public List<Integer> getSsdVolumeList() { return
+	 * sqlSession.selectList("p_disk.ssdVolumeList"); }
+	 */
+
 }

@@ -10,19 +10,21 @@
 select count(*) from p_gcard
 	</select>
 
+	<!-- Gcard 정보 가져오기 -->
 	<select id="getGcardInfo" resultType="gcardDTO" parameterType="int">
 	SELECT * FROM p_gcard WHERE gc_no = #{gc_no}
 	</select>
+	<!-- Gcard 정보 가져오기 -->
 
 	<!-- Gcard 정보 입력 -->
-	<insert id="insertGcard">
+	<insert id="insertGcard" parameterType="gcardDTO">
 	INSERT INTO p_gcard(gc_name, gc_company, gc_chipset, gc_length, gc_min_power, gc_regdate, gc_price, gc_image)
 	VALUES(#{gc_name},#{gc_company},#{gc_chipset},#{gc_length},#{gc_min_power},now(),#{gc_price},#{gc_image})
 	</insert>
 	<!-- Gcard 정보 입력 -->
 	
 	<!-- Gcard 정보 수정하기 -->
-	<update id="updateGcard">
+	<update id="updateGcard" parameterType="gcardDTO">
 	UPDATE p_gcard SET	gc_name = #{gc_name},
 						gc_company = #{gc_company},
 						gc_length = #{gc_length},
@@ -31,6 +33,13 @@ select count(*) from p_gcard
 						gc_image = #{gc_image}
 	WHERE gc_no = #{gc_no}
 	</update>
+	<!-- Gcard 정보 수정하기 -->
+	
+	<!-- Gcard 삭제하기 -->
+	<delete id="deleteGcard" parameterType="int">
+	DELETE FROM p_gcard WHERE gc_no = #{gc_no}
+	</delete>
+	<!-- Gcard 삭제하기 -->
 	
 	<!-- gc chipsetList -->
 	<select id="gcardChipsetList" resultType="String">

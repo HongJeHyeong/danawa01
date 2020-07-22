@@ -30,13 +30,17 @@ public class GcardDAO extends SqlSessionDaoSupport {
 	  sqlSession.update("p_gcard.updateGcard", gcardDTO);
   }
   
-  // Gcard 정보 입력하기
-  // ------------------------------------------------------------------------
+  // Gcard 정보 입력하기 ------------------------------------------------------------------------
   public void insertGcard(GcardDTO gcardDTO) {
     sqlSession.insert("p_gcard.insertGcard", gcardDTO);
   }
-  // Gcard 정보 입력하기
-  // ------------------------------------------------------------------------
+  // Gcard 정보 입력하기 ------------------------------------------------------------------------
+  
+  // Gcard 정보 삭제하기 -------------------------------------------------------------------------
+  public void deleteGcard(int gc_no) {
+	  sqlSession.delete("p_gcard.deleteGcard", gc_no);
+  }
+  // Gcard 정보 삭제하기 -------------------------------------------------------------------------
   
   public List<GcardDTO> getGcardList(String gc_chipset){
 	  return sqlSession.selectList("p_gcard.gcardList",gc_chipset);

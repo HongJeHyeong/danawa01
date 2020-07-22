@@ -10,19 +10,21 @@
 select count(*) from p_cooler
 	</select>
 	
-		<!-- Cooler 정보 불러오기 -->	
+	<!-- Cooler 정보 불러오기 -->	
 	<select id="getCoolerInfo" resultType="coolerDTO" parameterType="int">
 		SELECT * FROM p_cooler WHERE cooler_no = #{cooler_no}
 	</select>
+	<!-- Cooler 정보 불러오기 -->	
 
 	<!-- Cooler 정보 입력하기 -->
-	<insert id="insertCooler">
+	<insert id="insertCooler" parameterType="coolerDTO">
 	INSERT INTO p_cooler(cooler_name, cooler_company, cooler_type, cooler_regdate, cooler_price, cooler_image)
 	VALUES(#{cooler_name},#{cooler_company},#{cooler_type},now(),#{cooler_price},#{cooler_image})
 	</insert>
+	<!-- Cooler 정보 입력하기 -->
 	
 	<!-- Cooler 정보 수정하기 -->
-	<update id="updateCooler">
+	<update id="updateCooler" parameterType="coolerDTO">
 	UPDATE p_cooler SET 	cooler_name=#{cooler_name},
 							cooler_company=#{cooler_company},
 							cooler_type=#{cooler_type},
@@ -30,6 +32,13 @@ select count(*) from p_cooler
 							cooler_image=#{cooler_image}
 	WHERE cooler_no = #{cooler_no}
 	</update>
+	<!-- Cooler 정보 수정하기 -->
+	
+	<!-- Cooler 삭제하기 -->
+	<delete id="deleteCooler" parameterType="int">
+	DELETE FROM p_cooler WHERE cooler_no = #{cooler_no}
+	</delete>
+	<!-- Cooler 삭제하기 -->
 	
 	<select id="coolerList" parameterType="String" resultType="coolerDTO">
 	SELECT * 

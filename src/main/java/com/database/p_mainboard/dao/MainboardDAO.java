@@ -26,19 +26,23 @@ public class MainboardDAO extends SqlSessionDaoSupport {
   }
   //Mainboard 상세정보 가져오기 ------------------------------------------------------------------------
 
-  // Mainboard 정보 입력하기
-  // ------------------------------------------------------------------------
+  // Mainboard 정보 입력하기 ------------------------------------------------------------------------
   public void insertMainboard(MainboardDTO mainboardDTO) {
     sqlSession.insert("p_mainboard.insertMainboard", mainboardDTO);
   }
-  // Mainboard 정보 입력하기
-  // ------------------------------------------------------------------------
+  // Mainboard 정보 입력하기 ------------------------------------------------------------------------
   
   //Mainboard 정보 수정하기 ----------------------------------------------------------------------------
   public void updateMainboard(MainboardDTO mainboardDTO) {
 	  sqlSession.update("p_mainboard.updateMainboard", mainboardDTO);
   }
   //Mainboard 정보 수정하기 ----------------------------------------------------------------------------
+  
+  // Mainboard 정보 삭제하기 -------------------------------------------------------------------------
+  public void deleteMainboard(int mb_no) {
+	  sqlSession.delete("p_mainboard.deleteMainboard", mb_no);
+  }
+  // Mainboard 정보 삭제하기 -------------------------------------------------------------------------
   
   //mainboard List
   public List<MainboardDTO> getMainboard(String mb_socket){

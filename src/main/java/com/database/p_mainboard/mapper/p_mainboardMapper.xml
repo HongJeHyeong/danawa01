@@ -16,8 +16,8 @@ select count(*) from p_mainboard
 	</select>
 	<!-- Mainboard 상세정보 구하기 -->
 	
-		<!-- Mainboard 정보 입력하기 -->
-	<insert id="insertMainboard">
+	<!-- Mainboard 정보 입력하기 -->
+	<insert id="insertMainboard" parameterType="mainboardDTO">
 	INSERT INTO p_mainboard(mb_name, mb_company, mb_socket, mb_chipset, mb_ramslot, mb_regdate, mb_price, mb_image)
 	VALUES(#{mb_name},#{mb_company},#{mb_socket},#{mb_chipset},#{mb_ramslot},now(),#{mb_price},#{mb_image})
 	</insert>
@@ -35,6 +35,12 @@ select count(*) from p_mainboard
 	WHERE mb_no = #{mb_no}
 	</update>	
 	<!-- Mainboard 정보 수정하기 -->
+	
+	<!-- Mainboard 삭제하기 -->
+	<delete id="deleteMainboard" parameterType="int">
+	DELETE FROM p_mainboard WHERE mb_no = #{mb_no}
+	</delete>
+	<!-- Mainboard 삭제하기 -->
 	
 	<!-- Mainboard socketList -->
 	<select id="mainboardSocketList" resultType="String">

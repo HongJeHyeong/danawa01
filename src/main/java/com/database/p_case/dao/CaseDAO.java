@@ -13,8 +13,7 @@ public class CaseDAO extends SqlSessionDaoSupport {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	// Case 상세정보 가져오기
-	// ------------------------------------------------------------------------
+	// Case 상세정보 가져오기 ------------------------------------------------------------------------
 	public CaseDTO getCaseInfo(int case_no) {
 		System.out.println("CaseDAO의 getCaseInfo() 메소드 호출 ----");
 		System.out.println("CaseDAO의 case_no 값=" + case_no);
@@ -25,8 +24,7 @@ public class CaseDAO extends SqlSessionDaoSupport {
 
 		return caseDTO;
 	}
-	// Case 상세정보 가져오기
-	// ------------------------------------------------------------------------
+	// Case 상세정보 가져오기 ------------------------------------------------------------------------
 	
 	// Case 정보 수정하기 ---------------------------------------------------------
 	public void updateCase(CaseDTO caseDTO) {
@@ -34,13 +32,18 @@ public class CaseDAO extends SqlSessionDaoSupport {
 	}
 	// Case 정보 수정하기 ---------------------------------------------------------
 	
-	// Case 정보 입력하기
-	// ------------------------------------------------------------------------
+	// Case 정보 입력하기 ------------------------------------------------------------------------
 	public void insertCase(CaseDTO caseDTO) {
 		sqlSession.insert("p_case.insertCase", caseDTO);
 	}
-	// Case 정보 입력하기
-	// ------------------------------------------------------------------------
+	// Case 정보 입력하기 ------------------------------------------------------------------------
+	
+	// Case 정보 삭제하기 -------------------------------------------------------------------------
+	public void deleteCase(int case_no) {
+		sqlSession.delete("p_case.deleteCase", case_no);
+	}
+	// Case 정보 삭제하기 -------------------------------------------------------------------------
+	
 
 	public List<CaseDTO> getCaseList(int caseLeng) {
 		return sqlSession.selectList("p_case.caseList", caseLeng);
