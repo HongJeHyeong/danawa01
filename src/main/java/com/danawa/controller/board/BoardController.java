@@ -67,7 +67,7 @@ public class BoardController {
   @RequestMapping("/cartPage")
   public ModelAndView cartPage(HttpServletRequest request) {
 
-    logger.info("--- 장바구니 페이지 다시 불러옵니다.")
+    logger.info("--- 장바구니 페이지 다시 불러옵니다.");
 
     HttpSession session = request.getSession();
     Cart cart;

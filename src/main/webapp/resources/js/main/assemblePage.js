@@ -23,6 +23,7 @@ var swiper1 = new Swiper(".swiper-container", {
 });
 
 function loadTab2() {
+  console.log("load right page!!!!--------");
   $("#tab2").load("../board/cartPage");
 }
 
