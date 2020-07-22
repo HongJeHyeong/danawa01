@@ -10,19 +10,21 @@
 		select count(*) from p_case
 	</select>
 	
-		<!-- Case 정보 불러오기 -->	
+	<!-- Case 정보 불러오기 -->	
 	<select id="getCaseInfo" resultType="caseDTO" parameterType="int">
 		SELECT * FROM p_case WHERE case_no = #{case_no}
 	</select>
+	<!-- Case 정보 불러오기 -->	
 
 	<!-- Case 정보 입력하기 -->
-	<insert id="insertCase">
+	<insert id="insertCase" parameterType="caseDTO">
 	INSERT INTO p_case(case_name, case_company, case_gc_length, case_regdate, case_price, case_image)
 	VALUES(#{case_name},#{case_company},#{case_gc_length},now(),#{case_price},#{case_image})
 	</insert>
+	<!-- Case 정보 입력하기 -->
 	
 	<!-- Case 정보 수정하기 -->
-	<update id="updateCase">
+	<update id="updateCase" parameterType="caseDTO">
 	UPDATE p_case SET 	case_name = #{case_name},
 						case_company = #{case_company},
 						case_gc_length = #{case_gc_length},
@@ -30,6 +32,13 @@
 						case_image = #{case_image}
 	WHERE case_no = #{case_no}
 	</update>
+	<!-- Case 정보 수정하기 -->
+	
+	<!-- Case 삭제하기 -->
+	<delete id="deleteCase" parameterType="int">
+	DELETE FROM p_case WHERE case_no = #{case_no}
+	</delete>
+	<!-- Case 삭제하기 -->
 	
 	<!-- case_gc_length ? 이상 값// WHERE case_gc_length <= ? -->
 	<select id="caseList" parameterType="int" resultType="caseDTO">

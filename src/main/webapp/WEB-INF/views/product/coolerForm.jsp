@@ -50,8 +50,8 @@
           <span class="w3-twothird">
             <select name="cooler_type" id="cooler_type" class="w3-select get_select" style="width: 140px;">
               <option value="">타입</option>
-              <option value="water cooling">수냉</option>
-              <option value="air cooling">공랭</option>
+              <option value="water">수냉</option>
+              <option value="air">공랭</option>
             </select>
           </span>
         </div>
@@ -86,7 +86,8 @@
   <c:choose>
   	<c:when test="${job eq '수정 페이지'}">
   	<button type="button" class="w3-button w3-round w3-right w3-yellow button-80" onclick="submitFormCooler()">수정
-  	</button></c:when>
+  	</button><button type="button" class="w3-button w3-round w3-right w3-teal button-80" onclick="deleteCooler()">삭제</button>
+  	</c:when>
   	<c:when test="${job eq '등록 페이지'}">
   	<button type="submit" class="w3-button w3-round w3-right w3-teal button-80">등록
   	</button></c:when>

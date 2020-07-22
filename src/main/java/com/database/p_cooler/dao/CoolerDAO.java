@@ -40,6 +40,14 @@ public class CoolerDAO extends SqlSessionDaoSupport {
   }
   // Cooler 정보 입력하기
   // ------------------------------------------------------------------------
+  
+  // Cooler 정보 삭제하기 -------------------------------------------------------------------------
+  public void deleteCooler(int cooler_no) {
+	  sqlSession.delete("p_cooler.deleteCooler", cooler_no);
+  }
+  // Cooler 정보 삭제하기 -------------------------------------------------------------------------
+  
+  
 
   public List<CoolerDTO> getCoolerList(String type){
 	  return sqlSession.selectList("p_cooler.coolerList",type);

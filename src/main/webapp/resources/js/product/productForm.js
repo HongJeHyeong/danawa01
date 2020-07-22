@@ -45,9 +45,9 @@ function round1(e) {
 }
 // 클럭 Up , Down 부분 JavaScript -------------------------------------------------
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 function updateFormLoadValue() {
-  //1. bb_input >> aa_input  ,,,  bb_select >> aa_select로 값 이동
+  // 1. bb_input >> aa_input ,,, bb_select >> aa_select로 값 이동
   let aa_input_arr = document.getElementsByClassName("get_input");
   let bb_input_arr = document.getElementsByClassName("put_input");
   let aa_select_arr = document.getElementsByClassName("get_select");
@@ -58,13 +58,13 @@ function updateFormLoadValue() {
       (aa_select_arr.length == bb_select_arr.length)
   );
 
-  //2 input type text 값 넣어주기
+  // 2 input type text 값 넣어주기
   for (let i = 0; i < aa_input_arr.length; i++) {
     console.log("--" + i);
     aa_input_arr[i].value = bb_input_arr[i].value;
   }
   console.log();
-  //3. select option 값 넣어주기
+  // 3. select option 값 넣어주기
   for (let i = 0; i < aa_select_arr.length; i++) {
     console.log("-- " + i + " ------------------------------");
     var value2select = bb_select_arr[i].value;
@@ -82,7 +82,7 @@ function updateFormLoadValue() {
     }
   }
 }
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 function submitFormCpu() {
 	var form = document.getElementById("cpuForm");
 	form.action="./updateCpu";
@@ -122,4 +122,16 @@ function submitFormCooler() {
 	var form = document.getElementById("coolerForm");
 	form.action="./updateCooler";
 	form.submit();
+}
+
+function deleteCooler(){
+	var form = document.getElementById("coolerForm");
+	var chk = confirm("해당 제품의 정보를 삭제하시겠습니까?");
+	
+	if(chk == true){
+		form.action="./deleteCooler";
+		 form.submit();
+	}else{
+		alert("겁쟁이!");
+	}
 }
