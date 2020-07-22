@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!-- CDN - sw-1.0.0.css -->
 <link rel="stylesheet"
-	href="https://storage.googleapis.com/sw-css/css/sw-1.0.0.css">
+	href="https://swsw1005.github.io/css/sw-1.0.0.css">
 
 <!-- CDN - jquery 3.4.1 -->
 <script
@@ -82,7 +83,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<!-- main content end----------------------------------------------------------------------- -->
-
+<tf:TopNav grade="${grade}" />
 
 </body>
 </html>

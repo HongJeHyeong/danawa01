@@ -1,23 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="tf" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>조립쟁이마을</title>
+	<title>다너놔</title>
 
 	<!-- CDN - W3CSS -->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<!-- CDN - jquery 3.4.1 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- CDN - sw-1.0.0.css -->
 	<link rel="stylesheet" href="https://storage.googleapis.com/sw-css/css/sw-1.0.0.css">
 	
 	<style>
 		* {
-			font-family: baemin_font;
+			/* font-family: baemin_font; */ 
 			font-size: 105%;
 		}
 
@@ -68,9 +71,22 @@
 			padding: 6px 12px;
 		}
 	</style>
+	<script>
+	
+	function che(){
+		if($("#AutoLogin").prop("checked")==true){
+		d=document.getElementById('AutoLogin').value=1;
+		}
+		else if($("#AutoLogin").prop("checked")==false){
+		d=document.getElementById('AutoLogin').value=2;
+		}
+		console.log(d)
+	}
+	</script>
 </head>
 
-<body style="background-color: black;">
+<body>
+<div class="sw-topnav-margin">&nbsp;</div>
 	<!-- CONTENT ------------------------------------------------------------------------------------ -->
 	<div class="sw-center">
 		<!-- 가로복 제한 400~1200 ---------------------------------------------------------------------------------->
@@ -79,10 +95,10 @@
 			<div class="w3-section w3-container w3-card-4">
 				<!-- 1 main content start here!!!----------------------------------------------------------- -->
 
-				<h1 class="w3-section" style="color:cyan">조립쟁이마을</h1>
+				<h1 class="w3-section" style="color:red">다너놔</h1>
 
 			
-				<div style="color:white">
+				<div>
 					<form action="../PreMember/loginProc" method="POST" name="loginForm">
 						<!-- ------------------------------------------------------------- -->
 						<label class="w3-left w3-section">아이디</label>
@@ -95,6 +111,8 @@
 						<!-- ------------------------------------------------------------- -->
 
 						<div class="grid w3-section">
+						<label align="left"  >
+						<input type="checkbox" name="AutoLogin" id="AutoLogin" onclick="che()" value="2">자동 로그인</label><br>
 							<button class="w3-button  w3-border" type="submit" style="color:#45c1bf">
 								로그인</button>
 							<button class="w3-button  w3-border" type="button" style="color:#45c1bf"
@@ -105,9 +123,13 @@
 				</div>
 
 
-				<!-- main content end----------------------------------------------------------------------- -->
+				<!-- main content
+ end----------------------------------------------------------------------- -->
 			</div>
 		</div>
 	</div>
+	
+	
+	<tf:TopNav grade="${grade}" />
 </body>
 </html>

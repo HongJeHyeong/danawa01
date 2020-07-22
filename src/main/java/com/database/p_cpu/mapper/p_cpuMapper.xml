@@ -14,12 +14,14 @@ select count(*) from p_cpu
 	<select id="getCpuInfo" resultType="cpuDTO" parameterType="int">
 		SELECT * FROM p_cpu WHERE cpu_no = #{cpu_no}
 	</select>
+	<!-- Cpu 정보 불러오기 -->	
 	
 	<!-- CPU 정보 입력하기 -->
 	<insert id="insertCpu" parameterType="cpuDTO">
 		INSERT INTO p_cpu(cpu_name, cpu_company, cpu_clock, cpu_core, cpu_thread, cpu_socket, cpu_graphic,cpu_cooler, cpu_regdate, cpu_price, cpu_image)
 		VALUES(#{cpu_name}, #{cpu_company}, #{cpu_clock}, #{cpu_core}, #{cpu_thread}, #{cpu_socket}, #{cpu_graphic}, #{cpu_cooler}, now(), #{cpu_price}, #{cpu_image})
 	</insert>
+	<!-- CPU 정보 입력하기 -->
 	
 	<!-- CPU 정보 수정하기 -->
 	<update id="updateCpu" parameterType="cpuDTO">
@@ -34,6 +36,14 @@ select count(*) from p_cpu
 						cpu_image = #{cpu_image}
 	WHERE cpu_no = #{cpu_no}
 	</update>
+	<!-- CPU 정보 수정하기 -->
+	
+	<!-- CPU 삭제하기 -->
+	<delete id="deleteCpu" parameterType="int">
+	DELETE FROM p_cpu WHERE cpu_no = #{cpu_no}
+	</delete>
+	<!-- CPU 삭제하기 -->
+	
 	
 	<!-- cpuList -->
 	<select id="cpuList" parameterType="String" resultType="cpuDTO">

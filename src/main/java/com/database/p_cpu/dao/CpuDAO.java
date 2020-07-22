@@ -38,6 +38,13 @@ public class CpuDAO extends SqlSessionDaoSupport {
 	  sqlSession.update("p_cpu.updateCpu", cpuDTO);
   }
   //CPU 상품 수정하기 ---------------------------------------------------------------------------
+  
+  // CPU 정보 삭제하기 -------------------------------------------------------------------------
+  public void deleteCpu(int cpu_no) {
+	  sqlSession.delete("p_cpu.deleteCpu", cpu_no);
+  }
+  // CPU 정보 삭제하기 -------------------------------------------------------------------------
+  
 
   //case List
   public List<CpuDTO> getCpuList(String company){

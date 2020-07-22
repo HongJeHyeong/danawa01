@@ -10,19 +10,21 @@
 select count(*) from p_ram
 	</select>
 
+	<!-- Ram 정보 가져오기 -->
 	<select id="getRamInfo" resultType="ramDTO" parameterType="int">
 		SELECT * FROM p_ram WHERE ram_no = #{ram_no}
 	</select>
+	<!-- Ram 정보 가져오기 -->
 	
-		<!-- Ram 정보 입력하기 -->
-	<insert id="insertRam">
+	<!-- Ram 정보 입력하기 -->
+	<insert id="insertRam" parameterType="ramDTO">
 	INSERT INTO p_ram(ram_name, ram_company, ram_volume, ram_clock, ram_regdate, ram_price, ram_image)
 	VALUES(#{ram_name},#{ram_company},#{ram_volume},#{ram_clock},now(),#{ram_price},#{ram_image})
 	</insert>
 	<!-- Ram 정보 입력하기 -->
 	
 	<!-- Ram 정보 수정하기 -->
-	<update id="updateRam">
+	<update id="updateRam" parameterType="ramDTO">
 	UPDATE p_ram SET	ram_name = #{ram_name},
 						ram_company = #{ram_company},
 						ram_volume = #{ram_volume},
@@ -31,6 +33,13 @@ select count(*) from p_ram
 						ram_image = #{ram_image}
 	WHERE ram_no = #{ram_no}
 	</update>
+	<!-- Ram 정보 수정하기 -->
+	
+	<!-- Ram 삭제하기 -->
+	<delete id="deleteRam" parameterType="int">
+	DELETE FROM p_ram WHERE ram_no = #{ram_no}
+	</delete>
+	<!-- Ram 삭제하기 -->
 
 	<!-- ramList -->
 	<select id="ramList" resultType="ramDTO">

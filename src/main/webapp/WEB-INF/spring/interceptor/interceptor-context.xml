@@ -9,6 +9,11 @@
 	<mvc:interceptors>
 
 		<mvc:interceptor>
+			<mvc:mapping path="/**/**" />
+			<bean class="com.danawa.interceptor.AllInterceptor" />
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
 			<mvc:mapping path="/main/login" />
 			<bean class="com.danawa.interceptor.LoginInterceptor" />
 		</mvc:interceptor>

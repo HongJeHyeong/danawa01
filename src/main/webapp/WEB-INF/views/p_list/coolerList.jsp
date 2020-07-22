@@ -22,10 +22,10 @@
 				</div>
 				<div class="w3-col w3-red itemContent" style="white-space: normal;">
 					<span>회사:${dto.cooler_company}</span>/
-					<c:if test="${dto.cooler_type eq '공냉'}">
+					<c:if test="${dto.cooler_type eq 'air'}">
 						<span class="w3-tag w3-green">${dto.cooler_type}</span>
 					</c:if>
-					<c:if test="${dto.cooler_type eq '수냉'}">
+					<c:if test="${dto.cooler_type eq 'water'}">
 						<span class="w3-tag w3-blue">${dto.cooler_type}</span>
 					</c:if>
 					/<span>등록일: ${dto.cooler_regdate}</span>
