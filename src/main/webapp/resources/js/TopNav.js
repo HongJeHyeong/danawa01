@@ -4,7 +4,7 @@ function responsiveMenuPopUp() {
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
-    x.className = "topnav";
+    x.className = "topnav w3-card-4";
   }
 }
 

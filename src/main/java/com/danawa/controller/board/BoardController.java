@@ -2,10 +2,16 @@ package com.danawa.controller.board;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.danawa.util.PageUtil;
+import com.database.board.cart.Cart;
 import com.database.board.dto.BoardDTO;
 import com.database.board.service.BoardService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/board")
 public class BoardController {
   // 이세진
+
+  private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
   // 변수
   @Autowired
@@ -53,6 +61,26 @@ public class BoardController {
 
     ModelAndView mv = new ModelAndView();
     mv.setViewName("board/assemblePage");
+    return mv;
+  }
+
+  @RequestMapping("/cartPage")
+  public ModelAndView cartPage(HttpServletRequest request) {
+
+    logger.info("--- 장바구니 페이지 다시 불러옵니다.")
+
+    HttpSession session = request.getSession();
+    Cart cart;
+    ModelAndView mv = new ModelAndView();
+
+    if (session.getAttribute("cart") == null) {
+      cart = new Cart();
+      session.setAttribute("cart", cart);
+      mv.addObject("cart", cart);
+    } else {
+      mv.addObject("cart", (Cart) session.getAttribute("cart"));
+    }
+    mv.setViewName("board/cartPage");
     return mv;
   }
 
